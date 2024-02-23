@@ -1,0 +1,74 @@
+[
+    {
+       "pk":1,
+       "model":"cheesystoreshop.cheesetype",
+       "fields":{
+          "name":"bluecheese",
+          "friendly_name":"Blue Cheese"
+       }
+    },
+    {
+       "pk":2,
+       "model":"cheesystoreshop.cheesetype",
+       "fields":{
+          "name":"firmcheese",
+          "friendly_name":"Firm Cheese"
+       }
+    },
+    {
+       "pk":3,
+       "model":"cheesystoreshop.cheesetype",
+       "fields":{
+          "name":"hardcheese",
+          "friendly_name":"Hard Cheese"
+       }
+    },
+    {
+       "pk":4,
+       "model":"cheesystoreshop.cheesetype",
+       "fields":{
+          "name":"softcheese",
+          "friendly_name":"Soft Cheese"
+       }
+    },
+    {
+       "pk":5,
+       "model":"cheesystoreshop.cheesetype",
+       "fields":{
+          "name":"creamcheese",
+          "friendly_name":"Cream Cheese"
+       }
+    },
+    {
+       "pk":6,
+       "model":"cheesystoreshop.cheesetype",
+       "fields":{
+          "name":"goatscheese",
+          "friendly_name":"Goats Cheese"
+       }
+    },
+    {
+       "pk":7,
+       "model":"cheesystoreshop.cheesetype",
+       "fields":{
+          "name":"bakingcheese",
+          "friendly_name":"Baking Cheese"
+       }
+    },
+    {
+       "pk":8,
+       "model":"cheesystoreshop.cheesetype",
+       "fields":{
+          "name":"cracker",
+          "friendly_name":"Cracker"
+       }
+    },
+    {
+       "pk":9,
+       "model":"cheesystoreshop.cheesetype",
+       "fields":{
+          "name":"butter",
+          "friendly_name":"Butter"
+       }
+    }
+ ]

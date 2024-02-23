@@ -1,0 +1,18 @@
+[
+    {
+       "pk":1,
+       "model":"cheesystoreshop.category",
+       "fields":{
+          "name":"cheeses",
+          "friendly_name":"Cheeses"
+       }
+    },
+    {
+       "pk":2,
+       "model":"cheesystoreshop.category",
+       "fields":{
+          "name":"otherproducts",
+          "friendly_name":"Other Products"
+       }
+    }
+ ]
