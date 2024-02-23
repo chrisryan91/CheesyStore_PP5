@@ -59,6 +59,23 @@ body {
     background: #000 !important;
 }
 
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: white;
+    z-index: -1;
+}
+
+.navbar-nav {
+    -ms-flex-direction: row !important;
+    flex-direction: row !important;
+    justify-content: center; /* Horizontally center the items */
+    align-items: center; /* Vertically center the items */
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
