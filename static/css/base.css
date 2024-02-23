@@ -70,8 +70,6 @@ body {
 }
 
 .navbar-nav {
-    -ms-flex-direction: row !important;
-    flex-direction: row !important;
     justify-content: center; /* Horizontally center the items */
     align-items: center; /* Vertically center the items */
 }
@@ -97,5 +95,9 @@ body {
 
     .header-container {
         padding-top: 164px;
+    }
+
+    #topnav h2 {
+        font-size: 17.5px; /* Adjust the font size as needed */
     }
 }
