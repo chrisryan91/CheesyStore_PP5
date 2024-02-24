@@ -54,20 +54,23 @@
                         <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
                             <a href="" class="dropdown-item">By Price</a>
                             <a href="" class="dropdown-item ">By Rating</a>
-                            <a href="" class="dropdown-item ">By Origin</a>
-                            <a href="" class="dropdown-item ">By Type</a>
+                            <a href="{% url 'products' %}?category=cheeses" class="dropdown-item ">Cheeses</a>
+                            <a href="{% url 'products' %}?category=otherproducts" class="dropdown-item ">Other Products</a>
                             <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
                         </div>
                     </li>
                     <li class="list-inline-item dropdown">
                         <a class="nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <u>Special Offers</u>
+                            <u>Cheese Types</u>
                         </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                            <a href="" class="dropdown-item">New Arrivals</a>
-                            <a href="" class="dropdown-item">Deals</a>
-                            <a href="" class="dropdown-item">Clearance</a>
-                            <a href="" class="dropdown-item">All Specials</a>
+                        <div class="dropdown-menu border-0" aria-labelledby="types-link">
+                            <a href="{% url 'products' %}?cheesetype=bluecheese" class="dropdown-item">Blue Cheese</a>
+                            <a href="{% url 'products' %}?cheesetype=hardcheese" class="dropdown-item">Hard Cheese</a>
+                            <a href="{% url 'products' %}?cheesetype=firmcheese" class="dropdown-item">Firm Cheese</a>
+                            <a href="{% url 'products' %}?cheesetype=softcheese" class="dropdown-item">Soft Cheese</a>
+                            <a href="{% url 'products' %}?cheesetype=creamcheese" class="dropdown-item">Cream Cheese</a>
+                            <a href="{% url 'products' %}?cheesetype=goatscheese" class="dropdown-item">Goats Cheese</a>
+                            <a href="{% url 'products' %}?cheesetype=bakingcheese" class="dropdown-item">Baking Cheese</a>
                         </div>
                     </li>
                 </ul>
@@ -82,7 +85,7 @@
                             </div>
                         </a>
                         <div class="dropdown-menu border-0 w-50 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
-                            <form class="form" method="GET" action="">
+                            <form class="form" method="GET" action="{% url 'products' %}">
                                 <div class="input-group w-100">
                                     <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
                                     <div class="input-group-append">
