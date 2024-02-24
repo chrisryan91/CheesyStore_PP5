@@ -101,3 +101,14 @@ body {
         font-size: 17.5px; /* Adjust the font size as needed */
     }
 }
+
+@media (max-width: 991px) {
+    
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 164px);
+    }
+}
