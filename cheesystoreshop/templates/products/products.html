@@ -69,7 +69,11 @@
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
                                         <div class="col">
+                                            {% if product.in_stock %}
                                             <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                            {% else %}
+                                            <p class="lead mb-0 text-left font-weight-bold soldout">Sold Out</p>
+                                            {% endif %}
                                             {% if product.origin %}
                                             <p class="small mt-1 mb-0">
                                                 <a href="{% url 'products' %}?origin={{ product.origin.name }}" class="text-muted">

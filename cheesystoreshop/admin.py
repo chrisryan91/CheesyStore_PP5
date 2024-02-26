@@ -11,7 +11,8 @@ class ProductAdmin(admin.ModelAdmin):
         'origin',
         'cheesetype',
         'rating',
-        'image'
+        'image',
+        'in_stock'
     )
 
 class CategoryAdmin(admin.ModelAdmin):

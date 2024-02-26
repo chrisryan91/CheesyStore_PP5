@@ -97,6 +97,10 @@ a.category-badge > span.badge:hover {
     cursor: pointer;
 }
 
+.soldout {
+    color: red;
+}
+
 
 
 /* -------------------------------- Media Queries */
