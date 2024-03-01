@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'cheesystoreshop',
     'home',
     'bag',
+    'checkout',
 ]
 
 MIDDLEWARE = [
