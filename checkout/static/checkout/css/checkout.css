@@ -36,6 +36,16 @@
     border: 1px solid #000;
 }
 
+select,
+select option {
+  color: pink;
+}
+
+select:invalid,
+select optiuion[value=""] {
+  color: skyblue !important;
+}
+
 #loading-overlay {
     display: none;
     position: fixed;
