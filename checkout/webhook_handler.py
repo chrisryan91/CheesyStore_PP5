@@ -16,6 +16,24 @@ class StripeWH_Handler:
     def __init__(self, request):
         self.request = request
 
+    def _send_confirmation_email(self, order):
+        cust_email = order.email
+        print(settings.DEFAULT_FROM_EMAIL)
+        subject = render_to_string(
+            'checkout\confirmation_emails\confirmation_email_subject.txt',
+            {'order': order})
+
+        body = render_to_string(
+            'checkout\confirmation_emails\confirmation_email_body.txt',
+            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [cust_email]
+        )
+
     def handle_event(self, event):
         return HttpResponse(
             content = f'Webhook recieved: {event["type"]}',
@@ -27,7 +45,6 @@ class StripeWH_Handler:
             status=200)
     
     def handle_payment_intent_succeeded(self, event):
-
         intent = event.data.object
         pid = intent.id
         metadata = intent.metadata
@@ -47,19 +64,6 @@ class StripeWH_Handler:
                 shipping_details.address[field] = None
 
         profile = None
-        username = intent.metadata.username
-
-        if username != 'AnonynousUser':
-            profile.profile = UserProfile.objects.get(user__username=username)
-            if save_info:
-                profile.phone_number = shipping_details.phone
-                profile.country = shipping_details.address.country
-                profile.postcode = shipping_details.address.postal_code
-                profile.town_or_city = shipping_details.address.city
-                profile.street_address1 = shipping_details.address.line1
-                profile.street_address2 = shipping_details.address.line2
-                profile.county = shipping_details.address.state
-                profile.save()
 
         order_exists = False
         attempt = 1
@@ -87,6 +91,7 @@ class StripeWH_Handler:
         else:
             print("Reached maximum attempts")  # Print if maximum attempts reached without finding the order
         if order_exists:
+            self._send_confirmation_email(order)
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
                 status=200)
@@ -121,6 +126,7 @@ class StripeWH_Handler:
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
+        self._send_confirmation_email(order)
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200)

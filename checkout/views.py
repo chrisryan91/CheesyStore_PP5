@@ -34,8 +34,6 @@ def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
-    
-    print("called")
     print(stripe_public_key)
     print(stripe_secret_key)
 
@@ -58,7 +56,7 @@ def checkout(request):
 
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            print("valid")
+            print("a")
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
@@ -66,6 +64,7 @@ def checkout(request):
             order.save()
             for item_id, item_data in bag.items():
                 try:
+                    print(item_id)
                     product = Product.objects.get(id=item_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
@@ -84,17 +83,20 @@ def checkout(request):
                     return redirect(reverse('view_bag'))
 
             request.session['save_info'] = 'save-info' in request.POST
+            print("e")
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
     else:
         bag = request.session.get('bag', {})
+        print("f")
         if not bag:
             messages.error(request, "There's nothing in yo bag at the moment")
             return redirect(reverse('products'))
         
         current_bag = bag_contents(request)
+        print(current_bag)
         total = current_bag['grand_total']
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key
@@ -102,8 +104,10 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
+        print(intent)
 
         if request.user.is_authenticated:
+            print("g")
             try:
                 profile = UserProfile.objects.get(user=request.user)
                 order_form = OrderForm(initial={
@@ -118,8 +122,10 @@ def checkout(request):
                     'county': profile.default_county,
                 })
             except UserProfile.DoesNotExist:
+                print("h")
                 order_form = OrderForm()
         else:
+            print("i")
             order_form = OrderForm()
 
     if not stripe_public_key:
@@ -136,10 +142,9 @@ def checkout(request):
 
 def checkout_success(request, order_number):
 
-    print("called")
-    
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+    print(order)
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
