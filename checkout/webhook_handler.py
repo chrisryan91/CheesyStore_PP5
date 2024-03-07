@@ -5,6 +5,7 @@ from django.conf import settings
 
 from .models import Order, OrderLineItem
 from cheesystoreshop.models import Product
+from profiles.models import UserProfile
 
 import json
 import time
@@ -46,6 +47,19 @@ class StripeWH_Handler:
                 shipping_details.address[field] = None
 
         profile = None
+        username = intent.metadata.username
+
+        if username != 'AnonynousUser':
+            profile.profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                profile.phone_number = shipping_details.phone
+                profile.country = shipping_details.address.country
+                profile.postcode = shipping_details.address.postal_code
+                profile.town_or_city = shipping_details.address.city
+                profile.street_address1 = shipping_details.address.line1
+                profile.street_address2 = shipping_details.address.line2
+                profile.county = shipping_details.address.state
+                profile.save()
 
         order_exists = False
         attempt = 1
@@ -81,6 +95,7 @@ class StripeWH_Handler:
             try:
                 order = Order.objects.create(
                     full_name=shipping_details.name,
+                    user_profile=profile,
                     email=billing_details.email,
                     phone_number=shipping_details.phone,
                     country=shipping_details.address.country,
