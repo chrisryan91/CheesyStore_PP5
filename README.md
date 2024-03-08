@@ -197,7 +197,7 @@ xxx
 
 ## Testing
 
-Full testing: [Testing.md](Testing.md)
+Full testing: [Testing.md](TESTING.md)
 
 ## Deployment 
 
