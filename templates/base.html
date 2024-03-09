@@ -49,7 +49,7 @@
                         </a>
                     </li>
                     <li class="list-inline-item dropdown">
-                        <a class="nav-link text-black mr-5" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link text-black" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <u>All Cheeses</u>
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
@@ -88,6 +88,11 @@
                             <a href="{% url 'products' %}?origin=UnitedKingdom" class="dropdown-item">United Kingdom</a>
                             <a href="{% url 'products' %}?origin=Greece" class="dropdown-item">Greece</a>
                         </div>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="{% url 'cheesyblog' %}" class="nav-link main-logo-link">
+                            <h2 class="text-black my-auto"><u>Blog</u></h2>
+                        </a>
                     </li>
                 </ul>
             </div>
