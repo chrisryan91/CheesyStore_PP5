@@ -1,11 +1,11 @@
-from django.shortcuts import render
+from django.views.generic import ListView
+from .models import Post
 
-# Create your views here.
+class CheesyBlogListView(ListView):
+    model = Post
+    template_name = 'cheesyblog/cheesyblog.html'
+    context_object_name = 'posts'
+    paginate_by = 6
 
-from django.shortcuts import render
-
-# Create your views here.
-
-def cheesyblog(request):
-    
-    return render(request, 'cheesyblog/cheesyblog.html')
+    def get_queryset(self):
+        return Post.objects.filter(status=1).order_by('-created_on')
