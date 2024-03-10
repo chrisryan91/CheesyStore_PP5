@@ -1,8 +1,8 @@
-<div>
+<div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                All Cheeses
+            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <u>All Cheeses</u>
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
                 <a href="" class="dropdown-item">By Price</a>
@@ -14,7 +14,7 @@
         </li>
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Special Offers
+                <u>Special Offers</u>
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
                 <a href="" class="dropdown-item">New Arrivals</a>
@@ -23,5 +23,20 @@
                 <a href="" class="dropdown-item">All Specials</a>
             </div>
         </li>
+        <li class="list-inline-item dropdown">
+          <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <u>Origin</u>
+          </a>
+          <div class="dropdown-menu border-0" aria-labelledby="types-link">
+              <a href="{% url 'products' %}?origin=Ireland" class="dropdown-item">Ireland</a>
+              <a href="{% url 'products' %}?origin=France" class="dropdown-item">France</a>
+              <a href="{% url 'products' %}?origin=Switzerland" class="dropdown-item">Switzerland</a>
+              <a href="{% url 'products' %}?origin=Spain" class="dropdown-item">Spain</a>
+              <a href="{% url 'products' %}?origin=Italy" class="dropdown-item">Italy</a>
+              <a href="{% url 'products' %}?origin=Holland" class="dropdown-item">Holland</a>
+              <a href="{% url 'products' %}?origin=UnitedKingdom" class="dropdown-item">United Kingdom</a>
+              <a href="{% url 'products' %}?origin=Greece" class="dropdown-item">Greece</a>
+          </div>
+      </li>
     </ul>
 </div>

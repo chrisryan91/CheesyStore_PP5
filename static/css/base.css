@@ -75,11 +75,6 @@ body {
     z-index: -1;
 }
 
-.navbar-nav {
-    justify-content: center; /* Horizontally center the items */
-    align-items: center; /* Vertically center the items */
-}
-
 a.category-badge > span.badge:hover {
     background: #212529 !important;
     color: #fff !important;
