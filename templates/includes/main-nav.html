@@ -1,31 +1,28 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <u>All Cheeses</u>
+            <a class="nav-link text-black d-block d-lg-none" href="{% url 'products' %}">
+                All Cheeses
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">By Price</a>
-                <a href="" class="dropdown-item ">By Rating</a>
-                <a href="" class="dropdown-item ">By Origin</a>
-                <a href="" class="dropdown-item ">By Type</a>
-                <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
-            </div>
         </li>
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <u>Special Offers</u>
+            <a class="nav-link text-black d-block d-lg-none" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Cheese Type
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">New Arrivals</a>
-                <a href="" class="dropdown-item">Deals</a>
-                <a href="" class="dropdown-item">Clearance</a>
-                <a href="" class="dropdown-item">All Specials</a>
+                <a href="" class="dropdown-item">Blue Cheese</a>
+                <a href="" class="dropdown-item">Firm Cheese</a>
+                <a href="" class="dropdown-item">Hard Cheese</a>
+                <a href="" class="dropdown-item">Soft Cheese</a>
+                <a href="" class="dropdown-item">Cream Cheese</a>
+                <a href="" class="dropdown-item">Goats Cheese</a>
+                <a href="" class="dropdown-item">Baking Cheese</a>
+                <a href="" class="dropdown-item">Butters</a>
             </div>
         </li>
         <li class="list-inline-item dropdown">
-          <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <u>Origin</u>
+          <a class="nav-link text-black d-block d-lg-none" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Origin
           </a>
           <div class="dropdown-menu border-0" aria-labelledby="types-link">
               <a href="{% url 'products' %}?origin=Ireland" class="dropdown-item">Ireland</a>
