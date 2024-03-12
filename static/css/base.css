@@ -8,6 +8,7 @@ body {
     height: calc(100vh - 164px);
     color: #555;
     font-family: 'Rubik';
+    background-color: #D2E3C8;
 }
 
 .icon {
@@ -122,6 +123,10 @@ a.category-badge > span.badge:hover {
 
 .image-container {
     padding-bottom: 20px !important;
+}
+
+#nav {
+    background-color: #D2E3C8;
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
