@@ -49,15 +49,11 @@
                         </a>
                     </li>
                     <li class="list-inline-item nav-item dropdown">
-                        <a class="nav-link text-black" href="{% url 'products' %}">
-                            All Cheeses
-                        </a>
-                    </li>
-                    <li class="list-inline-item nav-item dropdown">
                         <a class="nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Cheese Type
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="specials-link">
+                            <a href="{% url 'products' %}" class="dropdown-item">All Cheeses</a>
                             <a href="" class="dropdown-item">Blue Cheese</a>
                             <a href="" class="dropdown-item">Firm Cheese</a>
                             <a href="" class="dropdown-item">Hard Cheese</a>
@@ -151,7 +147,7 @@
                 </ul>
             </div>
         </div>
-        <div class="row">
+        <div class="row" id="topnav2">
             <nav class="navbar navbar-expand-lg navbar-light w-100">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

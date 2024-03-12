@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib import messages
 from django.views.generic import ListView
 from django.views import View
 from .models import Post
@@ -41,6 +42,7 @@ class PostDetail(View):
             comment.post = post
             comment.user = request.user
             comment.save()
+            messages.success(request, 'Comment added - awaiting approval!')
         else:
             comment_form = CommentForm()
 

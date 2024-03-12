@@ -1,7 +1,7 @@
 from django.shortcuts import render
-
-# Create your views here.
+from cheesyblog.models import Post
 
 def index(request):
-    
-    return render(request, 'home/index.html')
+
+    blog_posts = Post.objects.filter(status=1).order_by('-created_on')[:1]
+    return render(request, 'home/index.html', {'blog_posts': blog_posts})

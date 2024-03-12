@@ -22,7 +22,7 @@
                 {% for post in posts %}
                         <div class="col-md-4 card mb-4">
                             <div class="card-body">
-                                <div class="image-container">
+                                <div class="image-container2">
                                     <img src="{{ post.featured_image.url }}" alt="" class="card-img-top img-fluid">
                                 </div>
                                 <a href="{% url 'post_detail' post.slug  %}" class="post-link">
@@ -45,10 +45,10 @@
         <nav aria-label="Page Navigation">
             <ul class="pagination justify-content-center">
                 {% if page_obj.has_previous %}
-                    <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a></li>
+                    <li><a href="?page={{ page_obj.previous_page_number }}" class="pag_button">&laquo; PREV</a></li>
                 {% endif %}
                 {% if page_obj.has_next %}
-                    <li><a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a></li>
+                    <li><a href="?page={{ page_obj.next_page_number }}" class="pag_button">NEXT &raquo;</a></li>
                 {% endif %}
             </ul>
         </nav>

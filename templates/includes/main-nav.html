@@ -1,15 +1,11 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item dropdown">
-            <a class="nav-link text-black d-block d-lg-none" href="{% url 'products' %}">
-                All Cheeses
-            </a>
-        </li>
-        <li class="nav-item dropdown">
             <a class="nav-link text-black d-block d-lg-none" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Cheese Type
+                Cheese Types
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
+                <a class="dropdown item" href="{% url 'products' %}">All Cheeses</a>
                 <a href="" class="dropdown-item">Blue Cheese</a>
                 <a href="" class="dropdown-item">Firm Cheese</a>
                 <a href="" class="dropdown-item">Hard Cheese</a>
@@ -35,5 +31,24 @@
               <a href="{% url 'products' %}?origin=Greece" class="dropdown-item">Greece</a>
           </div>
       </li>
+      <li class="list-inline-item dropdown" id="">
+        <a class="nav-link text-black d-block d-lg-none" href="{% url 'view_bag' %}">
+            <div>
+                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                <p class="my-0">
+                    {% if grand_total %}
+                        ${{ grand_total|floatformat:2 }}
+                    {% else %}
+                        $0.00
+                    {% endif %}
+                </p>
+            </div>
+        </a>
+    </li>
+    <li class="list-inline-item dropdown" id="">
+        <a class="nav-link text-black d-block d-lg-none" href="{% url 'cheesyblog' %}">
+            Blog
+        </a>
+    </li>
     </ul>
 </div>

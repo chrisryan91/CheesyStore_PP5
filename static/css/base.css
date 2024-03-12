@@ -1,14 +1,13 @@
 html {
-    height: 100%;
+    height: 100vh;
 }
 
 body {
     background: url(/media/onder-ortel.jpg) no-repeat center center fixed;
     background-size: cover;
-    height: calc(100vh - 164px);
+    height: calc(100vh);
     color: #555;
     font-family: 'Rubik';
-    background-color: #D2E3C8;
 }
 
 .icon {
@@ -31,6 +30,33 @@ body {
     background: black;
     color: white;
     min-width: 260px;
+}
+
+.blogpreview {
+    height: 40vh !important;
+    background-color: white;
+}
+
+.parent-div {
+    position: relative;
+    width: 100%; /* Adjust as needed */
+    height: 200px; /* Adjust as needed */
+}
+
+.image-container {
+    width: 80%;
+    height: 100%;
+}
+
+.blogheading {
+    padding-top: 30px;
+}
+
+/* To make the image responsive within the container */
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio while covering the container */
 }
 
 .btn-black {
@@ -99,6 +125,14 @@ a.category-badge > span.badge:hover {
     color: red;
 }
 
+.pag_button {
+    color: #555;
+}
+
+#indexlink {
+    height: 60vh !important;
+}
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
@@ -125,8 +159,18 @@ a.category-badge > span.badge:hover {
     padding-bottom: 20px !important;
 }
 
+.image-container2
+
 #nav {
     background-color: #D2E3C8;
+}
+
+#indexbtmrow {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
@@ -185,7 +229,7 @@ a.category-badge > span.badge:hover {
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
   .container {
-    max-width: 80%;
+    max-width: 100%;
   }
 }
 
@@ -231,9 +275,20 @@ a.category-badge > span.badge:hover {
         padding-top: 164px;
     }
 
+    #topnav {
+        background-color: white !important;
+    }
+
     #topnav h2 {
         font-size: 17.5px; /* Adjust the font size as needed */
     }
+}
+
+@media (max-width: 1150px) {
+    #hometext {
+        font-size: smaller;
+    }
+
 }
 
 @media (max-width: 991px) {
@@ -245,4 +300,36 @@ a.category-badge > span.badge:hover {
     body {
         height: calc(100vh - 164px);
     }
+
+    #topnav2 {
+        background-color: white !important;
+    }
+
+    #hometext {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 760px) {
+    
+    .image-container {
+        display: none;
+
+}
+
+}
+
+@media (max-width: 760px) {
+
+.text-center div i, .text-center div p {
+    font-size: 10px;
+}
+
+}
+
+@media (max-width: 400px) {
+    #bagbag {
+        display: none;
+    }
+    
 }
