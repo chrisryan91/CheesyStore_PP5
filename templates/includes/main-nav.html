@@ -6,14 +6,15 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
                 <a class="dropdown item" href="{% url 'products' %}">All Cheeses</a>
-                <a href="" class="dropdown-item">Blue Cheese</a>
-                <a href="" class="dropdown-item">Firm Cheese</a>
-                <a href="" class="dropdown-item">Hard Cheese</a>
-                <a href="" class="dropdown-item">Soft Cheese</a>
-                <a href="" class="dropdown-item">Cream Cheese</a>
-                <a href="" class="dropdown-item">Goats Cheese</a>
-                <a href="" class="dropdown-item">Baking Cheese</a>
-                <a href="" class="dropdown-item">Butters</a>
+                <a href="{% url 'products' %}?cheesetype=bluecheese" class="dropdown-item">Blue Cheese</a>
+                <a href="{% url 'products' %}?cheesetype=firmcheese" class="dropdown-item">Firm Cheese</a>
+                <a href="{% url 'products' %}?cheesetype=hardcheese" class="dropdown-item">Hard Cheese</a>
+                <a href="{% url 'products' %}?cheesetype=softcheese" class="dropdown-item">Soft Cheese</a>
+                <a href="{% url 'products' %}?cheesetype=creamcheese" class="dropdown-item">Cream Cheese</a>
+                <a href="{% url 'products' %}?cheesetype=goatscheese" class="dropdown-item">Goats Cheese</a>
+                <a href="{% url 'products' %}?cheesetype=bakingcheese" class="dropdown-item">Baking Cheese</a>
+                <a href="{% url 'products' %}?cheesetype=butter" class="dropdown-item">Butters</a>
+                <a href="{% url 'products' %}?cheesetype=cracker" class="dropdown-item">Crackers</a>
             </div>
         </li>
         <li class="list-inline-item dropdown">
