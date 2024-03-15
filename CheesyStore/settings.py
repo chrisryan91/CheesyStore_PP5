@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'cheesystoreshop',
     'home',
+    'contact',
     'bag',
     'checkout',
     'profiles',
