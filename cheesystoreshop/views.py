@@ -12,11 +12,12 @@ from .forms import ProductForms
 def all_products(request):
 
     """ A view to show all products, including sorting and search queries """
-
+    print("a")
     products = Product.objects.all()
     query = None
     categories = None
     cheesetypes = None
+    print(cheesetypes)
     origins = None
     sort = None
     direction = None
@@ -48,11 +49,13 @@ def all_products(request):
             print(products)
 
         if 'cheesetype' in request.GET:
+            print("b")
             cheesetypes = request.GET['cheesetype'].split(',')
             products = products.filter(cheesetype__name__in=cheesetypes)
             cheesetypes = CheeseType.objects.filter(name__in=cheesetypes)
 
         if 'origin' in request.GET:
+            print("c")
             origins = request.GET['origin'].split(',')
             products = products.filter(origin__name__in=origins)
             origins = Origin.objects.filter(name__in=origins)
@@ -76,6 +79,7 @@ def all_products(request):
         'current_origins': origins,
         'current_sorting': current_sorting,
     }
+    print(context)
     
     return render(request, 'products/products.html', context)
 

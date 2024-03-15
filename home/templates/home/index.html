@@ -3,29 +3,28 @@
 
 {% block content %}
 
-    <body>
-        <div class="row">
+
+        <div class="row indexdiv1">
             <div class="col-6 d-none d-md-block">
 
             </div>
             <div class="col-sm-12 col-md-6">
                 <div class="row justify-content-center align-items-center" id="indexlink">
                     <div class="col-7 col-md-6">
-                        <h1>
-                            <a href="{% url 'products' %}" class="display-5 logo-font text-white">Browse our selection of cheeses!</a>
+                        <h1 class="maintext">
+                            <a href="{% url 'products' %}" class="logo-font text-white">Browse our selection of cheeses!</a>
                         </h1>
                 </div>
             </div>
         </div>
         </div>
-        <div class="row">
-            <div class="col-6">
+        <div class="row indexdiv">
+            <div class="divrow col-6">
             </div>
-            <div class="col-sm-12 col-md-6 d-none d-md-block">
+            <div class="divrow col-sm-12 col-md-6 d-none d-md-block">
                 <div class="blogpreview">
-                    <div>
                         {% for post in blog_posts %}
-                            <div class="row pt-4">
+                            <div class="row indexdiv2">
                                 <div class="col-6">
                                     <div class="justify-content-center align-items-center pt-4">
                                         <a href="{% url 'post_detail' post.slug  %}" class="">
@@ -42,10 +41,9 @@
                                 </div>
                             </div>
                         {% endfor %}
-                    </div>
                 </div>
             </div>
         </div>
-    </body>
+
 
 {% endblock %}

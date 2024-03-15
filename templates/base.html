@@ -54,14 +54,14 @@
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="specials-link">
                             <a href="{% url 'products' %}" class="dropdown-item">All Cheeses</a>
-                            <a href="" class="dropdown-item">Blue Cheese</a>
-                            <a href="" class="dropdown-item">Firm Cheese</a>
-                            <a href="" class="dropdown-item">Hard Cheese</a>
-                            <a href="" class="dropdown-item">Soft Cheese</a>
-                            <a href="" class="dropdown-item">Cream Cheese</a>
-                            <a href="" class="dropdown-item">Goats Cheese</a>
-                            <a href="" class="dropdown-item">Baking Cheese</a>
-                            <a href="" class="dropdown-item">Butters</a>
+                            <a href="{% url 'products' %}?origin=Ireland" class="dropdown-item">Ireland</a>
+                            <a href="{% url 'products' %}?origin=France" class="dropdown-item">France</a>
+                            <a href="{% url 'products' %}?origin=Switzerland" class="dropdown-item">Switzerland</a>
+                            <a href="{% url 'products' %}?origin=Spain" class="dropdown-item">Spain</a>
+                            <a href="{% url 'products' %}?origin=Italy" class="dropdown-item">Italy</a>
+                            <a href="{% url 'products' %}?origin=Holland" class="dropdown-item">Holland</a>
+                            <a href="{% url 'products' %}?origin=UnitedKingdom" class="dropdown-item">United Kingdom</a>
+                            <a href="{% url 'products' %}?origin=Greece" class="dropdown-item">Greece</a>
                         </div>
                     </li>
                     <li class="list-inline-item list-inline-item dropdown">
