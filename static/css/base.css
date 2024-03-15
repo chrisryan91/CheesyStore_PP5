@@ -47,6 +47,7 @@ header {
 .parent-div {
     position: relative;
     width: 100%; /* Adjust as needed */
+    height: 100%;
 }
 
 .image-container {
@@ -66,7 +67,7 @@ header {
 /* To make the image responsive within the container */
 .image-container img {
     width: 100%;
-    height: 80%;
+    height: 100%;
     padding-top: 20px;
     object-fit: cover; /* Maintain aspect ratio while covering the container */
 }
@@ -224,6 +225,25 @@ a.category-badge > span.badge:hover {
     height: 100px;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+#mc_embed_signup{
+    background:#fff;
+    clear:left;
+    font:14px Helvetica,Arial,sans-serif; 
+    width: 600px;
+}
+
+#mc_embed_shell {
+    height: 30%;
+}
+
+#mc_embed_signup {
+    height: 100%;
+}
+
+#mc_embed_signup form {
+    padding-top: 15px;
 }
 
 /* -------------------------------- Media Queries */

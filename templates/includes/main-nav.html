@@ -34,21 +34,17 @@
       </li>
       <li class="list-inline-item dropdown" id="">
         <a class="nav-link text-black d-block d-lg-none" href="{% url 'view_bag' %}">
-            <div>
-                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                <p class="my-0">
-                    {% if grand_total %}
-                        ${{ grand_total|floatformat:2 }}
-                    {% else %}
-                        $0.00
-                    {% endif %}
-                </p>
-            </div>
+            <i class="fas fa-shopping-bag fa-lg"></i>
         </a>
     </li>
     <li class="list-inline-item dropdown" id="">
         <a class="nav-link text-black d-block d-lg-none" href="{% url 'cheesyblog' %}">
             Blog
+        </a>
+    </li>
+    <li class="list-inline-item nav-item dropdown">
+        <a class="nav-link text-black d-block d-lg-none" href="{% url 'contact' %}">
+            Contact
         </a>
     </li>
     </ul>

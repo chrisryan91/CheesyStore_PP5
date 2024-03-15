@@ -25,7 +25,7 @@
                 <div class="blogpreview">
                         {% for post in blog_posts %}
                             <div class="row indexdiv2">
-                                <div class="col-6">
+                                <div class="col-6 parent-div">
                                     <div class="justify-content-center align-items-center pt-4">
                                         <a href="{% url 'post_detail' post.slug  %}" class="">
                                             <h2 class="lead mx-5 mb-0 text-left font-weight-bold text-black">{{ post.title }}</h2>
