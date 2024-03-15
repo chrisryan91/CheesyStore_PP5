@@ -1,11 +1,13 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
+        <li class="list-inline-item dropdown">
+            <a class="dropdown item d-block d-lg-none" href="{% url 'products' %}" style="color: black;">All Cheeses</a>
+        </li>
         <li class="nav-item dropdown">
             <a class="nav-link text-black d-block d-lg-none" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Cheese Types
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="types-link">
-                <a class="dropdown item" href="{% url 'products' %}">All Cheeses</a>
                 <a class="dropdown-item" href="{% url 'products' %}?cheesetype=bluecheese">Blue Cheese</a>
                 <a class="dropdown-item" href="{% url 'products' %}?cheesetype=firmcheese">Firm Cheese</a>
                 <a class="dropdown-item" href="{% url 'products' %}?cheesetype=hardcheese">Hard Cheese</a>

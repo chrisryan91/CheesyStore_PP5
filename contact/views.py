@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.conf import settings
+from django.urls import reverse
 from .forms import ContactForm
 
 def contact(request):
@@ -20,12 +21,13 @@ def contact(request):
                 [settings.DEFAULT_TO_EMAIL],
                 fail_silently=False,
             )
-            context = {
-                'form': form,
-                'on_profile_page': True
-            }
             messages.success(request, 'Mail sent!')
-            return render(request, 'contact/contact.html', context)
+            # Redirect to the same page to clear the form fields
+            return redirect(reverse('contact'))
     else:
         form = ContactForm()
-    return render(request, 'contact/contact.html', {'form': form})
+    context = {
+        'form': form,
+        'on_profile_page': True
+    }
+    return render(request, 'contact/contact.html', context)
