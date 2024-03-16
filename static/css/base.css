@@ -42,17 +42,26 @@ header {
 .blogpreview {
     background-color: white;
     width: 100%;
+    padding-left: 5px;
 }
 
-.parent-div {
+.parent-div2, .parent-div1 {
     position: relative;
     width: 100%; /* Adjust as needed */
     height: 100%;
 }
 
+.parent-div2 {
+    margin-bottom: 5px;
+}
+
+.parent-div1 {
+    padding-top: 40px;
+}
+
 .image-container {
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 90%;
 }
 
 .blogheading {
@@ -60,7 +69,6 @@ header {
 }
 
 .indexdiv2 {
-    margin-right: 0px;
     height: 100%;
 }
 
@@ -236,6 +244,7 @@ a.category-badge > span.badge:hover {
 
 #mc_embed_shell {
     height: 30%;
+    width: 100%;
 }
 
 #mc_embed_signup {
@@ -244,6 +253,11 @@ a.category-badge > span.badge:hover {
 
 #mc_embed_signup form {
     padding-top: 15px;
+}
+
+#contactdiv {
+    height: 100vh;
+    padding-left: 50px;
 }
 
 /* -------------------------------- Media Queries */
@@ -281,6 +295,10 @@ a.category-badge > span.badge:hover {
     background-color: red;
     border-color: red;
     border-radius: 0;
+}
+
+.contactform {
+    padding-top: 100px;
 }
 
 /* fixed top navbar only on medium and up */
@@ -334,12 +352,12 @@ a.category-badge > span.badge:hover {
 
 
 .indexdiv {
-    height: 30% !important;
+    background-color: white;
 }
 
 
 .indexdiv1 {
-    height: 70% !important;
+    height: 100% !important;
 }
 
 .divrow {
@@ -347,8 +365,15 @@ a.category-badge > span.badge:hover {
 }
 
 .maintext {
-    padding-top: 175px;
+    margin-top: 175px;
     font-size: 20px;
+    border: solid 3px white;
+    border-radius: 5px;
+    width: 125px;
+}
+
+.maintext div {
+    padding: 5px;
 }
 
 .blogpreview {
