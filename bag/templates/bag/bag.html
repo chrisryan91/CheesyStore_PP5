@@ -11,11 +11,9 @@
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container mb-2">
+    <div class="container mb-2 container3">
         <div class="row">
             <div class="col">
-                <hr>
                 <h2 class="logo-font mb-4">Shopping Bag</h2>
                 <hr>
             </div>
@@ -27,11 +25,11 @@
                     <table class="table table-sm table-borderless">
                         <thead class="text-black">
                             <tr>
-                                <th scope="col">Product Info</th>
-                                <th scope="col"></th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Qty</th>
-                                <th scope="col">Subtotal</th>
+                                <th scope="col" class="prodname">Product Info</th>
+                                <th scope="col" class="prodname"></th>
+                                <th scope="col" class="prodname">Price</th>
+                                <th scope="col" class="qty">Qty</th>
+                                <th scope="col" class="prodname">Subtotal</th>
                             </tr>
                         </thead>
                         {% for item in bag_items %}
@@ -44,13 +42,13 @@
                                     {% endif %}
                                 </td>
                                 <td class="py-3">
-                                    <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                    <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                                    <p class="my-0 prodname"><strong>{{ item.product.name }}</strong></p>
+                                    <p class="my-0 small text-muted qty">SKU: {{ item.product.sku|upper }}</p>
                                 </td>
                                 <td class="py-3">
                                     <p class="my-0">${{ item.product.price }}</p>
                                 </td>
-                                <td class="py-3 w-25">
+                                <td class="py-3 w-25 qty">
                                     <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
                                         {% csrf_token %}
                                         <div class="form-group">
@@ -92,7 +90,7 @@
                                 <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
                                 <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
                                 {% if free_delivery_delta > 0 %}
-                                    <p class="mb-1 text-danger">
+                                    <p class="mb-1 text-danger prodname">
                                         You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
                                     </p>
                                 {% endif %}
@@ -100,15 +98,15 @@
                         </tr>
                         <tr>
                             <td colspan="5" class="text-right">
-                                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                                    <span class="icon">
+                                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg prodname prodbtn">
+                                    <span class="icon prodicon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="text-uppercase">Keep Shopping</span>
                                 </a>
-                                <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
+                                <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg prodname prodbtn">
                                     <span class="text-uppercase">Secure Checkout</span>
-                                    <span class="icon">
+                                    <span class="icon prodicon">
                                         <i class="fas fa-lock"></i>
                                     </span>
                                 </a>

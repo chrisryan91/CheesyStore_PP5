@@ -54,6 +54,10 @@ header {
     z-index: 99999999999;
 }
 
+#topnav, #topnav2 {
+    border-bottom: solid black 2px;
+}
+
 /* Homepage Styling */
 
 .blogpreview {
@@ -77,33 +81,31 @@ header {
 }
 
 .parent-div1 div {
-    padding-top: 30px;
+    padding-top: 50px;
     padding-left: 20px;
-}
-
-.image-container {
-    width: 90%;
-    height: 90%;
 }
 
 .indexdiv2 {
     height: 100%;
 }
 
-.image-container img {
+.sampleblog {
+    background-color: white;
+    border: 2px black solid;
+    margin: 2.5px;
+    border-radius: 10px;
+    height: 175px;
+    padding: 5px;
+}
+
+.sampleblog img {
     margin-top: 10px;
     width: 100%;
-    height: 80%;
+    height: 150px;
     object-fit: cover;
     border: black 2px solid;
-    border-radius: 5px;
+    border-radius: 10px;
 }
-
-.indexdiv {
-    background-color: white;
-    height: 30vh;
-}
-
 
 .indexdiv1 {
     height: 100% !important;
@@ -138,6 +140,10 @@ header {
 
 .mobiletitle {
     color: black;
+}
+
+.samblogtext {
+    padding-top: 20px;
 }
 
 /* Button Stying */
@@ -184,10 +190,18 @@ button {
     border: none !important;
 }
 
+
 /* Products Page styling*/
 
 .soldout {
     color: red;
+}
+
+.productdetail {
+    background-color: white;
+    padding: 30px;
+    border: black 2px solid;
+    border-radius: 10px;
 }
 
 /* Blog styling*/
@@ -296,6 +310,14 @@ button {
 
 /* Product Form */
 
+.container5 {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
 .btn-file {
     position: relative;
     overflow: hidden;
@@ -311,6 +333,11 @@ button {
     cursor: pointer;
 }
 
+.prodbtn {
+    margin-top: 2.5px;
+    border-radius: 10px !important;
+}
+
 .custom-checkbox .custom-control-label::before {
     border-radius: 0;
     border-color: red;
@@ -320,6 +347,15 @@ button {
     background-color: red;
     border-color: red;
     border-radius: 0;
+}
+
+/* Product Management */
+
+.container3 {
+    background-color: white;
+    border: 2px black solid;
+    border-radius: 10px;
+    padding: 30px;
 }
 
 /* Media Queries */
@@ -375,6 +411,10 @@ button {
         margin-left: 10px;
         margin-right: 10px;
     }
+
+    .indexblogtest {
+        font-size: 15px;
+    }
 }
 
 
@@ -405,9 +445,12 @@ button {
     }
 
     .divrow {
+        border: 2px solid black;
+        border-radius: 10px;
         width: 100% !important;
         height: 30vh !important;
         background-color: white !important;
+        margin-bottom: 30px;
     }
 
     .image-container2 {
@@ -423,6 +466,24 @@ button {
         object-fit: cover;
         border: 2px solid black;
         border-radius: 5px;
+    }
+}
+
+@media (max-width: 560px) {
+    .qty {
+        display: none;
+    }
+
+    .prodname {
+        font-size: 10px;
+    }
+
+    .prodbtn {
+        margin-top: 2.5px;
+    }
+
+    .prodicon {
+        display: none;
     }
 }
 

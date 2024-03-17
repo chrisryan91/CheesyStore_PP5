@@ -22,16 +22,13 @@
         </div>
         <div class="row indexdiv">
             {% for post in blog_posts1 %}
-            <div class="divrow">
-                <div class="blogpreview">
-                    <div class="row indexdiv2">
-                        <div class="col-12 col-md-6 parent-div1">
-                            <div>
+            <div class="col-4">
+                    <div class="row sampleblog">
+                        <div class="col-12 col-md-6 samblogtext">
                                 <a href="{% url 'post_detail' post.slug  %}" class="">
                                     <h2 class="lead text-black indexblogtest">{{ post.title }}</h2>
                                 </a>
                                 <p class="small indexblogtest2"><i class="fas fa-tag mr-1"></i>{{ post.created_on }}</p>
-                            </div>
                         </div>
                         <div class="col-6 parent-div">
                             <div class="image-container">
@@ -39,7 +36,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
             {% endfor %}
         </div>
