@@ -53,10 +53,10 @@
                         <a class="dropdown-item" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Products</a>
                         <div class="dropdown-menu" >
-                            <a class="dropdown-item" href="">All Products</a>
-                            <a class="dropdown-item" href="">Cheeses</a>
-                            <a class="dropdown-item" href="">Butters</a>
-                            <a class="dropdown-item" href="">Crackers</a>
+                            <a class="dropdown-item" href="{% url 'products' %}">All Products</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?category=cheeses">Cheeses</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?cheesetype=butter">Butters</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?cheesetype=cracker">Crackers</a>
                         </div>
                     </li>
                     <li class="list-inline-item dropdown">
