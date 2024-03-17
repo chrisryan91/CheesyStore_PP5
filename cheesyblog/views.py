@@ -1,9 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.views.generic import ListView
 from django.views import View
+from django.utils.text import slugify
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, BlogPostForm
 
 class CheesyBlogListView(ListView):
     model = Post
@@ -56,3 +58,25 @@ class PostDetail(View):
                 "comment_form": comment_form,
             },
         )
+    
+def is_super_user(user):
+
+    return user.is_superuser
+    
+@login_required
+@user_passes_test(is_super_user)
+def AddBlogPost(request):
+    if request.method == 'POST':
+        form = BlogPostForm(request.POST, request.FILES)
+        if form.is_valid():
+            new_post = form.save(commit=False)  # Don't save the form to the database yet
+            new_post.author = request.user  # Set the author to the currently logged-in user
+
+            new_post.slug = slugify(new_post.title)
+            new_post.excerpt = new_post.content[:100]
+
+            new_post.save()  # Now save the post to the database
+            return redirect('cheesyblog')  # Redirect to a new URL
+    else:
+        form = BlogPostForm()
+    return render(request, 'cheesyblog/addblogpost.html', {'form': form})

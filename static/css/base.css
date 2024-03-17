@@ -73,7 +73,12 @@ header {
 }
 
 .parent-div1 {
-    padding-top: 40px;
+    padding-top: 10px;
+}
+
+.parent-div1 div {
+    padding-top: 30px;
+    padding-left: 20px;
 }
 
 .image-container {
@@ -86,10 +91,12 @@ header {
 }
 
 .image-container img {
+    margin-top: 10px;
     width: 100%;
     height: 100%;
-    padding-top: 20px;
     object-fit: cover;
+    border: black 2px solid;
+    border-radius: 5px;
 }
 
 .indexdiv {
@@ -104,7 +111,7 @@ header {
 
 .divrow {
     height: 100%;
-    width: 30%;
+    width: 33.333333333333333333333333333% !important;
     border: solid black 1px;
 }
 
@@ -186,8 +193,8 @@ button {
 /* Blog styling*/
 
 #blogrow {
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 .arrow-up {
@@ -359,6 +366,11 @@ button {
     #hometext {
         font-size: 20px;
     }
+
+    #blogrow {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
 
 
@@ -377,7 +389,39 @@ button {
     .text-center div i, .text-center div p {
         font-size: 10px;
     }
+
+    .indexdiv {
+        display: none;
+    }
+
+    .indexdiv2 {
+        background-color: white;
+        display: contents !important;
+        width: 100vw;
+    }
+
+    .divrow {
+        width: 100% !important;
+        height: 30vh !important;
+        background-color: white !important;
+    }
+
+    .image-container2 {
+        display: contents;
+        width: 90%;
+        height: 70%;
+        }
+    
+    .image-container2 img {
+        width: 100%;
+        height: 80%;
+        margin-top: 20px;
+        object-fit: cover;
+        border: 2px solid black;
+        border-radius: 5px;
+    }
 }
+
 
 @media (max-width: 450px) {
 
@@ -388,6 +432,10 @@ button {
     .mobiletitle {
         color: black;
         font-size: 10px;
+    }
+
+    .image-container2 img {
+        height: 50%;
     }
     
 }
