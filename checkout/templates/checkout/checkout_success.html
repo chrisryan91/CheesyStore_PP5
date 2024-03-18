@@ -14,17 +14,13 @@
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container">
+    <div class="container6">
         <div class="row">
             <div class="col">
-                <hr>
                 <h2 class="logo-font mb-4">Thanks!</h2>
                 <hr>
-                <p>Your order information is below - an email will be sent to <strong>{{ order.email }}</strong></p>
+                <p class="smltext">Your order information is below - an email will be sent to <strong>{{ order.email }}</strong></p>
             </div>
-        </div>
-        <div class="row">
             <div class="col-12 col-lg-7">
                 <div class="order-confirmation-wrapper p-2 border">
                     <div class="row">
@@ -38,7 +34,7 @@
                             <p class="mb-0 text-black font-weight-bold">Order Number</p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0">{{ order.order_number }}</p>
+                            <p class="mb-0 smltext">{{ order.order_number }}</p>
                         </div>
                     </div>
 

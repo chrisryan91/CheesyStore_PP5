@@ -54,7 +54,7 @@ header {
     z-index: 99999999999;
 }
 
-#topnav, #topnav2 {
+#topnav {
     border-bottom: solid black 2px;
 }
 
@@ -142,21 +142,19 @@ header {
     color: black;
 }
 
-.samblogtext {
-    padding-top: 20px;
-}
-
 /* Button Stying */
 
 .btn-black {
     background: black;
     color: white;
+    border-radius: 10px;
 }
 
 .btn-outline-black {
     background: white;
     color: black !important;
     border: 1px solid black;
+    border-radius: 10px;
 }
 
 .text-black {
@@ -174,6 +172,7 @@ a.category-badge > span.badge:hover {
     position: fixed;
     bottom: 10px;
     right: 10px;
+    border-radius: 10px;
 }
 
 .btt-link, 
@@ -190,6 +189,13 @@ button {
     border: none !important;
 }
 
+.rounded-0 {
+    border-radius: 10px !important;
+}
+
+.plusminus {
+    border-radius: 0px !important;
+}
 
 /* Products Page styling*/
 
@@ -279,6 +285,11 @@ button {
     background-color: white;
     padding: 30px;
     border-radius: 10px;
+    border: 2px solid black;
+}
+
+.contactform img {
+    height: 50%;
 }
 
 #mc_embed_signup{
@@ -358,6 +369,39 @@ button {
     padding: 30px;
 }
 
+/* FAQ */
+
+.faq {
+    margin-top: 100px;
+}
+
+.contactform{
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+.ownerimg {
+    width: 90%;
+    height: 300px;
+    background-image: url('../../media/DALLE.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.faqqanda {
+    padding: 30px;
+
+}
+
+.faqqanda h2 {
+    font-size: 20px;
+}
+
 /* Media Queries */
 
 @media (max-width: 1150px) {
@@ -401,6 +445,7 @@ button {
 
     #topnav2 {
         background-color: white !important;
+        border-bottom: 2px solid black;
     }
 
     #hometext {
@@ -485,6 +530,15 @@ button {
     .prodicon {
         display: none;
     }
+
+    .image-container2 img {
+        height: 50%;
+    }
+
+    .contactform{
+        width: 90%;
+    }
+        
 }
 
 
@@ -499,10 +553,10 @@ button {
         font-size: 10px;
     }
 
-    .image-container2 img {
-        height: 50%;
+    .smltext {
+        font-size: 8px;
     }
-    
+
 }
 
 @media (max-width: 400px) {
@@ -517,5 +571,9 @@ button {
     .indexblogtest2 {
         font-size: 10px !important;
     }
-    
+
+    .tagblog {
+        display: none;
+    }
+
 }
