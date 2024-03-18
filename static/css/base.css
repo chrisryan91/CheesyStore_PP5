@@ -11,7 +11,7 @@ body {
     width: 100% !important;
     background: url(/media/onder-ortel.jpg) no-repeat center center fixed;
     background-size: cover;
-    color: #555;
+    color: black;
     font-family: 'Rubik';
 }
 
@@ -58,6 +58,36 @@ header {
     border-bottom: solid black 2px;
 }
 
+/* Footer */
+
+footer {
+    height: 30px;
+    width: 100%;
+    background-color: black;
+    margin-top: 50px;
+}
+
+.privacylink2 {
+    padding-left: 25px;
+}
+
+.contactlink2 {
+    padding-right: 25px;
+}
+
+.sociallinks {
+    letter-spacing: 10px;
+}
+
+footer div {
+    padding-top: 2.5px;
+}
+
+footer div a {
+    font-style: none;
+    color: white;
+}
+
 /* Homepage Styling */
 
 .blogpreview {
@@ -94,8 +124,8 @@ header {
     border: 2px black solid;
     margin: 2.5px;
     border-radius: 10px;
-    height: 175px;
-    padding: 5px;
+    height: 200px;
+    padding: 10px;
 }
 
 .sampleblog img {
@@ -124,14 +154,16 @@ header {
 
 .maintext {
     margin-top: 300px;
-    font-size: 20px;
-    border: solid 3px white;
+    font-size: 30px;
+    border: solid 3px black;
     border-radius: 5px;
-    width: 125px;
+    height: 50px;
+    background-color: black;
 }
 
-.maintext div {
-    padding: 5px;
+.maintext a {
+    padding: 30px;
+    margin-top: 20px;
 }
 
 .blogpreview {
@@ -430,11 +462,20 @@ button {
     }
 
     #topnav {
-        background-color: white !important;
+        background-color: black !important;
+        color: white !important;
     }
 
     #topnav h2 {
         font-size: 17.5px;
+    }
+
+    .title, #topnav div ul li a {
+        color: white !important;
+    }
+
+    li .dropdown-item, .navbackground, li .dropdown-menu {
+        background-color: black !important;
     }
 }
 
@@ -449,7 +490,7 @@ button {
     }
 
     #topnav2 {
-        background-color: white !important;
+        background-color: black !important;
         border-bottom: 2px solid black;
     }
 
@@ -466,6 +507,25 @@ button {
         font-size: 15px;
     }
 
+    .mobiletitle {
+        color: white;
+    }
+
+    #topnav nav li, .searchmob {
+        color: white;
+    }
+
+    .searchmobbk {
+        background-color: black;
+    }
+
+    .searchmobbk a {
+        color: white;
+    }
+
+    .ddlink {
+        color: white !important;
+    }
 }
 
 
@@ -563,6 +623,9 @@ button {
         font-size: 8px;
     }
 
+    .privacylink2, .contactlink2 {
+        display: none;
+    }
 }
 
 @media (max-width: 400px) {
