@@ -9,6 +9,7 @@ html {
 body {
     height: 100% !important;
     width: 100% !important;
+    margin: 0;
     background: url(/media/onder-ortel.jpg) no-repeat center center fixed;
     background-size: cover;
     color: black;
@@ -30,10 +31,6 @@ body {
 }
 
 /* Nav Styling */
-
-header {
-    height: 10%;
-}
 
 .icon {
     align-items: center;
@@ -61,10 +58,12 @@ header {
 /* Footer */
 
 footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
     height: 30px;
     width: 100%;
     background-color: black;
-    margin-top: 50px;
 }
 
 .privacylink2 {
@@ -138,7 +137,7 @@ footer div a {
 }
 
 .indexdiv1 {
-    height: 100% !important;
+    height: 70% !important;
 }
 
 .divrow {
@@ -154,16 +153,14 @@ footer div a {
 
 .maintext {
     margin-top: 300px;
-    font-size: 30px;
+    font-size: 20px;
     border: solid 3px black;
     border-radius: 5px;
-    height: 50px;
     background-color: black;
 }
 
 .maintext a {
-    padding: 30px;
-    margin-top: 20px;
+    padding: 25px;
 }
 
 .blogpreview {
@@ -171,7 +168,7 @@ footer div a {
 }
 
 .mobiletitle {
-    color: black;
+    color: white !important;
 }
 
 /* Button Stying */
@@ -240,6 +237,23 @@ button {
     padding: 30px;
     border: black 2px solid;
     border-radius: 10px;
+}
+
+#topbutton {
+    margin-bottom: 25px;
+}
+
+.nextlast {
+    color: black !important;
+}
+
+.productimage {
+    border: 2px black solid;
+    border-radius: 10px;
+}
+
+#pagnavig {
+    height: 100px;
 }
 
 /* Blog styling*/
@@ -329,6 +343,7 @@ button {
     margin-right: 30px;
     margin-left: 30px;
     border-radius: 10px;
+    border: 2px solid black;
 }
 
 #mc_embed_shell {
@@ -343,6 +358,7 @@ button {
     padding-top: 15px;
     padding-right: 50px;
     background-color: white;
+    margin-bottom: 100px !important;
 }
 
 #contactdiv {
@@ -399,6 +415,8 @@ button {
     border: 2px black solid;
     border-radius: 10px;
     padding: 30px;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 /* FAQ */
@@ -437,6 +455,32 @@ button {
 
 .faqlink {
     color: gray;
+}
+
+/* Auth Styling */
+
+.authbox {
+    margin: 300px;
+    height: 100px;
+    width: 200px;
+    background-color: white;
+    border: 2px black solid;
+    border-radius: 10px;
+}
+
+.authbox2 {
+    margin-top: 200px;
+    margin-right: 5px;
+    margin-bottom: 50px;
+    padding: 50px;
+    background-color: white;
+    border: 2px black solid;
+    border-radius: 10px;
+}
+
+#submit {
+    background-color: white;
+    font-size: 25px;
 }
 
 /* Media Queries */
@@ -525,6 +569,10 @@ button {
 
     .ddlink {
         color: white !important;
+    }
+
+    #submit {
+        background-color: white;
     }
 }
 
