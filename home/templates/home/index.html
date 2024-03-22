@@ -6,19 +6,50 @@
 
         <div class="row indexdiv1">
             <div class="col-6 d-none d-md-block">
-
             </div>
             <div class="col-sm-12 col-md-6">
                 <div class="row d-flex justify-content-center align-items-center" id="indexlink">
-                    <div class="col-7 col-md-6">
-                        <div class="d-flex justify-content-center align-items-center">
-                            <h1 class="maintext d-flex justify-content-center align-items-center">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <a href="{% url 'products' %}" class="logo-font text-white shopnow">Shop now</a>
+                    {% for product in new_arrival %}
+                    <div class="d-none d-md-block newarrival">
+                        <div class="card border-0">
+                            {% if product.image %}
+                            <a href="{% url 'product_detail' product.id %}">
+                                <img class="card-img-top img-fluid newarrimg" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            </a>
+                            {% else %}
+                            <a href="{% url 'product_detail' product.id %}">
+                                <img class="card-img-top img-fluid newarrimg" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                            </a>
+                            {% endif %}
+                            <div class="card-body pb-0">
+                                <p class="mb-0">{{ product.name }}</p>
+                            </div>
+                            <div class="card-footer bg-white pt-0 border-0 text-left">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="small mt-1 mb-0">
+                                            <i class="fas fa-tag mr-1 newarrivaltxt"></i>New Arrival
+                                        </p>
+                                        {% if product.origin %}
+                                        <p class="small mt-1 mb-0">
+                                            <a href="{% url 'products' %}?origin={{ product.origin.name }}" class="text-dark nextlast">
+                                                <i class="fas fa-tag mr-1"></i>{{ product.origin.friendly_name }}
+                                            </a>
+                                        </p>
+                                        {% endif %}
+                                        {% if product.cheesetype %}
+                                        <p class="small mt-1 mb-0">
+                                            <a href="{% url 'products' %}?cheesetype={{ product.cheesetype.name }}" class="text-dark nextlast">
+                                                <i class="fas fa-tag mr-1"></i>{{ product.cheesetype.friendly_name }}
+                                            </a>
+                                        </p>
+                                        {% endif %}
+                                    </div>
                                 </div>
-                            </h1>
+                            </div>
                         </div>
-                    </div>
+                    </div>    
+                {% endfor %}
                 </div>
             </div>
         </div>

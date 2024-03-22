@@ -107,9 +107,12 @@ footer div a:hover {
     font-weight: bold;
 }
 
+.indexblogtest {
+    font-weight: 500;
+}
+
 .indexblogtest:hover {
-    text-decoration: none;
-    font-weight: bold;
+    color: orange !important;
 }
 
 .blogpreview {
@@ -234,6 +237,20 @@ footer div a:hover {
 .shopnow:hover {
     color: orange !important;
     text-decoration: none;
+}
+
+.newarrival {
+    margin-top: 200px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.newarrimg {
+    height: 200px;
+}
+
+.newarrivaltxt {
+    color: red !important;
 }
 
 /* Button Stying */
@@ -654,6 +671,11 @@ a.text-dark:focus, a.text-dark:hover {
         font-size: smaller;
     }
 
+    
+    .indexblogtest {
+        font-size: 12.5px;
+    }
+
 }
 
 @media (min-width: 992px) {
@@ -709,10 +731,6 @@ a.text-dark:focus, a.text-dark:hover {
     #blogrow {
         margin-left: 10px;
         margin-right: 10px;
-    }
-
-    .indexblogtest {
-        font-size: 12.5px;
     }
 
     .indexblogtest2 {
