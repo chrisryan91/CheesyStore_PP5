@@ -251,6 +251,19 @@ footer div a:hover {
     border-radius: 10px;
 }
 
+.btn-outline-black:hover, .btn-outline-black:hover span:hover {
+    background: black;
+    color: orange !important;
+}
+
+#addtobag:hover {
+    color: orange !important;
+}
+
+.addtobag:hover {
+    color: orange !important;
+}
+
 .text-black {
     color: #000 !important;
 }
@@ -351,6 +364,8 @@ a.text-dark:focus, a.text-dark:hover {
     text-decoration: none;
     color: orange !important;
 }
+
+
 
 /* Blog styling*/
 
@@ -582,13 +597,23 @@ a.text-dark:focus, a.text-dark:hover {
 
 /* Auth Styling */
 
-.authbox {
+.authbox, .authbox form button {
     margin: 300px;
     height: 100px;
     width: 200px;
     background-color: white;
     border: 2px black solid;
     border-radius: 10px;
+}
+
+.authbox form button:hover {
+    background-color: black !important;
+    color: orange !important;
+}
+
+.authbox:hover {
+    background-color: black !important;
+    color: orange !important;
 }
 
 .authbox2 {
@@ -601,9 +626,25 @@ a.text-dark:focus, a.text-dark:hover {
     border-radius: 10px;
 }
 
+.signinlink {
+    color: black;
+}
+
+.signinlink:hover {
+    color: orange !important;
+    text-decoration: none !important;
+}
+
 #submit {
+    padding: 2px;
     background-color: white;
-    font-size: 25px;
+    font-size: 22px;
+}
+
+#submit:hover {
+    background-color: black !important;
+    color: orange !important;
+    border: none !important;
 }
 
 /* Media Queries */

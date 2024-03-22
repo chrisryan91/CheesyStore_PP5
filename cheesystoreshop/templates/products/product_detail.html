@@ -35,14 +35,14 @@
                         {% endif %}
                         {% if product.category %}
                         <p class="small mt-1 mb-0">
-                            <a href="{% url 'products' %}?category={{ product.category.name }}" class="text-muted">
+                            <a href="{% url 'products' %}?category={{ product.category.name }}" class="nextlast">
                                 <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
                             </a>
                         </p>
                         {% endif %}
                         {% if product.origin %}
                         <p class="small mt-1 mb-0">
-                            <a href="{% url 'products' %}?origin={{ product.origin.name }}" class="text-muted">
+                            <a href="{% url 'products' %}?origin={{ product.origin.name }}" class="nextlast">
                                 <i class="fas fa-tag mr-1"></i>{{ product.origin.friendly_name }}
                             </a>
                         </p>
@@ -97,7 +97,7 @@
                                         <span class="text-uppercase">Keep Shopping</span>
                                     </a>
                                     {% if product.in_stock %}
-                                        <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
+                                        <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" id="addtobag" value="Add to Bag">
                                     {% endif %}
                                 </div>
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">

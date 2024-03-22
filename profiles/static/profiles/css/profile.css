@@ -22,3 +22,15 @@
 .updateinfo {
     border-radius: 5px !important;
 }
+
+.orderlink {
+    color: black !important;
+}
+
+.orderlink:hover {
+    color: orange !important;
+}
+
+.updateinfo:hover {
+    color: orange !important;
+}
