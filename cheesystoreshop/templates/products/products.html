@@ -44,7 +44,7 @@
                     <div class="col-12 col-md-6 order-md-first">
                         <p class="text-muted mt-3 text-center text-md-left">
                             {% if search_term or current_categories or current_sorting != 'None_None' %}
-                                <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
+                                <span class="small"><a href="{% url 'products' %}" class="productshome"><u>Products Home</u></a> | </span>
                             {% endif %}
                             {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
                         </p>
@@ -76,25 +76,25 @@
                                             {% endif %}
                                             {% if product.origin %}
                                             <p class="small mt-1 mb-0">
-                                                <a href="{% url 'products' %}?origin={{ product.origin.name }}" class="text-muted">
+                                                <a href="{% url 'products' %}?origin={{ product.origin.name }}" class="text-dark nextlast">
                                                     <i class="fas fa-tag mr-1"></i>{{ product.origin.friendly_name }}
                                                 </a>
                                             </p>
                                             {% endif %}
                                             {% if product.cheesetype %}
                                             <p class="small mt-1 mb-0">
-                                                <a href="{% url 'products' %}?cheesetype={{ product.cheesetype.name }}" class="text-muted">
+                                                <a href="{% url 'products' %}?cheesetype={{ product.cheesetype.name }}" class="text-dark nextlast">
                                                     <i class="fas fa-tag mr-1"></i>{{ product.cheesetype.friendly_name }}
                                                 </a>
                                             </p>
                                             {% endif %}
                                             {% if product.rating %}
                                             <p class="small mt-1 mb-0"> 
-                                                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                                                <small class="text-dark"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
                                             </p>
                                             {% else %}
                                             <p class="small mt-1 mb-0">
-                                                <small class="text-muted">No Rating</small>
+                                                <small class="text-dark">No Rating</small>
                                             </p>
                                             {% endif %}
                                             {% if request.user.is_superuser %}
@@ -141,17 +141,15 @@
     <nav aria-label="Page Navigation" class="d-flex justify-content-center" id="pagnavig">
         <span class="step-links">
             {% if products.has_previous %}
-                <a href="?page=1" class="pag_button nextlast">&laquo; first</a>
-                <a href="?page={{ products.previous_page_number }}" class="pag_button nextlast">previous</a>
+                <a href="?page=1" class="pag_button nextlast">&laquo; FIRST</a>
+                <a href="?page={{ products.previous_page_number }}" class="pag_button nextlast">PREVIOUS</a>
             {% endif %}
-    
-            <span class="current">
-                <u>Page {{ products.number }} of {{ products.paginator.num_pages }}</u>
+            <span class="current2">
+                <u> Page {{ products.number }} of {{ products.paginator.num_pages }} </u>
             </span>
-    
             {% if products.has_next %}
-                <a href="?page={{ products.next_page_number }}" class="pag_button nextlast">next</a>
-                <a href="?page={{ products.paginator.num_pages }}" class="pag_button nextlast">last &raquo;</a>
+                <a href="?page={{ products.next_page_number }}" class="pag_button nextlast"> NEXT</a>
+                <a href="?page={{ products.paginator.num_pages }}" class="pag_button nextlast">LAST &raquo;</a>
             {% endif %}
         </span>
     </nav>

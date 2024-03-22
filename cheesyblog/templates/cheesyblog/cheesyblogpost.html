@@ -65,10 +65,10 @@
                     {% if user.is_authenticated %}
                     <h3>Leave a comment:</h3>
                     <p>Posting as: {{ user.username }}</p>
-                    <form method="post">
+                    <form method="post" id="commentform">
                         {{ comment_form|crispy }}
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                        <button type="submit" class="btn btn-signup btn-lg" id="commentsubmit"><u>Submit</u></button>
                     </form>
                     {% endif %}
                 {% endif %}

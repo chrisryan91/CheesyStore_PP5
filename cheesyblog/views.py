@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.core.paginator import Paginator
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.views.generic import ListView
@@ -12,9 +13,21 @@ class CheesyBlogListView(ListView):
     template_name = 'cheesyblog/cheesyblog.html'
     context_object_name = 'posts'
     paginate_by = 6
+    posts = Post.objects.filter(status=1).order_by('-created_on')
 
     def get_queryset(self):
         return Post.objects.filter(status=1).order_by('-created_on')
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        total_posts = Post.objects.filter(status=1).count()
+        context['total_posts'] = total_posts
+
+        paginator = Paginator(self.get_queryset(), self.paginate_by)
+        total_pages = paginator.num_pages
+        context['total_pages'] = total_pages
+
+        return context
     
 class PostDetail(View):
 

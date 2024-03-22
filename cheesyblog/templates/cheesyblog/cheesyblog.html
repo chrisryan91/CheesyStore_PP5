@@ -14,9 +14,11 @@
 {% endblock %}
 
 {% block content %}
+    {% if request.user.is_superuser %}
     <div class="text-center mb-5">
-        <a href="{% url 'addblogpost' %}" class="text-light"><u>Add a Blog Post</u></a>
+        <a href="{% url 'addblogpost' %}" class="text-light" id="addpost">ADD POST</a>
     </div>
+    {% endif %}
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 mt-10">
@@ -25,7 +27,7 @@
                         <div class="col-md-4 card mb-4">
                             <div class="card-body">
                                 <div class="image-container2">
-                                    <img src="{{ post.featured_image.url }}" alt="" class="card-img-top img-fluid">
+                                    <img src="{{ post.featured_image.url }}" alt="" class="card-img-top img-fluid blogimg">
                                 </div>
                                 <a href="{% url 'post_detail' post.slug  %}" class="post-link">
                                     <h2 class="lead mb-0 text-left font-weight-bold">{{ post.title }}</h2>
@@ -44,15 +46,18 @@
             </div>
         </div>
         {% if is_paginated %}
-        <nav aria-label="Page Navigation">
+        <nav aria-label="Page Navigation" id="blogpagin">
             <ul class="pagination justify-content-center">
                 {% if page_obj.has_previous %}
-                    <li><a href="?page={{ page_obj.previous_page_number }}" class="pag_button text-light">&laquo; PREV</a></li>
+                    <li><a href="?page={{ page_obj.previous_page_number }}" class="pag_button text-light">&laquo; PREV </a></li>
                 {% endif %}
                 {% if page_obj.has_next %}
-                    <li><a href="?page={{ page_obj.next_page_number }}" class="pag_button text-light">NEXT &raquo;</a></li>
+                    <li><a href="?page={{ page_obj.next_page_number }}" class="pag_button text-light"> NEXT &raquo;</a></li>
                 {% endif %}
             </ul>
+            <span class="d-flex justify-content-center align-content-center">
+                <u class="current"> Page {{ page_obj.number }} of {{ total_pages }} </u>
+            </span>
         </nav>
         {% endif %}
     </div>

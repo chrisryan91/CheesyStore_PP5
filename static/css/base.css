@@ -55,6 +55,14 @@ body {
     border-bottom: solid black 2px;
 }
 
+#topnav div ul li a:hover, #topnav div ul li a h2:hover {
+    color: orange !important;
+}
+
+#topnav div ul li span {
+    color: white !important;
+}
+
 /* Footer */
 
 footer {
@@ -87,7 +95,22 @@ footer div a {
     color: white;
 }
 
+footer div a:hover {
+    color: orange;
+    text-decoration: none;
+}
+
 /* Homepage Styling */
+
+.titlehov:hover {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.indexblogtest:hover {
+    text-decoration: none;
+    font-weight: bold;
+}
 
 .blogpreview {
     background-color: white;
@@ -114,6 +137,10 @@ footer div a {
     padding-left: 20px;
 }
 
+.indexdiv {
+    height: 35%;
+}
+
 .indexdiv2 {
     height: 100%;
 }
@@ -121,10 +148,10 @@ footer div a {
 .sampleblog {
     background-color: white;
     border: 2px black solid;
-    margin: 2.5px;
+    margin-right: 5px;
     border-radius: 10px;
-    height: 200px;
     padding: 10px;
+    height: 180px;
 }
 
 .sampleblog img {
@@ -137,7 +164,7 @@ footer div a {
 }
 
 .indexdiv1 {
-    height: 70% !important;
+    height: 65% !important;
 }
 
 .divrow {
@@ -169,6 +196,44 @@ footer div a {
 
 .mobiletitle {
     color: white !important;
+}
+
+.current {
+    color: white !important;
+}
+
+.current2 {
+    color: black !important;
+}
+
+.current3:hover {
+    color: orange !important;
+    text-decoration: none;
+}
+
+.current4 {
+    color: black !important;
+}
+
+.current4:hover {
+    color: orange !important;
+    text-decoration: none;
+}
+
+.allposts {
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.current3 {
+    color: white !important;
+}
+
+.shopnow:hover {
+    color: orange !important;
+    text-decoration: none;
 }
 
 /* Button Stying */
@@ -247,6 +312,11 @@ button {
     color: black !important;
 }
 
+.nextlast:hover {
+    text-decoration: none;
+    color: orange !important;
+}
+
 .productimage {
     border: 2px black solid;
     border-radius: 10px;
@@ -254,6 +324,32 @@ button {
 
 #pagnavig {
     height: 100px;
+}
+
+a.category-badge span.badge:hover {
+    color: orange !important;
+}
+
+.productshome {
+    color: black !important;
+}
+
+.productshome:hover {
+    color: orange !important;
+}
+
+a.text-dark:focus, a.text-dark:hover {
+    color: orange !important;
+}
+
+.canceladd:hover {
+    background-color: black;
+    color: orange !important;
+}
+
+.addproduct1:hover {
+    text-decoration: none;
+    color: orange !important;
 }
 
 /* Blog styling*/
@@ -272,6 +368,10 @@ button {
     position: absolute;
     top: -10px;
     right: 36px;
+}
+
+#blogpagin {
+    height: 100px;
 }
 
 .arrow-primary {
@@ -352,6 +452,7 @@ button {
 
 #mc_embed_signup {
     height: 100%;
+    margin-bottom: 100px;
 }
 
 #mc_embed_signup form {
@@ -365,6 +466,22 @@ button {
     height: 100vh;
     padding-left: 25px;
     padding-right: 25px;
+}
+
+#mc_embed_signup .button:hover {
+    background-color: #222;
+    color: orange !important;
+}
+
+#contactsubmit {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
+#contactsubmit:hover {
+    color: orange !important;
+    text-decoration: none;
 }
 
 /* Product Form */
@@ -454,8 +571,14 @@ button {
 }
 
 .faqlink {
-    color: gray;
+    color: black;
 }
+
+.faqlink:hover {
+    color: orange !important;
+}
+
+
 
 /* Auth Styling */
 
@@ -548,7 +671,11 @@ button {
     }
 
     .indexblogtest {
-        font-size: 15px;
+        font-size: 12.5px;
+    }
+
+    .indexblogtest2 {
+        font-size: 10px;
     }
 
     .mobiletitle {
@@ -650,7 +777,11 @@ button {
     }
 
     .image-container2 img {
-        height: 50%;
+        height: 75%;
+    }
+
+    .blogimg {
+        height: 50% !important;
     }
         
 }
@@ -682,11 +813,11 @@ button {
     }
 
     .indexblogtest {
-        font-size: 15px !important;
+        font-size: 10px !important;
     }
 
     .indexblogtest2 {
-        font-size: 10px !important;
+        font-size: 7px !important;
     }
 
     .tagblog {
