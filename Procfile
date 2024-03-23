@@ -1,1 +1,2 @@
-web: gunicorn CheesyStore.wsgi:application
+release: python manage.py collectstatic --noinput
+web: gunicorn CheesyStore.wsgi
