@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY', '']
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -60,7 +60,6 @@ INSTALLED_APPS = [
     'profiles',
     'cheesyblog',
     'faq',
-    'storages',
 ]
 
 MIDDLEWARE = [
@@ -185,24 +184,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-if 'USE_AWS' in os.environ:
-    AWS_S3_OBJECT_PARAMETERS = {
-        'Expires': 'Thu, 31 Dec 2099, 20:00:00 GMT',
-        'CacheControl': 'max-age=94608000'
-    }
-    AWS_STORAGE_BUCKET_NAME = 'cheesystore'
-    AWS_S3_REGION_NAME = 'eu-west-1'
-    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-
-    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-    STATICFILES_LOCATION = 'static'
-
-    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
-
-    print("Using AWS S3 for static storage")
-    print("Bucket:", AWS_STORAGE_BUCKET_NAME)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
