@@ -1,1 +1,1 @@
-web: gunicorn CheesyStore.wsgi
+web: gunicorn CheesyStore.wsgi:application
