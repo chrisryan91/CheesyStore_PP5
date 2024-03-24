@@ -111,7 +111,7 @@ footer div a:hover {
     font-weight: bold;
 }
 
-.indexblogtest {
+.indexblogtest, .indexblogtest3 {
     font-weight: 500;
 }
 
@@ -140,11 +140,12 @@ footer div a:hover {
 }
 
 .parent-div1 div {
-    padding-top: 50px;
+    padding-top: 20px;
     padding-left: 20px;
 }
 
 .indexdiv {
+    padding-bottom: 25px;
     height: 35%;
 }
 
@@ -164,7 +165,7 @@ footer div a:hover {
 .sampleblog img {
     margin-top: 10px;
     width: 100%;
-    height: 150px;
+    height: 120px;
     object-fit: cover;
     border: black 2px solid;
     border-radius: 10px;
@@ -218,6 +219,7 @@ footer div a:hover {
 }
 
 .current4 {
+    font-size: 1rem;
     color: black !important;
 }
 
@@ -702,6 +704,10 @@ a.text-dark:focus, a.text-dark:hover {
         font-size: 12.5px;
     }
 
+    .indexblogtest3 {
+        font-size: 25px;
+    }
+
 }
 
 @media (min-width: 992px) {
@@ -761,6 +767,10 @@ a.text-dark:focus, a.text-dark:hover {
 
     .indexblogtest2 {
         font-size: 10px;
+    }
+
+    .indexblogtest4 {
+        font-size: 12px;
     }
 
     .mobiletitle {
@@ -845,9 +855,6 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 @media (max-width: 560px) {
-    .qty {
-        display: none;
-    }
 
     .prodname {
         font-size: 10px;
@@ -897,16 +904,16 @@ a.text-dark:focus, a.text-dark:hover {
         display: none;
     }
 
-    .indexblogtest {
-        font-size: 10px !important;
+    .indexblogtest3 {
+        font-size: 20px !important;
     }
 
-    .indexblogtest2 {
-        font-size: 7px !important;
+    .indexblogtest4 {
+        font-size: 11px !important;
     }
 
-    .tagblog {
-        display: none;
+    .current4 {
+        font-size: .75rem;
     }
 
 }
