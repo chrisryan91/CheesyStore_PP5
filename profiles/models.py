@@ -3,9 +3,10 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+# Import CountryField from django_countries
 from django_countries.fields import CountryField
 
-
+# Define the UserProfile model that extends the built-in User model with additional fields.
 class UserProfile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -20,10 +21,13 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
-
+# Define signal reciever that listen for the post_save signal from the User model.
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
-
+    
+    # If a User instance is created, create a UserProfile instance linked to it.
     if created:
         UserProfile.objects.create(user=instance)
+    
+    # Save the UserProfile to trigger a signal or save overrides.
     instance.userprofile.save()

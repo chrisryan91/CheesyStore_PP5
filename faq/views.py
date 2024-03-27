@@ -4,4 +4,5 @@ from django.shortcuts import render
 
 def faq(request):
 
+    # Return FAQ Page
     return render(request, 'faq/faq.html')
