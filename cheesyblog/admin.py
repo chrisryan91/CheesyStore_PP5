@@ -18,6 +18,16 @@ class PostAdmin(SummernoteModelAdmin):
     # Specify which fields should use the Summernote rich-text editor
     summernote_fields = ('content',)
 
+    fieldsets = (
+        (None, {
+            'fields': ('title', 'slug', 'author', 'status')
+        }),
+        ('Content', {
+            'fields': ('content', 'keywords'),
+            'classes': ('collapse',),
+        }),
+    )
+
 # Register the Comment model with the admin site using a custom admin class
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):

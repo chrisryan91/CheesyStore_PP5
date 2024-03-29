@@ -16,6 +16,7 @@ class Post(models.Model):
     excerpt = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    keywords = models.TextField(help_text="Enter specific comma-separated SEO keywords", blank=True)
 
     # Meta options to specify ordering of posts.
     class Meta:

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load blogtags %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'cheesyblog/css/cheesyblog.css' %}">
@@ -22,6 +23,13 @@
                 <p class="">{{ post.created_on }}</p>
                 <p class="px-25">
                     {{ post.content | safe }}
+                </p>
+                <p class="small mt-1 mb-0 tagblog">
+                    {% with post.keywords|split:"," as keyword_list %}
+                        {% for keyword in keyword_list %}
+                            <i class="fas fa-tag mr-1"></i>{{ keyword|striptags|safe }}
+                        {% endfor %}
+                    {% endwith %}
                 </p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
