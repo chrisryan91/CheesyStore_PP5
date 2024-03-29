@@ -63,6 +63,15 @@ body {
     color: white !important;
 }
 
+.cheeseicon {
+    padding-left: 45px;
+    height: 30px;
+}
+
+.cheeseicon, .mobiletitle {
+    display: block;
+}
+
 /* Footer */
 
 footer {
@@ -885,13 +894,18 @@ a.text-dark:focus, a.text-dark:hover {
 
 @media (max-width: 450px) {
 
+    .cheeseicon {
+        padding-left: 30px;
+        height: 20px;
+    }
+
     .text-center div i, .text-center p {
         font-size: 10px;
     }
 
     .mobiletitle {
         color: black;
-        font-size: 10px;
+        font-size: 12.5px;
     }
 
     .smltext {

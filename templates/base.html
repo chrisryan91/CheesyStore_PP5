@@ -8,6 +8,9 @@
     {% block meta %}
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta charset="utf-8">
+        <meta name="keywords"
+    content="Artisan cheeses, Cheese tasting events, Gourmet cheese platters, Handcrafted cheeses, Cheese pairing guides, Cheese-making workshops, Farm-to-table cheeses, Organic cheeses, Imported cheeses, Cheese storage tips, Wine and cheese pairings, Cheese gift baskets, Seasonal cheese selections, Cheese subscription box, Cheese recipes, Cheese party ideas, Local cheese market, Cheese nutrition facts, Vegan cheese alternatives, Gluten-free cheese options, Cheese history and culture, Cheese aging process, Cheese grading and classification, Rare and exotic cheeses, Cheese festivals and events, Cheese boards and accessories, Cheese tours and travels, Dairy-free cheese, Cheese industry news, Cheese tasting notes, Cheese for health, Cheese-making techniques, Cheese and charcuterie, Cheese in cuisine, Cheese conservation and sustainability, Raw milk cheeses, Soft, semi-soft, and hard cheeses, Cheese and fermentation, Cheese textures and flavors, Cheese and bread pairings, Cheese education and courses, Cheese awards and recognitions, Cheesemonger's choice, Homemade cheese recipes, Cheese trivia and facts, Cheese serving suggestions, Cheese in diet and nutrition, Cheese and cultural traditions, Cheese-related books and literature, Cheese advocacy and communities.">
+  <meta name="description" content="Treat yourself with delicious cheese from Ireland and abroad.">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     {% endblock %}
 
@@ -46,7 +49,8 @@
                 <ul class="list-inline list-unstyled text-center text-lg-left my-0">
                     <li class="list-inline-item">                
                         <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                            <h2 class="my-auto title"><strong>Cheesy Store </strong><i class="fas fa-cheese"></i></h2>
+                            <img src="../media/cheese.png" alt="" class="cheeseicon">
+                            <h2 class="my-auto title"><strong>Cheesy Store </strong></h2>
                         </a>
                     </li>
                     <li class="list-inline-item">
@@ -156,7 +160,10 @@
         <div class="row" id="topnav2">
             <nav class="navbar navbar-expand-lg navbar-light w-100">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="mobiletitle"><strong>Cheesy Store </strong><i class="fas fa-cheese"></i></span>
+                    <div>
+                        <img src="../media/cheese.png" alt="" class="cheeseicon">
+                        <span class="mobiletitle"><strong>Cheesy Store </strong></span>
+                    </div>
                 </button>
                 {% include 'includes/mobile-top-header.html' %}
                 {% include 'includes/main-nav.html' %}
