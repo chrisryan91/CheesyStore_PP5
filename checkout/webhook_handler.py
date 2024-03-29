@@ -9,24 +9,32 @@ from profiles.models import UserProfile
 
 import json
 import time
+
+# Import Stripe.
 import stripe
 
 class StripeWH_Handler:
 
+    # Initialize with the HTTP request.
     def __init__(self, request):
         self.request = request
-
+    
+    # Send an email confirmation for the order.
     def _send_confirmation_email(self, order):
+        # Customer's email address
         cust_email = order.email
         print(settings.DEFAULT_FROM_EMAIL)
+        # Render email subject template.
         subject = render_to_string(
             'checkout/confirmation_emails/confirmation_email_subject.txt',
             {'order': order})
 
+        # Render email body template.
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-
+        
+        #  Send the email.
         send_mail(
             subject,
             body,
@@ -35,30 +43,38 @@ class StripeWH_Handler:
         )
 
     def handle_event(self, event):
+        # Handle generic webhook events.
         return HttpResponse(
-            content = f'Webhook recieved: {event["type"]}',
+            content=f'Webhook received: {event["type"]}',
             status=200)
     
     def handle_payment_intent_payment_failed(self, event):
+        # Handle failed payment intents.
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
             status=200)
     
     def handle_payment_intent_succeeded(self, event):
+        # Handle successful payment intents.
         intent = event.data.object
+        # Payment ID.
         pid = intent.id
         metadata = intent.metadata
+        # Shopping bag from metadata.
         bag = metadata.get('bag')
+        # Save info flag.
         save_info = metadata.get('save_info')
+        # Retrieve charge object.
         stripe_charge = stripe.Charge.retrieve(
             intent.latest_charge
         )
 
-        billing_details = stripe_charge.billing_details # updated
+         # Billing details and Shipping details and Total.
+        billing_details = stripe_charge.billing_details
         shipping_details = intent.shipping
-        grand_total = round(stripe_charge.amount / 100, 2) # updated
+        grand_total = round(stripe_charge.amount / 100, 2)
 
-        # Clean data in the shipping details
+        # Clean up empty shipping details.
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
@@ -69,6 +85,7 @@ class StripeWH_Handler:
         attempt = 1
         while attempt <= 5:
             try:
+                # Attempt to find existing order
                 order = Order.objects.get(
                     full_name__iexact=shipping_details.name,
                     email__iexact=billing_details.email,
@@ -84,21 +101,21 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 order_exists = True
-                break  # Exit the loop if order is found
+                # Exit loop if order found
+                break
             except Order.DoesNotExist:
                 attempt += 1
+                # Wait before next attempt
                 time.sleep(1)
-        else:
-            print("Reached maximum attempts")  # Print if maximum attempts reached without finding the order
         if order_exists:
+            # If order exists send confirmation email
             self._send_confirmation_email(order)
-            print("here111")
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
                 status=200)
         else:
-            order = None
             try:
+                # Create a new order if not found
                 order = Order.objects.create(
                     full_name=shipping_details.name,
                     user_profile=profile,
@@ -114,21 +131,24 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 for item_id, item_data in json.loads(bag).items():
+                    # Retrieve product
                     product = Product.objects.get(id=item_id)
                     order_line_item = OrderLineItem(
                         order=order,
                         product=product,
                         quantity=item_data,
                     )
+                    # Save each line item
                     order_line_item.save()
             except Exception as e:
                 if order:
+                    # Delete order if error occurs
                     order.delete()
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
+        # Send confirmation email for new order
         self._send_confirmation_email(order)
-        print("here")
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200)

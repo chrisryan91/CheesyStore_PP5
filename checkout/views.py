@@ -15,32 +15,36 @@ import json
 
 @require_POST
 def cache_checkout_data(request):
+    # Store checkout data in PaymentIntent for use in webhook
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     try:
+        # Extract the PaymentIntent ID from the 'client_secret' POST parameter
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = stripe_secret_key
+        # Modify the PaymentIntent with metadata including the bag, save_info preference, and username
         stripe.PaymentIntent.modify(pid, metadata={
             'bag': json.dumps(request.session.get('bag', {})),
             'save_info': request.POST.get('save_info'),
-            'username': request.user,
+            'username': request.user.username,  # Should be `request.user.username` for clarity
         })
         return HttpResponse(status=200)
     except Exception as e:
+        # Handle errors by displaying a message and returning a 400 response
         messages.error(request, 'Sorry, your payment cannot be \
             processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
 
 def checkout(request):
+    # Handle the checkout process
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
-    print(stripe_public_key)
-    print(stripe_secret_key)
-
     if request.method == 'POST':
+        # If form is submitted, collect form data from the POST request
         bag = request.session.get('bag', {})
 
         form_data = {
+            # Collect all form data
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
             'phone_number': request.POST['phone_number'],
@@ -52,30 +56,29 @@ def checkout(request):
             'county': request.POST['county'],
         }
 
-        print(form_data)
-
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            print("a")
+            # If the form is valid, process the form but don't save yet
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
+            # Set the stripe payment ID and original bag on the order
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
-            print("zzz")
             order.save()
             for item_id, item_data in bag.items():
                 try:
-                    print(item_id)
+                    # Create order line items
                     product = Product.objects.get(id=item_id)
                     if isinstance(item_data, int):
+                        # Handle single item orders
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
                             quantity=item_data,
                         )
                         order_line_item.save()
-
                 except Product.DoesNotExist:
+                    # Handle errors such as product not found
                     messages.error(request, (
                         "One of the products in your bag wasn't found in our database. "
                         "Please call us for assistance!")
@@ -83,21 +86,23 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse('view_bag'))
 
+            # Save the info flag in session and redirect to success page
             request.session['save_info'] = 'save-info' in request.POST
-            print("e")
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
+            # If form is invalid, display an error message
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
     else:
+        # Handle GET request
         bag = request.session.get('bag', {})
-        print("f")
         if not bag:
-            messages.error(request, "There's nothing in yo bag at the moment")
+            # Redirect if bag is empty
+            messages.error(request, "There's nothing in your bag at the moment")
             return redirect(reverse('products'))
         
+        # Calculate the total for stripe and create a payment intent
         current_bag = bag_contents(request)
-        print(current_bag)
         total = current_bag['grand_total']
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key
@@ -105,10 +110,9 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-        print(intent)
 
+        # Pre-fill the order form with user profile info if user is authenticated
         if request.user.is_authenticated:
-            print("g")
             try:
                 profile = UserProfile.objects.get(user=request.user)
                 order_form = OrderForm(initial={
@@ -123,15 +127,15 @@ def checkout(request):
                     'county': profile.default_county,
                 })
             except UserProfile.DoesNotExist:
-                print("h")
                 order_form = OrderForm()
         else:
-            print("i")
             order_form = OrderForm()
 
     if not stripe_public_key:
-        messages.warning(request, 'Public key is missing!')
+        # Warn if stripe public key is missing
+        messages.warning(request, 'Stripe public key is missing. Please check your configuration.')
 
+    # Render the checkout page
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
@@ -142,17 +146,18 @@ def checkout(request):
     return render(request, template, context)
 
 def checkout_success(request, order_number):
-
+    # Handle successful checkout
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-    print(order)
 
     if request.user.is_authenticated:
+        # Link order to user profile and save their info if requested
         profile = UserProfile.objects.get(user=request.user)
         order.user_profile = profile
         order.save()
 
         if save_info:
+            # Update user profile with order info
             profile_data = {
                 'default_phone_number': order.phone_number,
                 'default_country': order.country,
@@ -166,11 +171,12 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
-    messages.success(request, f'Order successfully processed! - order number is {order_number} and email is {order.email}')
-
+    # Display a success message and clear the bag from session
+    messages.success(request, f'Order successfully processed! Your order number is {order_number}.')
     if 'bag' in request.session:
         del request.session['bag']
 
+    # Render the success page
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,

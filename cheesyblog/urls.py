@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import CheesyBlogListView, PostDetail, AddBlogPost
 
+# URL routers for CheesyBlog
 urlpatterns = [
     path('', CheesyBlogListView.as_view(), name='cheesyblog'),
     path('addblogpost/', AddBlogPost, name='addblogpost'),
