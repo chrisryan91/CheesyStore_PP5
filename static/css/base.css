@@ -56,7 +56,7 @@ body {
 }
 
 #topnav div ul li a:hover, #topnav div ul li a h2:hover {
-    color: orange !important;
+    color:  #ffff99  !important;
 }
 
 #topnav div ul li span {
@@ -105,7 +105,7 @@ footer div a {
 }
 
 footer div a:hover {
-    color: orange;
+    color:  #ffff99 ;
     text-decoration: none;
 }
 
@@ -125,7 +125,7 @@ footer div a:hover {
 }
 
 .indexblogtest:hover {
-    color: orange !important;
+    font-weight: bold;
 }
 
 .blogpreview {
@@ -156,6 +156,8 @@ footer div a:hover {
 .indexdiv {
     padding-bottom: 25px;
     height: 35%;
+    background-color: white;
+    border-top: 2px solid black;
 }
 
 .indexdiv2 {
@@ -223,7 +225,7 @@ footer div a:hover {
 }
 
 .current3:hover {
-    color: orange !important;
+    color: #ffff99 !important;
     text-decoration: none;
 }
 
@@ -233,7 +235,7 @@ footer div a:hover {
 }
 
 .current4:hover {
-    color: orange !important;
+    color:  #ffff99 !important;
     text-decoration: none;
 }
 
@@ -249,7 +251,7 @@ footer div a:hover {
 }
 
 .shopnow:hover {
-    color: orange !important;
+    color:  #ffff99  !important;
     text-decoration: none;
 }
 
@@ -282,7 +284,7 @@ footer div a:hover {
 }
 
 .newarrivalsbox a:hover {
-    color: orange !important;
+    color:  #ffff99  !important;
 }
 
 .productindexname {
@@ -307,15 +309,15 @@ footer div a:hover {
 
 .btn-outline-black:hover, .btn-outline-black:hover span:hover {
     background: black;
-    color: orange !important;
+    color:  #ffff99  !important;
 }
 
 #addtobag:hover {
-    color: orange !important;
+    color:  #ffff99  !important;
 }
 
 .addtobag:hover {
-    color: orange !important;
+    color:  #ffff99  !important;
 }
 
 .text-black {
@@ -381,7 +383,7 @@ button {
 
 .nextlast:hover {
     text-decoration: none;
-    color: orange !important;
+    color:  #ffff99  !important;
 }
 
 .productimage {
@@ -394,7 +396,7 @@ button {
 }
 
 a.category-badge span.badge:hover {
-    color: orange !important;
+    color:  #ffff99  !important;
 }
 
 .productshome {
@@ -402,21 +404,21 @@ a.category-badge span.badge:hover {
 }
 
 .productshome:hover {
-    color: orange !important;
+    color:  #ffff99  !important;
 }
 
 a.text-dark:focus, a.text-dark:hover {
-    color: orange !important;
+    color:  #ffff99  !important;
 }
 
 .canceladd:hover {
     background-color: black;
-    color: orange !important;
+    color:  #ffff99  !important;
 }
 
 .addproduct1:hover {
     text-decoration: none;
-    color: orange !important;
+    color:  #ffff99  !important;
 }
 
 
@@ -539,7 +541,7 @@ a.text-dark:focus, a.text-dark:hover {
 
 #mc_embed_signup .button:hover {
     background-color: #222;
-    color: orange !important;
+    color:  #ffff99  !important;
 }
 
 #contactsubmit {
@@ -549,7 +551,7 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 #contactsubmit:hover {
-    color: orange !important;
+    color:  #ffff99  !important;
     text-decoration: none;
 }
 
@@ -644,7 +646,7 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 .faqlink:hover {
-    color: orange !important;
+    color:  #ffff99  !important;
 }
 
 
@@ -662,12 +664,12 @@ a.text-dark:focus, a.text-dark:hover {
 
 .authbox form button:hover {
     background-color: black !important;
-    color: orange !important;
+    color:  #ffff99  !important;
 }
 
 .authbox:hover {
     background-color: black !important;
-    color: orange !important;
+    color:  #ffff99  !important;
 }
 
 .authbox2 {
@@ -685,7 +687,7 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 .signinlink:hover {
-    color: orange !important;
+    color:  #ffff99  !important;
     text-decoration: none !important;
 }
 
@@ -697,7 +699,7 @@ a.text-dark:focus, a.text-dark:hover {
 
 #submit:hover {
     background-color: black !important;
-    color: orange !important;
+    color:  #ffff99  !important;
     border: none !important;
 }
 
@@ -845,6 +847,7 @@ a.text-dark:focus, a.text-dark:hover {
         height: 30vh !important;
         background-color: white !important;
         margin-bottom: 30px;
+        margin-left: 5px !important;
     }
 
     .image-container2 {

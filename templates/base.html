@@ -40,7 +40,7 @@
     {% block extra_js %}
     {% endblock %}
     
-    <title>Cheesy Store {% block extra_title %}{% endblock %}</title>
+    <title>Cheesy Store | Artisan Irish Cheese Shop</title>
     </head>
   <body>
     <header class="container-fluid fixed-top">
@@ -49,7 +49,7 @@
                 <ul class="list-inline list-unstyled text-center text-lg-left my-0">
                     <li class="list-inline-item">                
                         <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                            <img src="../media/cheese.png" alt="" class="cheeseicon">
+                            <img src="https://cheesystore.s3.eu-west-1.amazonaws.com/media/cheese.png" alt="" class="cheeseicon">
                             <h2 class="my-auto title"><strong>Cheesy Store </strong></h2>
                         </a>
                     </li>
@@ -161,7 +161,7 @@
             <nav class="navbar navbar-expand-lg navbar-light w-100">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <div>
-                        <img src="../media/cheese.png" alt="" class="cheeseicon">
+                        <img src="https://cheesystore.s3.eu-west-1.amazonaws.com/media/cheese.png" alt="block of cheese icon" class="cheeseicon">
                         <span class="mobiletitle"><strong>Cheesy Store </strong></span>
                     </div>
                 </button>
@@ -201,10 +201,10 @@
                 <a href="https://www.termsfeed.com/live/5368a141-15f2-496a-bab5-6fd5c57207d3" target="_blank" class="privacylink2">Privacy Policy</a>
             </div>
             <div class="col-4 d-flex justify-content-center sociallinks">
-                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"> </i></a>
-                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"> </i></a>
-                <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"> </i></a>
-                <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"> </i></a>
+                <a href="https://www.facebook.com" target="_blank" rel="noopener"><i class="fab fa-facebook"> </i></a>
+                <a href="https://www.instagram.com" target="_blank" rel="noopener"><i class="fab fa-instagram"> </i></a>
+                <a href="https://www.twitter.com" target="_blank" rel="noopener"><i class="fab fa-twitter"> </i></a>
+                <a href="https://www.tiktok.com" target="_blank" rel="noopener"><i class="fab fa-tiktok"> </i></a>
             </div>
             <div class="col-4 contactlink d-flex justify-content-end">
                 <a href="{% url 'contact' %}" class="contactlink2">Contact</a>
