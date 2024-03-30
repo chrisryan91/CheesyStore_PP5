@@ -362,6 +362,10 @@ button {
 
 /* Products Page styling*/
 
+.rating .far {
+    color: red;
+}
+
 .soldout {
     color: red;
 }

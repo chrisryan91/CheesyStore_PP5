@@ -1,11 +1,14 @@
+import json
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.http import JsonResponse
+from django.views import View
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q
+from django.db.models import Q, Avg
 from django.db.models.functions import Lower
 
-from .models import Product, Category, CheeseType, Origin
+from .models import Product, Category, CheeseType, Origin, Rating
 from .forms import ProductForms
 
 # A view to display products in their entirety or based on request parameters.
@@ -190,3 +193,44 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product Deleted!')
     return redirect(reverse('products'))
+
+class RateProduct(View):
+    def post(self, request, *args, **kwargs):
+        print("called")
+
+        if not request.user.is_authenticated:
+            print("not authenticated")
+            return JsonResponse({'error': 'Authentication required'}, status=401)
+
+        # Parsing JSON data from request body
+        data = json.loads(request.body)
+        product_id = data.get('product_id')
+        stars = data.get('stars')
+
+        try:
+            stars = int(stars)
+            if stars < 1 or stars > 5:
+                raise ValueError("Rating must be between 1 and 5.")
+        except ValueError as e:
+            return JsonResponse({'error': str(e)}, status=400)
+        except TypeError:
+            return JsonResponse({'error': 'Invalid input'}, status=400)
+
+        try:
+            product_id = int(product_id)
+        except (ValueError, TypeError):
+            return JsonResponse({'error': 'Invalid product ID'}, status=400)
+
+        product = get_object_or_404(Product, pk=product_id)
+
+        rating, created = Rating.objects.update_or_create(
+            user=request.user, product=product,
+            defaults={'stars': stars}
+        )
+
+        # Recalculate the average rating
+        new_average_rating = product.ratings.aggregate(avg_rating=Avg('stars'))['avg_rating']
+        product.rating = round(new_average_rating, 2) if new_average_rating is not None else None
+        product.save()
+
+        return JsonResponse({'success': 'Rating updated', 'new_average_rating': float(product.rating) if product.rating else None})

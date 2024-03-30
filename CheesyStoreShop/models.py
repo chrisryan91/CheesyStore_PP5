@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
     # Represents a category for the products.
 class Category(models.Model):
@@ -69,3 +70,12 @@ class Product(models.Model):
     def __str__(self):
         # String representation.
         return self.name
+    
+class Rating(models.Model):
+    product = models.ForeignKey(Product, related_name='ratings', on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    stars = models.IntegerField()
+
+    class Meta:
+        unique_together = (('user', 'product'),)
+        index_together = (('user', 'product'),)
