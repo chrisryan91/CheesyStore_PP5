@@ -363,7 +363,11 @@ button {
 /* Products Page styling*/
 
 .rating .far {
-    color: red;
+    color: black;
+}
+
+.rating .far:hover {
+    cursor: pointer;
 }
 
 .soldout {

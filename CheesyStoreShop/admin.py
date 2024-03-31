@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Category, CheeseType, Origin
+from .models import Product, Category, CheeseType, Origin, Rating
 
 # ProductAdmin Configuration.
 class ProductAdmin(admin.ModelAdmin):
@@ -39,7 +39,13 @@ class OriginAdmin(admin.ModelAdmin):
         'name'
     )
 
+class RatingAdmin(admin.ModelAdmin):
+    list_display = ('product', 'user', 'stars')
+    list_filter = ('product', 'user')
+    search_fields = ('product__name', 'user__username')
+
 # Register the models and their admin classes
+admin.site.register(Rating, RatingAdmin)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(CheeseType, CheeseTypeAdmin)

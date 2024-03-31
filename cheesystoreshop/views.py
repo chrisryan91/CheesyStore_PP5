@@ -99,12 +99,14 @@ def all_products(request):
 
 # A view for displaying the details of a specific product.
 def product_detail(request, product_id):
-
     product = get_object_or_404(Product, pk=product_id)
-    context = {
-        'product': product,
-    }
-    return render(request, 'products/product_detail.html', context)
+    user_rating = None
+    if request.user.is_authenticated:
+        # Try to get the existing rating for this user and product
+        rating_query = Rating.objects.filter(product=product, user=request.user).first()
+        if rating_query:
+            user_rating = rating_query.stars
+    return render(request, 'products/product_detail.html', {'product': product, 'user_rating': user_rating})
 
 # A view to add a product with a decorator to restrict access to superusers.
 @login_required

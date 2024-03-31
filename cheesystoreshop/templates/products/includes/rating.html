@@ -7,7 +7,7 @@
         console.log(productId)
 
         // Immediately provide visual feedback
-        $(this).prevAll().addBack().addClass('fas').css('color', 'red');
+        $(this).prevAll().addBack().addClass('fas').css('color', 'black');
         $(this).nextAll().removeClass('fas').addClass('far').css('color', '');
         var csrftoken = $('meta[name="csrf-token"]').attr('content');
         var dataPayload = JSON.stringify({
@@ -27,11 +27,9 @@
     dataType: 'json',
     success: function(response) {
         console.log("Success:", response);
-        alert("Rating updated successfully!");
     },
     error: function(xhr, status, error) {
         console.log("Error:", xhr.responseText);
-        alert("An error occurred. Please try again.");
     }
 });
     });

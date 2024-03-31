@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load my_tags %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -60,11 +61,13 @@
                         {% endif %}
                         <p class="mt-3">{{ product.description }}</p>
                         <div class="rating" data-product-id="{{ product.id }}">
-                            <i class="far fa-star rating-star" data-value="1"></i>
-                            <i class="far fa-star rating-star" data-value="2"></i>
-                            <i class="far fa-star rating-star" data-value="3"></i>
-                            <i class="far fa-star rating-star" data-value="4"></i>
-                            <i class="far fa-star rating-star" data-value="5"></i>
+                            {% for star in 1|to_range:5 %}
+                                {% if user_rating and star <= user_rating %}
+                                    <i class="fas fa-star rating-star" data-value="{{ star }}"></i> <!-- Filled star -->
+                                {% else %}
+                                    <i class="far fa-star rating-star" data-value="{{ star }}"></i> <!-- Empty star -->
+                                {% endif %}
+                            {% endfor %}
                         </div>
                         <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                             {% csrf_token %}
