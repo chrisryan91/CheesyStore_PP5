@@ -2,10 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.views.decorators.http import require_POST
 from django.views.generic import ListView
 from django.views import View
 from django.utils.text import slugify
-from .models import Post
+from .models import Post, Comment
 from .forms import CommentForm, BlogPostForm
 
 # List view for displaying blog posts with pagination.
@@ -97,3 +98,10 @@ def AddBlogPost(request):
         # If not post initialise empty form.
         form = BlogPostForm()
     return render(request, 'cheesyblog/addblogpost.html', {'form': form})
+
+@require_POST
+def DeleteComment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    if request.user == comment.user:
+        comment.delete()
+    return redirect('post_detail', slug=comment.post.slug)

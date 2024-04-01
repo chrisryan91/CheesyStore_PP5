@@ -58,6 +58,12 @@
                     </p>
                     {{ comment.body | linebreaks }}
                 </div>
+                {% if comment.user == request.user %}
+                <form action="{% url 'delete_comment' comment.id %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <input type="submit" value="Delete" onclick="return confirm('Are you sure?');" class="text-danger">
+                </form>
+            {% endif %}
                 {% endfor %}
             </div>
         </div>
