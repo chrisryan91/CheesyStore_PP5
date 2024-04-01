@@ -25,6 +25,11 @@
                         <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ o.friendly_name }}</span>
                     </a>
                 {% endfor %}
+                {% for ct in current_cheesetypes %}
+                    <a href="{% url 'products' %}?cheesetype={{ ct.name }}" class="category-badge text-decoration-none">
+                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ ct.friendly_name }}</span>
+                    </a>
+                {% endfor %}
                 <hr class="w-50 mb-1">
             </div>
         </div>

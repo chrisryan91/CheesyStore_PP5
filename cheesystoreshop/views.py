@@ -45,14 +45,16 @@ def all_products(request):
                 
                 products = products.order_by(sortkey)
 
+        print(request.GET)
+
         # Filtering by category, cheesetype or origin.
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
-        if 'cheesetype' in request.GET:
-            cheesetypes = request.GET['cheesetype'].split(',')
+        if 'cheesytype' in request.GET:
+            cheesetypes = request.GET['cheesytype'].split(',')
             products = products.filter(cheesetype__name__in=cheesetypes)
             cheesetypes = CheeseType.objects.filter(name__in=cheesetypes)
 

@@ -9,7 +9,7 @@ class ProductForms(forms.ModelForm):
     # Specifies the model to build the form field and include all fields from the model in the form.
     class Meta:
         model = Product
-        fields = '__all__'
+        exclude = ('sku',)
 
     # Customises image field to use a custom widgets.
     image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
