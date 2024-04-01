@@ -55,10 +55,6 @@ body {
     border-bottom: solid black 2px;
 }
 
-#topnav div ul li a:hover, #topnav div ul li a h2:hover {
-    color:  #ffff99  !important;
-}
-
 #topnav div ul li span {
     color: white !important;
 }
@@ -102,11 +98,6 @@ footer div {
 footer div a {
     font-style: none;
     color: white;
-}
-
-footer div a:hover {
-    color:  #ffff99 ;
-    text-decoration: none;
 }
 
 /* Homepage Styling */
@@ -224,19 +215,9 @@ footer div a:hover {
     color: black !important;
 }
 
-.current3:hover {
-    color: #ffff99 !important;
-    text-decoration: none;
-}
-
 .current4 {
     font-size: 1rem;
     color: black !important;
-}
-
-.current4:hover {
-    color:  #ffff99 !important;
-    text-decoration: none;
 }
 
 .allposts {
@@ -248,11 +229,6 @@ footer div a:hover {
 
 .current3 {
     color: white !important;
-}
-
-.shopnow:hover {
-    color:  #ffff99  !important;
-    text-decoration: none;
 }
 
 .newarrival {
@@ -283,10 +259,6 @@ footer div a:hover {
     color: white !important;
 }
 
-.newarrivalsbox a:hover {
-    color:  #ffff99  !important;
-}
-
 .productindexname {
     color: black;
     padding-bottom: 5px;
@@ -305,19 +277,6 @@ footer div a:hover {
     color: black !important;
     border: 1px solid black;
     border-radius: 10px;
-}
-
-.btn-outline-black:hover, .btn-outline-black:hover span:hover {
-    background: black;
-    color:  #ffff99  !important;
-}
-
-#addtobag:hover {
-    color:  #ffff99  !important;
-}
-
-.addtobag:hover {
-    color:  #ffff99  !important;
 }
 
 .text-black {
@@ -389,11 +348,6 @@ button {
     color: black !important;
 }
 
-.nextlast:hover {
-    text-decoration: none;
-    color:  #ffff99  !important;
-}
-
 .productimage {
     border: 2px black solid;
     border-radius: 10px;
@@ -403,33 +357,9 @@ button {
     height: 100px;
 }
 
-a.category-badge span.badge:hover {
-    color:  #ffff99  !important;
-}
-
 .productshome {
     color: black !important;
 }
-
-.productshome:hover {
-    color:  #ffff99  !important;
-}
-
-a.text-dark:focus, a.text-dark:hover {
-    color:  #ffff99  !important;
-}
-
-.canceladd:hover {
-    background-color: black;
-    color:  #ffff99  !important;
-}
-
-.addproduct1:hover {
-    text-decoration: none;
-    color:  #ffff99  !important;
-}
-
-
 
 /* Blog styling*/
 
@@ -547,20 +477,10 @@ a.text-dark:focus, a.text-dark:hover {
     padding-right: 25px;
 }
 
-#mc_embed_signup .button:hover {
-    background-color: #222;
-    color:  #ffff99  !important;
-}
-
 #contactsubmit {
     background-color: black;
     color: white;
     border-radius: 5px;
-}
-
-#contactsubmit:hover {
-    color:  #ffff99  !important;
-    text-decoration: none;
 }
 
 /* Product Form */
@@ -653,12 +573,6 @@ a.text-dark:focus, a.text-dark:hover {
     color: black;
 }
 
-.faqlink:hover {
-    color:  #ffff99  !important;
-}
-
-
-
 /* Auth Styling */
 
 .authbox, .authbox form button {
@@ -668,16 +582,6 @@ a.text-dark:focus, a.text-dark:hover {
     background-color: white;
     border: 2px black solid;
     border-radius: 10px;
-}
-
-.authbox form button:hover {
-    background-color: black !important;
-    color:  #ffff99  !important;
-}
-
-.authbox:hover {
-    background-color: black !important;
-    color:  #ffff99  !important;
 }
 
 .authbox2 {
@@ -694,21 +598,10 @@ a.text-dark:focus, a.text-dark:hover {
     color: black;
 }
 
-.signinlink:hover {
-    color:  #ffff99  !important;
-    text-decoration: none !important;
-}
-
 #submit {
     padding: 2px;
     background-color: white;
     font-size: 22px;
-}
-
-#submit:hover {
-    background-color: black !important;
-    color:  #ffff99  !important;
-    border: none !important;
 }
 
 /* Media Queries */

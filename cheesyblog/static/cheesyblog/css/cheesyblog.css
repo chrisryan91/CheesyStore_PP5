@@ -40,7 +40,7 @@
 
 .post-link:hover,
 .page-link {
-    color: #E84610;
+    color: black;
 }
 
 .post-title {
@@ -93,23 +93,4 @@
 .post-link {
     text-decoration: none;
     color: black;
-}
-
-.post-link:hover {
-    text-decoration: none;
-    color: orange;
-}
-
-#addpost:hover {
-    text-decoration: none !important;
-    color: orange !important;
-}
-
-.pagination li a:hover {
-    text-decoration: none !important;
-    color: orange !important;
-}
-
-#commentsubmit:hover {
-    color: orange !important;
 }
