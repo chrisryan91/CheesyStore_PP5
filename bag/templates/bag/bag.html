@@ -76,7 +76,7 @@
                                     <p class="my-0">${{ item.product.price }}</p>
                                 </td>
                                 <td class="py-3 w-25">
-                                    {% include 'bag/quantity-form.html' %}
+                                    {% include 'bag/quantity-form2.html' %}
                                 </td>
                                 <td class="py-3">
                                     <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
@@ -112,6 +112,7 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
+{% include 'products/includes/quantity_input_script2.html' %}
 
 <script type="text/javascript">
     $('.btt-link').click(function(e) {

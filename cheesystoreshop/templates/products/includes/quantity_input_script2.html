@@ -1,0 +1,45 @@
+<script type="text/javascript">
+
+    // Disable +/- buttons outside 1-99 range
+    function handleEnableDisable2(itemId) {
+        var currentValue2 = parseInt($(`#2id_qty_${itemId}`).val());
+        console.log(currentValue2)
+        var minusDisabled2 = currentValue2 < 2;
+        var plusDisabled2 = currentValue2 > 98;
+        $(`#2decrement-qty_${itemId}`).prop('disabled', minusDisabled2);
+        $(`#2increment-qty_${itemId}`).prop('disabled', plusDisabled2);
+    }
+
+    // Ensure proper enabling/disabling of all inputs on page load
+    var allQtyInputs2 = $('.qty_input2');
+    for(var i = 0; i < allQtyInputs.length; i++){
+        var itemId = $(allQtyInputs[i]).data('item_id');
+        handleEnableDisable2(itemId);
+    }
+
+    // Check enable/disable every time the input is changed
+    $('.qty_input2').change(function() {
+        var itemId = $(this).data('item_id');
+        handleEnableDisable2(itemId);
+    });
+
+    // Increment quantity
+    $('.increment-qty2').click(function(e) {
+       e.preventDefault();
+       var closestInput2 = $(this).closest('.input-group2').find('.qty_input2')[0];
+       var currentValue2 = parseInt($(closestInput2).val());
+       $(closestInput2).val(currentValue2 + 1);
+       var itemId = $(this).data('item_id');
+       handleEnableDisable2(itemId);
+    });
+
+    // Decrement quantity
+    $('.decrement-qty2').click(function(e) {
+       e.preventDefault();
+       var closestInput2 = $(this).closest('.input-group2').find('.qty_input2')[0];
+       var currentValue2 = parseInt($(closestInput2).val());
+       $(closestInput2).val(currentValue2 - 1);
+       var itemId = $(this).data('item_id');
+       handleEnableDisable2(itemId);
+    });
+</script>
