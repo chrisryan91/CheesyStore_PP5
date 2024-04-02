@@ -125,7 +125,7 @@ def add_product(request):
         if form.is_valid():
             # Save the form if it is valid and provide success message.
             product = form.save()
-            messages.success(request, 'Successfully added product!')
+            messages.info(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             # Return error message otherwise.
@@ -137,6 +137,7 @@ def add_product(request):
     template = 'products/add_product.html'
     context = {
         'form': form,
+        'ignore_section': True,
     }
 
     # Return template with context.
@@ -161,7 +162,7 @@ def edit_product(request, product_id):
         # Check if the form is valid and save if so.
         if form.is_valid():
             form.save()
-            messages.success(request, 'Successfully updated product')
+            messages.info(request, 'Successfully updated product')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(request, 'Failed to update product')
@@ -175,6 +176,7 @@ def edit_product(request, product_id):
     context = {
         'form': form,
         'product': product,
+        'ignore_section': True,
     }
 
     # Render and return the template with context.
@@ -195,7 +197,7 @@ def delete_product(request, product_id):
 
     # Delete the product if found, provide success message and redirect to list of products.
     product.delete()
-    messages.success(request, 'Product Deleted!')
+    messages.info(request, 'Product Deleted!')
     return redirect(reverse('products'))
 
 class RateProduct(View):

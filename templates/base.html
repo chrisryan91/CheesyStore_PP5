@@ -236,6 +236,12 @@
     <script type="text/javascript">
         $('.toast').toast('show');
     </script>
+    <script>
+        // Auto-dismiss the toast after 5 seconds (5000 milliseconds)
+        setTimeout(function() {
+            $('.toast').toast('hide');
+        }, 5000);
+    </script>
     {% endblock %}
 
     

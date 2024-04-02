@@ -20,7 +20,7 @@ def profile(request):
         if form.is_valid():
             # Save the form is data is valid and provide success message.
             form.save()
-            messages.success(request, 'Updated profile successfully!')
+            messages.info(request, 'Updated profile successfully!')
         else:
             # Provide error messages if form is not valid.
             messages.error(request, 'Update Failed. Is form valid?')
@@ -56,7 +56,6 @@ def order_history(request, order_number):
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
-        'from_profile': True,
     }
 
     # Render and return the order history for the profile.

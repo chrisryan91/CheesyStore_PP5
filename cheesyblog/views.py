@@ -66,12 +66,17 @@ class PostDetail(View):
             comment.user = request.user
             # Save after associating valid comment with user, provide success message.
             comment.save()
-            messages.success(request, 'Comment added - awaiting approval!')
+            messages.info(request, 'Comment added - awaiting approval!')
         else:
             # Initialize form again on failure on failure.
             comment_form = CommentForm()
         
-        return render(request, "cheesyblog/cheesyblogpost.html", {"post": post, "comments": comments, "commented": True, "comment_form": comment_form})
+        return render(request, "cheesyblog/cheesyblogpost.html", {
+            "post": post,
+            "comments": comments,
+            "commented": True,
+            "comment_form": comment_form,
+            })
 
 # Function to check if a user is a superuser
 def is_super_user(user):
@@ -93,6 +98,7 @@ def AddBlogPost(request):
             new_post.excerpt = new_post.content[:100]
             # Save the post and redirect to blog posts.
             new_post.save()
+            messages.info(request, 'Post added - it may need approval!')
             return redirect('cheesyblog')
     else:
         # If not post initialise empty form.
@@ -103,5 +109,6 @@ def AddBlogPost(request):
 def DeleteComment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
     if request.user == comment.user:
+        messages.info(request, 'Comment deleted!')
         comment.delete()
     return redirect('post_detail', slug=comment.post.slug)
