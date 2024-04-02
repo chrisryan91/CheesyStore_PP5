@@ -48,14 +48,14 @@
         <nav aria-label="Page Navigation" id="blogpagin">
             <ul class="pagination justify-content-center">
                 {% if page_obj.has_previous %}
-                    <li><a href="?page={{ page_obj.previous_page_number }}" class="pag_button text-dark"><strong>&laquo; PREV</strong></a></li>
+                    <li><a href="?page={{ page_obj.previous_page_number }}" class="pag_button text-light">&laquo; PREV </a></li>
                 {% endif %}
                 {% if page_obj.has_next %}
-                    <li><a href="?page={{ page_obj.next_page_number }}" class="pag_button text-dark"><strong> NEXT &raquo;</strong></a></li>
+                    <li><a href="?page={{ page_obj.next_page_number }}" class="pag_button text-light"> NEXT &raquo;</a></li>
                 {% endif %}
             </ul>
             <span class="d-flex justify-content-center align-content-center">
-                <u class="current text-dark"><strong> Page {{ page_obj.number }} of {{ total_pages }} </strong></u>
+                <u class="current"> Page {{ page_obj.number }} of {{ total_pages }} </u>
             </span>
         </nav>
         {% endif %}
