@@ -13,8 +13,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6 container3">
-                <h2 class="logo-font mb-4">Product Management</h2>
-                <h4 class="text-dark">Add a Product</h4>
+                <h3 class="text-dark">Add a Product</h3>
                 <hr>
                 <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
@@ -26,8 +25,8 @@
                         {% endif %}
                     {% endfor %}
                     <div class="text-right">
-                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 canceladd">Cancel</a>
-                        <button class="btn btn-black rounded-0 addproduct1" type="submit">Add Product</button>
+                        <a href="{% url 'products' %}" class="btn rounded-0 canceladd">Cancel</a>
+                        <button class="btn rounded-0 addproduct1" type="submit">Add Product</button>
                     </div>
                 </form>
             </div>

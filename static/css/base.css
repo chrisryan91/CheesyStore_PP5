@@ -38,6 +38,7 @@ body {
     justify-content: center;
     height: 1.5rem;
     width: 1.5rem;
+    color: white !important;
 }
 
 .main-logo-link {
@@ -51,10 +52,6 @@ body {
     z-index: 99999999999;
 }
 
-#topnav {
-    border-bottom: solid black 2px;
-}
-
 #topnav div ul li span {
     color: white !important;
 }
@@ -66,6 +63,11 @@ body {
 
 .cheeseicon, .mobiletitle {
     display: block;
+}
+
+.searchmobbk1 {
+    right: -25px !important;
+    left: unset !important;
 }
 
 /* Footer */
@@ -147,19 +149,12 @@ footer div a {
 .indexdiv {
     padding-bottom: 25px;
     height: 35%;
-    background-color: white;
-    border-top: 2px solid black;
-}
-
-.indexdiv2 {
-    height: 100%;
 }
 
 .sampleblog {
     background-color: white;
-    border: 2px black solid;
     margin-right: 5px;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 10px;
     height: 180px;
 }
@@ -169,18 +164,16 @@ footer div a {
     width: 100%;
     height: 120px;
     object-fit: cover;
-    border: black 2px solid;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .indexdiv1 {
-    height: 65% !important;
+    height: 400px !important;
 }
 
 .divrow {
     height: 100%;
     width: 33.333333333333333333333333333% !important;
-    border: solid black 1px;
 }
 
 .divrow2 {
@@ -207,10 +200,6 @@ footer div a {
     color: white !important;
 }
 
-.current {
-    color: white !important;
-}
-
 .current2 {
     color: black !important;
 }
@@ -222,7 +211,6 @@ footer div a {
 
 .allposts {
     background-color: black;
-    border: 2px solid black;
     border-radius: 5px;
     padding: 10px;
 }
@@ -231,53 +219,36 @@ footer div a {
     color: white !important;
 }
 
-.newarrival {
-    height: 30%;
-    border: 2px solid black;
-    border-radius: 10px;
+.indexdiv2 {
+    height: 400px;
+}
 
+.indexsubscribe {
+    background-color: white !important;
+}
+
+.indexsubscribe {
+    height: 300px;
 }
 
 .newarrimg {
+    width: 200px;
     height: 200px;
-}
-
-.newarrivaltxt {
-    color: red !important;
-}
-
-.newarrivalsbox {
-    background-color: black;
-    border-radius: 5px;
-    font-weight: 30px;
-    padding: 5px;
-    margin-top: 150px;
-    margin-right: 50px;
-}
-
-.newarrivalsbox a {
-    color: white !important;
-}
-
-.productindexname {
-    color: black;
-    padding-bottom: 5px;
+    margin-top: 30px;
+    margin-left: 30px;
 }
 
 /* Button Stying */
 
+.btn {
+    color: black !important;
+    text-decoration: underline !important;
+}
+
 .btn-black {
-    background: black;
-    color: white;
     border-radius: 10px;
 }
 
-.btn-outline-black {
-    background: white;
-    color: black !important;
-    border: 1px solid black;
-    border-radius: 10px;
-}
 
 .text-black {
     color: #000 !important;
@@ -311,10 +282,6 @@ button {
     border: none !important;
 }
 
-.rounded-0 {
-    border-radius: 10px !important;
-}
-
 .plusminus {
     border-radius: 0px !important;
 }
@@ -336,7 +303,6 @@ button {
 .productdetail {
     background-color: white;
     padding: 30px;
-    border: black 2px solid;
     border-radius: 10px;
 }
 
@@ -349,7 +315,6 @@ button {
 }
 
 .productimage {
-    border: 2px black solid;
     border-radius: 10px;
 }
 
@@ -440,7 +405,6 @@ button {
     background-color: white;
     padding: 30px;
     border-radius: 10px;
-    border: 2px solid black;
 }
 
 .contactform img {
@@ -452,7 +416,6 @@ button {
     margin-right: 30px;
     margin-left: 30px;
     border-radius: 10px;
-    border: 2px solid black;
 }
 
 #mc_embed_shell {
@@ -487,7 +450,6 @@ button {
 
 .container5 {
     background-color: white;
-    border: 2px solid black;
     border-radius: 10px;
     padding: 30px;
     margin-bottom: 30px;
@@ -528,10 +490,8 @@ button {
 
 .container3 {
     background-color: white;
-    border: 2px black solid;
     border-radius: 10px;
     padding: 30px;
-    margin-top: 100px;
     margin-bottom: 100px;
 }
 
@@ -545,7 +505,6 @@ button {
     background-color: white;
     padding: 30px;
     border-radius: 10px;
-    border: 2px solid black;
     width: 50%;
 }
 
@@ -556,7 +515,6 @@ button {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border: 2px solid black;
     border-radius: 10px;
 }
 
@@ -580,7 +538,6 @@ button {
     height: 100px;
     width: 200px;
     background-color: white;
-    border: 2px black solid;
     border-radius: 10px;
 }
 
@@ -590,7 +547,6 @@ button {
     margin-bottom: 50px;
     padding: 50px;
     background-color: white;
-    border: 2px black solid;
     border-radius: 10px;
 }
 
@@ -669,7 +625,6 @@ button {
 
     #topnav2 {
         background-color: black !important;
-        border-bottom: 2px solid black;
     }
 
     #hometext {
@@ -736,19 +691,16 @@ button {
     }
 
     .indexdiv2 {
-        background-color: white;
         display: contents !important;
-        width: 100vw;
     }
 
     .divrow {
-        border: 2px solid black;
-        border-radius: 10px;
         width: 100% !important;
-        height: 30vh !important;
+        height: 300px !important;
         background-color: white !important;
-        margin-bottom: 30px;
-        margin-left: 5px !important;
+        border-bottom: 1px solid black;
+        border-top: 2px solid black;
+        margin-left: 0px !important;
     }
 
     .image-container2 {
@@ -762,13 +714,18 @@ button {
         height: 80%;
         margin-top: 20px;
         object-fit: cover;
-        border: 2px solid black;
         border-radius: 5px;
     }
 
     .contactform{
         width: 90%;
     }
+
+    .indexsubscribe {
+        padding-left: 100px;
+        height: 500px;
+    }
+
 }
 
 @media (max-width: 560px) {
@@ -792,6 +749,10 @@ button {
     .blogimg {
         height: 50% !important;
     }
+
+    .newarrtext {
+        margin-right: 30px;
+    }
         
 }
 
@@ -804,12 +765,12 @@ button {
     }
 
     .text-center div i, .text-center p {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .mobiletitle {
         color: black;
-        font-size: 12.5px;
+        font-size: 11.5px;
     }
 
     .smltext {

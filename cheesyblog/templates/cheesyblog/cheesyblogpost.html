@@ -31,12 +31,13 @@
                         {% endfor %}
                     {% endwith %}
                 </p>
+                <a href="{% url 'cheesyblog' %}" class="small mt-5"><u>Back to Blog</u></a>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%" alt="{{ post.keywords }}">
+                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="{{ post.keywords }}">
                 {% else %}
-                <img src=" {{ post.featured_image.url }}" width="100%" alt="post.keywords">
+                <img src=" {{ post.featured_image.url }}" alt="post.keywords">
                 {% endif %}
             </div>
         </div>
@@ -45,31 +46,35 @@
 
 <div class="container container2">
     <div class="row">
-        <div class="col-md-8 card mb-4 mt-3 ">
-            <h3>Comments:</h3>
+        <div class="col-sm-12 col-md-6 card mb-4 mt-3 ">
             <div class="card-body">
-                {% for comment in comments %}
-                <div class="comments" style="padding: 10px;">
-                    <p class="font-weight-bold">
-                        {{ comment.user }}
-                        <span class=" text-muted font-weight-normal">
-                            {{ comment.created_on }}
-                        </span> wrote:
+                <h3>Comments:</h3>
+                {% if not comments %}
+                    <p>
+                        No Comments Yet
                     </p>
-                    {{ comment.body | linebreaks }}
-                </div>
+                {% endif %}
+                {% for comment in comments %}
+                    <div class="comments">
+                        <p>
+                            {{ comment.user }} |
+                            <span class=" text-muted">
+                                {{ comment.created_on }}
+                            </span>
+                        </p>
+                        {{ comment.body | linebreaks }}
+                    </div>
                 {% if comment.user == request.user %}
-                <form action="{% url 'delete_comment' comment.id %}" method="post" style="display: inline;">
+                <form action="{% url 'delete_comment' comment.id %}" method="post">
                     {% csrf_token %}
-                    <input type="submit" value="Delete" onclick="return confirm('Are you sure?');" class="text-danger">
+                    <input type="submit" value="Delete" class="confirmButton text-danger">
                 </form>
             {% endif %}
+            <hr>
                 {% endfor %}
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4 card mb-4  mt-3 ">
+        <div class="col-sm-12 col-md-6 card mb-4 mt-3">
             <div class="card-body">
                 {% if commented %}
                     <div class="alert alert-success" role="alert">
@@ -77,12 +82,12 @@
                     </div>
                     {% else %}
                     {% if user.is_authenticated %}
-                    <h3>Leave a comment:</h3>
-                    <p>Posting as: {{ user.username }}</p>
+                    <h4>Leave a comment:</h4>
+                    <p class="text-muted">{{ user.username }}</p>
                     <form method="post" id="commentform">
                         {{ comment_form|crispy }}
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-signup btn-lg" id="commentsubmit"><u>Submit</u></button>
+                        <button type="submit" class="btn" id="commentsubmit"><u>Submit</u></button>
                     </form>
                     {% endif %}
                 {% endif %}
@@ -92,3 +97,9 @@
 </div>
 
 {% endblock content %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script src="{% static 'cheesyblog/js/blogscript.js' %}"></script>
+{% endblock %}
+
