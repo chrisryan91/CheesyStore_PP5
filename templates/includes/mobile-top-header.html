@@ -5,7 +5,7 @@
             <p class="my-0">Search</p>
         </div>
     </a>
-    <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0 searchmobbk" aria-labelledby="mobile-search">
+    <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0 " aria-labelledby="mobile-search">
         <form class="form" method="GET" action="{% url 'products' %}">
             <div class="input-group w-100">
                 <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search for products">
@@ -20,23 +20,11 @@
         </form>
     </div>
 </li>
-<li class="list-inline-item dropdown">
-    <a class="text-white nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <div class="text-center">
-            <div><i class="fas fa-user fa-lg"></i></div>
-            <p class="my-0">My Account</p>
+<li class="list-inline-item dropdown" id="">
+    <a class="nav-link text-black d-block d-lg-none ddlink" href="{% url 'view_bag' %}">
+        <div class="text-center searchmob">
+            <div><i class="fas fa-shopping-bag"></i></div>
+            <p class="my-0">Bag</p>
         </div>
     </a>
-    <div class="dropdown-menu border-0 searchmobbk searchmobbk1" aria-labelledby="user-options">
-        {% if request.user.is_authenticated %}
-            {% if request.user.is_superuser %}
-                <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-            {% endif %}
-            <a href="" class="dropdown-item">My Profile</a>
-            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-        {% else %}
-            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-        {% endif %}
-    </div>
 </li>

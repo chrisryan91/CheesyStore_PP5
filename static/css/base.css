@@ -32,6 +32,10 @@ body {
 
 /* Nav Styling */
 
+#main-nav {
+    width: 50vw !important;
+}
+
 .icon {
     align-items: center;
     display: inline-flex;
@@ -115,6 +119,7 @@ footer div a {
 
 .indexblogtest, .indexblogtest3 {
     font-weight: 500;
+    color: black !important;
 }
 
 .indexblogtest:hover {
@@ -198,6 +203,10 @@ footer div a {
     justify-content: center;
     text-align: center;
     padding: 20px;
+}
+
+.maintext a {
+    font-size: 25px;
 }
 
 .blogpreview {
@@ -505,7 +514,7 @@ button {
     background-color: white;
     border-radius: 5px;
     padding: 30px;
-    margin-bottom: 100px;
+    margin-top: 100px;
 }
 
 /* FAQ */
@@ -555,12 +564,25 @@ button {
 }
 
 .authbox2 {
-    margin-top: 200px;
-    margin-right: 5px;
-    margin-bottom: 50px;
+    margin-top: 100px;
     padding: 50px;
     background-color: white;
     border-radius: 5px;
+}
+
+.authbox3 {
+    margin-top: 250px;
+    padding: 50px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.signin {
+    border: 1px black solid !important;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 20px;
+    background-color: white !important;
 }
 
 .signinlink {

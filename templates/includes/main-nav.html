@@ -6,7 +6,7 @@
         <li class="list-inline-item dropdown">
             <a class="nav-link dropdown item d-block d-lg-none ddlink" href="{% url 'products' %}">All Cheeses</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-inline-item dropdown">
             <a class="nav-link d-block d-lg-none ddlink" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Cheese Types
             </a>
@@ -42,15 +42,27 @@
                 Blog
             </a>
         </li>
-        <li class="list-inline-item nav-item dropdown">
+        <li class="list-inline-item dropdown">
             <a class="nav-link text-black d-block d-lg-none ddlink" href="{% url 'contact' %}">
                 Contact
             </a>
         </li>
-        <li class="list-inline-item dropdown" id="">
-            <a class="nav-link text-black d-block d-lg-none ddlink" href="{% url 'view_bag' %}">
-                <i class="fas fa-shopping-bag"></i> Bag
+        <li class="list-inline-item dropdown">
+            <a class="nav-link text-black d-block d-lg-none ddlink" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                My Account
             </a>
-        </li>
+            <div class="dropdown-menu border-0 searchmobbk" aria-labelledby="origin-link">
+                {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                        <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                    {% endif %}
+                    <a href="" class="dropdown-item">My Profile</a>
+                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                {% else %}
+                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                {% endif %}
+            </div>
+          </li>
     </ul>
 </div>
