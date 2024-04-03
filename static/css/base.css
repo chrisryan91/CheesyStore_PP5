@@ -104,7 +104,7 @@ footer div a {
 
 /* Homepage Styling */
 
-#indexlink {
+.indexlink {
     height: 100%;
 }
 
@@ -153,6 +153,7 @@ footer div a {
 
 .indexdiv3 {
     background-color: white !important;
+    border-top: 1px solid black;
 }
 
 .sampleblog {
@@ -161,6 +162,7 @@ footer div a {
     border-radius: 5px;
     padding: 10px;
     height: 180px;
+    border: 2px solid black;
 }
 
 .sampleblog img {
@@ -172,7 +174,7 @@ footer div a {
 }
 
 .indexdiv1 {
-    height: 500px !important;
+    height: 60% !important;
 }
 
 .divrow {
@@ -186,14 +188,16 @@ footer div a {
 }
 
 .maintext {
-    font-size: 20px;
-    border: solid 3px black;
+    width: 50% !important;
     border-radius: 5px;
+    border: 1px solid white;
     background-color: black;
-}
-
-.maintext a {
-    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
 }
 
 .blogpreview {
@@ -209,7 +213,6 @@ footer div a {
 }
 
 .current4 {
-    font-size: 1rem;
     color: black !important;
 }
 
@@ -224,23 +227,31 @@ footer div a {
 }
 
 .indexdiv2 {
-    height: 400px;
+    height: 40%;
 }
 
 .indexsubscribe {
     background-color: white !important;
-    height: 300px;
+    height: 20px;
 }
 
 .newarrimg {
     width: 200px;
     height: 200px;
     margin-top: 30px;
-    margin-left: 30px;
 }
 
 .mailchimpindex {
     background-color: white !important;
+    border-left: 1px solid black !important;
+}
+
+.newarrtext {
+    padding-left: 30px;
+}
+
+.hometext {
+    font-size: 15px;
 }
 
 /* Button Stying */
@@ -568,10 +579,6 @@ button {
 /* Media Queries */
 
 @media (max-width: 1150px) {
-    #hometext {
-        font-size: smaller;
-    }
-
     
     .indexblogtest {
         font-size: 12.5px;
@@ -700,12 +707,10 @@ button {
     }
 
     .divrow {
-        width: 100% !important;
-        height: 300px !important;
+        width: 105% !important;
+        height: 40% !important;
         background-color: white !important;
-        border-bottom: 1px solid black;
         border-top: 1px solid black;
-        margin-left: 0px !important;
     }
 
     .image-container2 {
@@ -727,15 +732,21 @@ button {
     }
 
     .indexsubscribe {
-        padding-left: 100px;
         height: 400px;
-        border-top: 1px solid black;
         border-bottom: 1px solid black;
     }
 
     #mc_embed_signup {
         margin-right: 0px;
         margin-left: 0px;
+    }
+
+    .mailchimpindex {
+        border-left: none !important;
+    }
+
+    .maintext {
+        width: 75% !important;
     }
 }
 
@@ -761,8 +772,8 @@ button {
         height: 50% !important;
     }
 
-    .newarrtext {
-        margin-right: 30px;
+    .maintext h2 {
+        display: none;
     }
         
 }
@@ -804,10 +815,6 @@ button {
 
     .indexblogtest4 {
         font-size: 11px !important;
-    }
-
-    .current4 {
-        font-size: .5rem;
     }
 
 }
