@@ -3,152 +3,148 @@
 
 {% block content %}
 
-
-        <div class="row indexdiv1">
-            <div class="col-12">
-                <div class="row d-flex justify-content-center align-items-center indexlink">
-                    <div class="d-flex justify-content-center align-items-center maintext">
-                        <h1 class="text-white">Welcome to Cheesy Store</h1>
-                        <h2 class="text-white hometext">Our online cheesemonger offer the best local and international cheeses, straight from the farm to your door. We pick only the best, made with care and traditional recipes. It's an easy way to enjoy delicious, authentic cheese without leaving home!</h2>
-                        <a href="{% url 'products' %}" class="text-white"><u>Shop Now</u></a>
-                    </div>
+<div class="row indexdiv1">
+    <div class="col-12">
+        <div class="row d-flex justify-content-center align-items-center indexlink">
+            <div class="d-flex justify-content-center align-items-center maintext">
+                <h1 class="text-white">Welcome to Cheesy Store</h1>
+                <h2 class="text-white hometext">Our online cheesemonger offer the best local and international cheeses, straight from the farm to your door. We pick only the best, made with care and traditional recipes. It's an easy way to enjoy delicious, authentic cheese without leaving home!</h2>
+                <a href="{% url 'products' %}" class="text-white"><u>Shop Now</u></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row indexdiv">
+    <div class="col-3 d-flex justify-content-center align-items-center">
+        <div class="allposts">
+            <a href="{% url 'cheesyblog' %}" class="current3">LATEST BLOG POSTS <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+    {% for post in blog_posts1 %}
+    <div class="col-3 d-flex justify-content-center align-items-center">
+        <div class="row sampleblog">
+            <div class="col-12 col-md-6 samblogtext">
+                <a href="{% url 'post_detail' post.slug  %}" class="titlehov">
+                    <h2 class="lead text-black indexblogtest">{{ post.title }}</h2>
+                </a>
+                <p class="small indexblogtest2"><i class="fas fa-tag mr-1"></i>{{ post.created_on }}</p>
+            </div>
+            <div class="col-6 parent-div">
+                <div class="image-container">
+                    <img src="{{ post.featured_image.url }}" alt="Placeholder Image" class="">
                 </div>
             </div>
         </div>
-        </div>
-        <div class="row indexdiv">
-            <div class="col-3 d-flex justify-content-center align-items-center">
-                <div class="allposts">
-                    <a href="{% url 'cheesyblog' %}" class="current3">
-                        LATEST BLOG POSTS <i class="fas fa-arrow-right"></i>
+    </div>
+    {% endfor %}
+</div>
+<div class="row indexdiv2 d-none">
+    {% for post in blog_posts2 %}
+    <div class="divrow row">
+            <div class="col-6 parent-div1">
+                <div>
+                    <a href="{% url 'cheesyblog' %}" class="current4">
+                        <h3>LATEST BLOG POSTS</h3>
                     </a>
+                    <a href="{% url 'post_detail' post.slug  %}" class="">
+                        <h4 class="text-dark indexblogtest3">{{ post.title }}</h4>
+                    </a>
+                    <p class="indexblogtest4"><i class="fas fa-tag mr-1"></i>{{ post.created_on }}</p>
                 </div>
             </div>
-            {% for post in blog_posts1 %}
-            <div class="col-3 d-flex justify-content-center align-items-center">
-                    <div class="row sampleblog">
-                        <div class="col-12 col-md-6 samblogtext">
-                                <a href="{% url 'post_detail' post.slug  %}" class="titlehov">
-                                    <h2 class="lead text-black indexblogtest">{{ post.title }}</h2>
-                                </a>
-                                <p class="small indexblogtest2"><i class="fas fa-tag mr-1"></i>{{ post.created_on }}</p>
-                        </div>
-                        <div class="col-6 parent-div">
-                            <div class="image-container">
-                                <img src="{{ post.featured_image.url }}" alt="Placeholder Image" class="">
-                            </div>
-                        </div>
-                    </div>
+            <div class="col-6 parent-div1">
+                <div class="card border-0">
+                    <a href="{% url 'post_detail' post.slug  %}">
+                        <img class="card-img-top img-fluid newarrimg" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+                    </a>
+                </div>                        
             </div>
-            {% endfor %}
-        </div>
-        <div class="row indexdiv2 d-none">
-            {% for post in blog_posts2 %}
-            <div class="divrow row">
-                    <div class="col-6 parent-div1">
-                        <div>
-                            <a href="{% url 'cheesyblog' %}" class="current4">
-                                <h3>LATEST BLOG POSTS</h3>
-                            </a>
-                            <a href="{% url 'post_detail' post.slug  %}" class="">
-                                <h4 class="text-dark indexblogtest3">{{ post.title }}</h4>
-                            </a>
-                            <p class="indexblogtest4"><i class="fas fa-tag mr-1"></i>{{ post.created_on }}</p>
-                        </div>
-                    </div>
-                    <div class="col-6 parent-div1">
-                        <div class="card border-0">
-                            <a href="{% url 'post_detail' post.slug  %}">
-                                <img class="card-img-top img-fluid newarrimg" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
-                            </a>
-                        </div>                        
-                    </div>
-            </div>
-            {% endfor %}
-        </div>
-        <div class="row indexdiv3">
-            <div class="col-12 col-md-6 indexsubscribe">
-                {% for product in new_arrival %}
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="newarrtext">
-                            <h3 class="mt-3">Latest Arrival</h3>
-                            <h4 class="indexblogtest3">{{ product.name }}</h4>
-                            {% if product.in_stock %}
+    </div>
+    {% endfor %}
+</div>
+<div class="row indexdiv3">
+    <div class="col-12 col-md-6 indexsubscribe">
+        {% for product in new_arrival %}
+            <div class="row">
+                <div class="col-6">
+                    <div class="newarrtext">
+                        <h3 class="mt-3">Latest Arrival</h3>
+                        <h4 class="indexblogtest3">{{ product.name }}</h4>
+                        {% if product.in_stock %}
                             <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
-                            {% else %}
+                        {% else %}
                             <p class="lead mb-0 text-left font-weight-bold soldout">Sold Out</p>
-                            {% endif %}
-                            <p class="small mt-1 mb-0">
-                                <a href="{% url 'products' %}?category={{ product.category.name }}" class="nextlast">
-                                    <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
-                                </a>
-                            </p>
-                            <p class="small mt-1 mb-0">
-                                <a href="{% url 'products' %}?origin={{ product.origin.name }}" class="nextlast">
-                                    <i class="fas fa-tag mr-1"></i>{{ product.origin.friendly_name }}
-                                </a>
-                            </p>
-                            <p class="small mt-1 mb-0">
-                                <a href="{% url 'products' %}?cheesytype={{ product.cheesetype.name }}" class="nextlast">
-                                    <i class="fas fa-tag mr-1"></i>{{ product.cheesetype.friendly_name }}
-                                </a>
-                            </p>
-                            {% if product.rating %}
-                                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
-                            {% else %}
-                                <small class="text-muted">No Rating</small>
-                            {% endif %}
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="card border-0">
-                                {% if product.image %}
-                                <a href="{% url 'product_detail' product.id %}">
-                                    <img class="card-img-top img-fluid newarrimg" src="{{ product.image.url }}" alt="{{ product.name }}">
-                                </a>
-                                {% else %}
-                                <a href="{% url 'product_detail' product.id %}">
-                                    <img class="card-img-top img-fluid newarrimg" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                                </a>
-                                {% endif %}
-                            </div>
-                        </div>
+                        {% endif %}
+                        <p class="small mt-1 mb-0">
+                            <a href="{% url 'products' %}?category={{ product.category.name }}" class="nextlast">
+                                <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                            </a>
+                        </p>
+                        <p class="small mt-1 mb-0">
+                            <a href="{% url 'products' %}?origin={{ product.origin.name }}" class="nextlast">
+                                <i class="fas fa-tag mr-1"></i>{{ product.origin.friendly_name }}
+                            </a>
+                        </p>
+                        <p class="small mt-1 mb-0">
+                            <a href="{% url 'products' %}?cheesytype={{ product.cheesetype.name }}" class="nextlast">
+                                <i class="fas fa-tag mr-1"></i>{{ product.cheesetype.friendly_name }}
+                            </a>
+                        </p>
+                        {% if product.rating %}
+                            <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                        {% else %}
+                            <small class="text-muted">No Rating</small>
+                        {% endif %}
                     </div>
-                {% endfor %}
-            </div>
-            <div class="col-12 col-md-6 mailchimpindex">
-                <div class="d-flex justify-content-center align-items-center">
-                    <div id="mc_embed_shell">
-                        <div id="mc_embed_signup">
-                            <form action="https://gmail.us21.list-manage.com/subscribe/post?u=a9d7072cc1e95300f9177259a&amp;id=e4b91dfde2&amp;f_id=00c7f7e6f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
-                                <div id="mc_embed_signup_scroll"><h2>Subscribe to our Mailing List</h2>
-                                    <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-                                    <div class="mc-field-group">
-                                        <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
-                                        <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="">
-                                    </div>
-                                <div id="mce-responses" class="clear foot">
-                                    <div class="response" id="mce-error-response" style="display: none;"></div>
-                                    <div class="response" id="mce-success-response" style="display: none;"></div>
-                                </div>
-                                <div aria-hidden="true" style="position: absolute; left: -5000px;">
-                                    /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */
-                                    <input type="text" name="b_a9d7072cc1e95300f9177259a_e4b91dfde2" tabindex="-1" value="">
-                                </div>
-                                <div class="optionalParent">
-                                    <div class="clear foot">
-                                        <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
-                                        <p style="margin: 0px auto;"><a href="http://eepurl.com/iL_Qv-" title="Mailchimp - email marketing made easy and fun"><span style="display: inline-block; background-color: transparent; border-radius: 4px;"><img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a></p>
-                                    </div>
-                                </div>
-                                </div>
-                            </form>
-                        </div>
+                </div>
+                <div class="col-6">
+                    <div class="card border-0">
+                        {% if product.image %}
+                        <a href="{% url 'product_detail' product.id %}">
+                            <img class="card-img-top img-fluid newarrimg" src="{{ product.image.url }}" alt="{{ product.name }}">
+                        </a>
+                        {% else %}
+                        <a href="{% url 'product_detail' product.id %}">
+                            <img class="card-img-top img-fluid newarrimg" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        </a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
+        {% endfor %}
+    </div>
+    <div class="col-12 col-md-6 mailchimpindex">
+        <div class="d-flex justify-content-center align-items-center">
+            <div id="mc_embed_shell">
+                <div id="mc_embed_signup">
+                    <form action="https://gmail.us21.list-manage.com/subscribe/post?u=a9d7072cc1e95300f9177259a&amp;id=e4b91dfde2&amp;f_id=00c7f7e6f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+                        <div id="mc_embed_signup_scroll"><h2>Subscribe to our Mailing List</h2>
+                            <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                            <div class="mc-field-group">
+                                <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+                                <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="">
+                            </div>
+                        <div id="mce-responses" class="clear foot">
+                            <div class="response" id="mce-error-response" style="display: none;"></div>
+                            <div class="response" id="mce-success-response" style="display: none;"></div>
+                        </div>
+                        <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                            /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */
+                            <input type="text" name="b_a9d7072cc1e95300f9177259a_e4b91dfde2" tabindex="-1" value="">
+                        </div>
+                        <div class="optionalParent">
+                            <div class="clear foot">
+                                <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
+                                <p style="margin: 0px auto;"><a href="http://eepurl.com/iL_Qv-" title="Mailchimp - email marketing made easy and fun"><span style="display: inline-block; background-color: transparent; border-radius: 4px;"><img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a></p>
+                            </div>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
+    </div>
+</div>
 
 
 {% endblock %}

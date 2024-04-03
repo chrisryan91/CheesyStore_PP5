@@ -38,7 +38,7 @@ body {
     justify-content: center;
     height: 1.5rem;
     width: 1.5rem;
-    color: white !important;
+    color: bl !important;
 }
 
 .main-logo-link {
@@ -259,15 +259,8 @@ footer div a {
 .btn {
     color: black !important;
     text-decoration: underline !important;
-}
-
-.btn-black {
-    border-radius: 10px;
-}
-
-
-.text-black {
-    color: #000 !important;
+    border: 1px solid black !important;
+    border-radius: 2.5px !important;
 }
 
 a.category-badge > span.badge:hover {
@@ -281,7 +274,7 @@ a.category-badge > span.badge:hover {
     position: fixed;
     bottom: 10px;
     right: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .btt-link, 
@@ -319,7 +312,7 @@ button {
 .productdetail {
     background-color: white;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 #topbutton {
@@ -331,7 +324,7 @@ button {
 }
 
 .productimage {
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 #pagnavig {
@@ -396,6 +389,10 @@ button {
     border-bottom-color: #343a40 !important;
 }
 
+.icon2 {
+    color: black !important;
+}
+
 /* ------------------------------- bootstrap toasts */
 
 
@@ -420,7 +417,7 @@ button {
 .contactform {
     background-color: white;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .contactform img {
@@ -431,7 +428,7 @@ button {
     background-color: white;
     margin-right: 30px;
     margin-left: 30px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 #mc_embed_shell {
@@ -466,7 +463,7 @@ button {
 
 .container5 {
     background-color: white;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 30px;
     margin-bottom: 30px;
 }
@@ -488,7 +485,7 @@ button {
 
 .prodbtn {
     margin-top: 2.5px;
-    border-radius: 10px !important;
+    border-radius: 5px !important;
 }
 
 .custom-checkbox .custom-control-label::before {
@@ -506,7 +503,7 @@ button {
 
 .container3 {
     background-color: white;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 30px;
     margin-bottom: 100px;
 }
@@ -520,7 +517,7 @@ button {
 .contactform{
     background-color: white;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 5px;
     width: 50%;
 }
 
@@ -531,7 +528,7 @@ button {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .faqqanda {
@@ -554,7 +551,7 @@ button {
     height: 100px;
     width: 200px;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .authbox2 {
@@ -563,7 +560,7 @@ button {
     margin-bottom: 50px;
     padding: 50px;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .signinlink {
