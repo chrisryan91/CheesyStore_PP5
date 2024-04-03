@@ -1,8 +1,8 @@
 # CheesyStore
 
-CheesyStore
+Welcome to CheesyStore, an online cheesemonger based in Ireland. Our website offers a handpicked selection of the finest cheeses from Ireland and around the world. CheesyStore goes beyond just selling cheese. Alongside the shop there is a blog featuring pairing guides, the stories behind our products, and the latest news from the dairy world. These insights, along with special offers, are shared across various social media platforms to keep our community engaged and informed.
 
-Live Website here: [Cheesy Store]()
+Live Website here: [Cheesy Store](http://cheesystore-191ae9e3f358.herokuapp.com/)
 
 ![Cheesy Store]()
 
@@ -37,7 +37,9 @@ Live Website here: [Cheesy Store]()
 
 ## Concept
 
-xxx
+This web application is a submission for Portfolio Project 5 with a focus on ecommerce. Given the criteria of the project, I needed a concept that would process payments with Stripe and that could be marketed on Social Media platforms. I decided on an online cheesemonger because there are lots of varieties to categorise it by and it has a universal appeal which means it is easily marketable.
+
+I also wanted a concept that I could expand further. Given the deadline and the requirement for a Minimum Viable Product (MVP), I held back on integrating features that were not completely necessary. In future CheesyStore could expand to include recipes, pairing guides and an integrated chatbot with the ChatGPT API.
 
 ## Development
 
@@ -47,7 +49,11 @@ xxx
 
 User Stories are tested in: [Testing.md](Testing.md)
 
-Link to Projects Board: [Project Board]()
+Link to Project Board: [Project Board]([Testing.md](https://github.com/users/chrisryan91/projects/10))
+
+Link to User Stories + Tasks: [User Stories Board](https://github.com/users/chrisryan91/projects/11/views/1)
+
+Link to MoSCoW Prioritisation Board: [MoSCoW Board](https://github.com/users/chrisryan91/projects/12)
 
 ### Wireframes
 
