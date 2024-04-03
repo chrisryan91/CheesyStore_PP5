@@ -69,5 +69,18 @@ select optiuion[value=""] {
   background-color: white;
   border-radius: 5px;
   padding: 30px;
-  margin: 30px;
+  padding-top: 125px;
+}
+
+@media (max-width: 560px) {
+
+  .stripeform {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  .stripefields {
+    margin-right: -25px;
+    margin-left: -25px;
+  }
 }

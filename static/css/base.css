@@ -622,6 +622,10 @@ button {
         padding-top: 164px;
     }
 
+    .header-container2 {
+        padding-top: 0px;
+    }
+
     #topnav {
         background-color: black !important;
         color: white !important;
