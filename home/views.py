@@ -15,8 +15,6 @@ def index(request):
 
     # Fetch the latest arrivals.
     new_arrival = Product.objects.filter(category__name=category_name).order_by('-id')[:1]
-    
-    print(new_arrival)
 
     # Fetch the three latest arrivals.
     new_arrivals = Product.objects.filter(category__name=category_name).order_by('-id')[:3]
