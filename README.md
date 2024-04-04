@@ -16,6 +16,10 @@ Live Website here: [Cheesy Store](http://cheesystore-191ae9e3f358.herokuapp.com/
     - [Design](#design)
     - [GitHub Projects](#github-projects)
     - [Database and Data Models](#database-and-data-models)
+      - [cheesystoreshop](#cheesystoreshop)
+      - [cheesyblog](#cheesyblog)
+      - [checkout](#checkout)
+      - [profiles](#profiles)
   - [Features](#features)
     - [CRUD Functionality](#crud-functionality)
     - [Authentication and Authorisation](#authentication-and-authorisation)
@@ -49,7 +53,7 @@ I also wanted a concept that I could expand further. Given the deadline and the 
 
 User Stories are tested in: [Testing.md](Testing.md)
 
-Link to Project Board: [Project Board]([Testing.md](https://github.com/users/chrisryan91/projects/10))
+Link to Project Board: [Project Board](https://github.com/users/chrisryan91/projects/10)
 
 Link to User Stories + Tasks: [User Stories Board](https://github.com/users/chrisryan91/projects/11/views/1)
 
@@ -85,15 +89,123 @@ xxx
 
 ### Database and Data Models
 
-**xxx**
+CheesyStore has four app folders with models. The **User** model is handled by Django AllAuth.
 
-**xxx** 
+#### cheesystoreshop
+
+This app contains five models. These models are for the products, the categories for the products and the rating of the products.
+
+The **Product** model contains the information to store details of the product for sale. The origin, category, cheesetype and rating fields are linked with foreign keys to the others models in this folder:
+
+- category
+- cheesetype
+- origin
+- sku
+- name
+- description
+- price
+- rating
+- in_stock
+- image_url
+- image
+
+The main **Category** model is for the main category to place the product into:
+
+- name
+- friendly_name
+
+The subcategory **Origin** model is for where the cheese comes from:
+
+-  name
+-  friendly_name
+
+The second subcategory **CheeseType** is for the type of cheese it is:
+
+- name
+- friendly_name
+
+The **Rating** model holds the User rating for the specific product.
+
+- product
+- user
+- stars
+
+#### cheesyblog 
+
+This app contains two models. These models are the blog posts and the comments on the web applications blog.
+
+The **Post** model is for the blog posts themselves to be written by a superuser or through django-admin:
+
+- title
+- slug
+- author
+- updated_on
+- content
+- featured_image
+- excerpt
+- created_on
+- status
+- keywords
+
+The **Comment** model is the comments on the blog posts. It is linked to the Post model and User model through foreign keys:
+
+- post
+- user
+- body
+- created_on
+- approved
+
+#### checkout
+
+This app contains two models. These models are for the Order and Order Line Items - or the products themselves in the order:
+
+The **Order** model contains the information for each specific order including user, address, contact details and order number:
+
+- order_number
+- user_profile
+- full_name
+- email
+- phone_number
+- country
+- postcode
+- town_or_city
+- street_address1
+- street-address2
+- county
+- date
+- delivery_cost
+- order_total
+- grand_total
+- original_bag
+- stripe_pid
+
+The **OrderLineItem** model contains the products and the quantity of each in each order:
+
+- order
+- product
+- quantity
+- lineitem_total
+
+#### profiles
+
+This app contains the information for each User profile. The User model itself is handled by Django AllAuth but it is extended here to aid the creation of profiles for each user:
+
+The **UserProfile** model contains information to display for each registered user:
+
+- user
+- default_phone_number
+- default_street_address1
+- default_street_address2
+- default_town_or_city
+- default_county
+- default_postcode
+- default_country
 
 <details>
 <summary>Data Model Diagram</summary>
 <br>
 
-![Data Model Diagram]()
+![Data Model Diagram](media\readme_images\datadiagram.png)
 </details>
 
 ## Features
