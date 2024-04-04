@@ -74,6 +74,10 @@ body {
     left: unset !important;
 }
 
+.searchdropdown {
+    background-color: black !important;
+}
+
 /* Footer */
 
 footer {

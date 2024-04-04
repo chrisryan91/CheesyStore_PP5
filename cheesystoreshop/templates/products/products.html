@@ -16,17 +16,17 @@
             <div class="col text-center mt-3">
                 <h1 class="logo-font">Products</h1>
                 {% for c in current_categories %}
-                    <a href="{% url 'products' %}?category={{ c.name }}" class="category-badge text-decoration-none">
+                    <a href="{% url 'products' %}?category={{ c.name }}" class="category-badge text-decoration-none text-dark">
                         <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ c.friendly_name }}</span>
                     </a>
                 {% endfor %}
                 {% for o in current_origins %}
-                    <a href="{% url 'products' %}?origin={{ o.name }}" class="category-badge text-decoration-none">
+                    <a href="{% url 'products' %}?origin={{ o.name }}" class="category-badge text-decoration-none text-dark">
                         <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ o.friendly_name }}</span>
                     </a>
                 {% endfor %}
                 {% for ct in current_cheesetypes %}
-                    <a href="{% url 'products' %}?cheesetype={{ ct.name }}" class="category-badge text-decoration-none">
+                    <a href="{% url 'products' %}?cheesetype={{ ct.name }}" class="category-badge text-decoration-none text-dark">
                         <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ ct.friendly_name }}</span>
                     </a>
                 {% endfor %}

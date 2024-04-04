@@ -7,13 +7,12 @@
 
     {% block meta %}
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
         <meta name="csrf-token" content="{{ csrf_token }}">
         <meta name="keywords"
     content="Irish cheese, Artisan cheese, Cheese online, Gourmet cheese, Cheese shop, Buy Irish cheese online, Best Irish artisan cheese, Artisan cheese delivery Ireland, Online cheese market Ireland, Irish cheese gift baskets, Gourmet Irish cheese platter, Handmade Irish cheese, Irish cheese varieties,Sustainable Irish cheese,Irish dairy cheese online, Award-winning Irish cheese, Small-batch Irish cheese, Organic Irish cheese online, Rare Irish cheeses, Irish cheese tasting box">
   <meta name="description" content="Treat yourself with delicious cheese from Ireland and abroad.">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" >
     {% endblock %}
 
     {% block extra_meta %}
@@ -72,12 +71,12 @@
                             Categories</a>
                         <div class="dropdown-menu" >
                             <span class="dropdown-item"><b><u>Cheese Types</u></b></span>
-                            <a class="dropdown-item" href="{% url 'products' %}?cheesetype=firmcheese">Firm Cheese</a>
-                            <a class="dropdown-item" href="{% url 'products' %}?cheesetype=hardcheese">Hard Cheese</a>
-                            <a class="dropdown-item" href="{% url 'products' %}?cheesetype=softcheese">Soft Cheese</a>
-                            <a class="dropdown-item" href="{% url 'products' %}?cheesetype=creamcheese">Cream Cheese</a>
-                            <a class="dropdown-item" href="{% url 'products' %}?cheesetype=goatscheese">Goats Cheese</a>
-                            <a class="dropdown-item" href="{% url 'products' %}?cheesetype=bakingcheese">Baking Cheese</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?cheesytype=firmcheese">Firm Cheese</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?cheesytype=hardcheese">Hard Cheese</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?cheesytype=softcheese">Soft Cheese</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?cheesytype=creamcheese">Cream Cheese</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?cheesytype=goatscheese">Goats Cheese</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?cheesytype=bakingcheese">Baking Cheese</a>
                             <span class="dropdown-item"><b><u>Origins</u></b></span>
                             <a href="{% url 'products' %}?origin=Ireland" class="dropdown-item">Ireland</a>
                             <a href="{% url 'products' %}?origin=France" class="dropdown-item">France</a>
