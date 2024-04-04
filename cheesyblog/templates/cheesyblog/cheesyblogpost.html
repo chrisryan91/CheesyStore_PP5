@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="{% static 'cheesyblog/css/cheesyblog.css' %}">
 {% endblock %}
 
+{% block seo_keywords %}{{ post.keywords }}{% endblock seo_keywords %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
