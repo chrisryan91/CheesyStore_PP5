@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from django.core.paginator import Paginator
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
@@ -105,10 +106,13 @@ def AddBlogPost(request):
         form = BlogPostForm()
     return render(request, 'cheesyblog/addblogpost.html', {'form': form})
 
-@require_POST
+@login_required
 def DeleteComment(request, comment_id):
-    comment = get_object_or_404(Comment, id=comment_id)
-    if request.user == comment.user:
-        messages.info(request, 'Comment deleted!')
-        comment.delete()
-    return redirect('post_detail', slug=comment.post.slug)
+    # Return 404 error if product not found.
+    comment = get_object_or_404(Comment, pk=comment_id)
+    print(comment)
+
+    # Delete the product if found, provide success message and redirect to list of products.
+    comment.delete()
+    messages.info(request, 'Product Deleted!')
+    return redirect(reverse('products'))

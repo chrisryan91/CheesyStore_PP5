@@ -348,6 +348,17 @@ button {
     color: black !important;
 }
 
+.btnyesno {
+    border: 0px !important;
+    font-size: 12.5px !important;
+}
+
+.btnyesno1 {
+    color: red !important;
+    border: 0px !important;
+    font-size: 12.5px !important;
+}
+
 /* Blog styling*/
 
 #blogrow {

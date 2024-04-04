@@ -65,11 +65,8 @@
                         {{ comment.body | linebreaks }}
                     </div>
                 {% if comment.user == request.user %}
-                <form action="{% url 'delete_comment' comment.id %}" method="post">
-                    {% csrf_token %}
-                    <input type="submit" value="Delete" class="confirmButton text-danger">
-                </form>
-            {% endif %}
+                <a href="{% url 'delete_comment' comment.id %}" class="delete_comment text-danger">Delete</a>
+                {% endif %}
             <hr>
                 {% endfor %}
             </div>
@@ -100,6 +97,70 @@
 
 {% block postloadjs %}
     {{ block.super }}
-    <script src="{% static 'cheesyblog/js/blogscript.js' %}"></script>
-{% endblock %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    // Function to add event listeners to delete links
+    function addEventListenersToLinks() {
+        var deleteLinks = document.querySelectorAll('.delete_comment');
+        deleteLinks.forEach(function(link) {
+            link.addEventListener('click', deleteComment);
+        });
+    }
 
+    // Function to remove event listeners from delete links
+    function removeEventListenersFromLinks() {
+        var deleteLinks = document.querySelectorAll('.delete_comment');
+        deleteLinks.forEach(function(link) {
+            link.removeEventListener('click', deleteComment);
+        });
+    }
+
+    // Function to handle delete action
+    function deleteComment(event) {
+        event.preventDefault(); // Prevent the link from being followed immediately
+        
+        removeEventListenersFromLinks(); // Remove event listeners from delete links
+        
+        // Create confirmation message and buttons
+        var areYouSureElement = document.createElement('p');
+        areYouSureElement.textContent = 'Are you sure you want to delete this product?';
+        areYouSureElement.className = 'areyousure';
+        
+        var yesButton = document.createElement('button');
+        yesButton.textContent = 'Yes';
+        yesButton.className = 'btn small text-danger btnyesno1';
+        
+        var noButton = document.createElement('button');
+        noButton.textContent = 'No';
+        noButton.className = 'btn small btnyesno';
+        
+        // Append elements to parent container
+        var parentContainer = this.parentElement;
+        parentContainer.appendChild(areYouSureElement);
+        parentContainer.appendChild(yesButton);
+        parentContainer.appendChild(noButton);
+        
+        // Add event listeners for Yes and No buttons
+        yesButton.addEventListener('click', function() {
+            console.log('User clicked Yes');
+            // Follow the original link (delete action)
+            window.location.href = event.target.href;
+        });
+        
+        noButton.addEventListener('click', function() {
+            console.log('User clicked No');
+            // Remove confirmation message and buttons
+            parentContainer.removeChild(areYouSureElement);
+            parentContainer.removeChild(yesButton);
+            parentContainer.removeChild(noButton);
+            // Then re-add event listeners to delete links
+            addEventListenersToLinks();
+        });
+    }
+
+    // Add initial event listeners to delete links
+    addEventListenersToLinks();
+});
+    </script>
+
+{% endblock %}

@@ -33,6 +33,9 @@ Link to Main Project Board: [Project Board](https://github.com/users/chrisryan91
     - [Homepage](#homepage)
     - [Page 1 etc.](#page-1-etc)
     - [Features Left to Implement](#features-left-to-implement)
+  - [Business Model](#business-model)
+  - [Search Engine Optimization](#search-engine-optimization)
+  - [Social Media Marketing](#social-media-marketing)
   - [Technologies Used](#technologies-used)
     - [Core Development Technologies](#core-development-technologies)
     - [Libraries, Frameworks and Packages](#libraries-frameworks-and-packages)
@@ -486,8 +489,26 @@ xxx
 ### Features Left to Implement
 
 1. I want to use ChatGPT API to create a chatbot for users of my store to use to help make purchases and navigate the store. I initially made a User Story that remains unfinished: *As a potential customer, I want to interact with a chatbot on the cheese-selling website so that I can receive personalized recommendations, get answers to my questions about the products, and have assistance throughout the checkout process, making my shopping experience smoother and more enjoyable.*
-2. 
 
+## Business Model
+
+Cheesy Store's Business Model is Business to Consumer (B2C). Products are sold directly from Fresh Nest to consumers who are the end-users. 
+
+A customer of Cheesy Store would be someone who is most likely an adult who is interested in cheese or cheese culture. The blog can potentially attract potential customers who may be interested in it's content. From there products can be marketed and the customer can be redirected to the store.
+
+## Search Engine Optimization
+
+## Social Media Marketing
+
+For this site, a Facebook business page has been created for organic social media marketing. The Facebook page includes a 'Contact Us' button which takes the user to the Contact Page on Cheesy Store.
+
+<details>
+<summary>Cheesy Store Facebook Page</summary>
+<br>
+
+![Cheesy Store Facebook Page](media/readme_images/screencapture-facebook-profile-php-2024-04-04-20_40_44.png)
+
+</details>
 
 ## Technologies Used
 
