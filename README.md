@@ -4,6 +4,8 @@ Welcome to CheesyStore, an online cheesemonger based in Ireland. Our website off
 
 Live Website here: [Cheesy Store](http://cheesystore-191ae9e3f358.herokuapp.com/)
 
+Link to Main Project Board: [Project Board](https://github.com/users/chrisryan91/projects/10)
+
 ![Cheesy Store]()
 
 ## Table of Contents
@@ -22,6 +24,10 @@ Live Website here: [Cheesy Store](http://cheesystore-191ae9e3f358.herokuapp.com/
       - [profiles](#profiles)
   - [Features](#features)
     - [CRUD Functionality](#crud-functionality)
+      - [Create](#create)
+      - [Read](#read)
+      - [Update](#update)
+      - [Delete](#delete)
     - [Authentication and Authorisation](#authentication-and-authorisation)
     - [Navigation](#navigation)
     - [Homepage](#homepage)
@@ -49,15 +55,26 @@ I also wanted a concept that I could expand further. Given the deadline and the 
 
 ### User Stories
 
-1. xxx
+1. As a site administrator, I can manage user accounts, including activating, deactivating, and deleting accounts, so that I can maintain the site's user base and security.
+2. As a site user, I can subscribe to the newsletter to receive updates on new cheese arrivals, promotions, and blog posts so that I can stay informed.
+3. As a site user, I can read blog posts about cheese tasting, pairing tips, and cheese-making processes so that I can expand my knowledge and appreciation of cheese.
+4. As a site user, I can leave comments and reviews on cheeses and blog posts so that I can share my opinions and experiences with other users.
+5. As a site administrator, I can create and publish blog posts about cheese-related topics so that I can engage users and attract traffic to the site.
+6. As a site administrator, I can add, edit, and delete cheeses from the store inventory so that I can manage the product catalog.
+7. As a site user, I can create an account and log in so that I can track my order history and manage my profile information.
+8. As a site user, I can view detailed information about each cheese, including its origin, flavor profile, and suggested pairings, so that I can make an informed decision.
+9. As a site user, I can search for specific types of cheeses (e.g., soft, hard, aged) so that I can find cheeses that match my preferences.
+10. As a site user, I can add cheeses to my cart and proceed to checkout so that I can purchase them.
+11. As a site user, I can browse a variety of cheeses so that I can explore different options.
+12. As a user, I want to be able to set up an account and login in and log out so I can purchase items and leave a comment.
+13. As a user, I want to easily find answers to frequently asked questions so that I can make informed decisions about the products and policies without needing to wait for a response from customer service.
+14. As a user, I want to subscribe to a monthly cheese subscription service so that I can discover new cheeses and have a consistent supply of high-quality cheese without having to reorder manually each time.
+15. As a user, I want to participate in a loyalty program that rewards me for my purchases so that I can enjoy discounts, get early access to new products, and access exclusive content.
+16. As a potential customer, I want to interact with a chatbot on the cheese-selling website so that I can receive personalized recommendations, get answers to my questions about the products, and have assistance throughout the checkout process, making my shopping experience smoother and more enjoyable.
 
 User Stories are tested in: [Testing.md](Testing.md)
 
-Link to Project Board: [Project Board](https://github.com/users/chrisryan91/projects/10)
-
 Link to User Stories + Tasks: [User Stories Board](https://github.com/users/chrisryan91/projects/11/views/1)
-
-Link to MoSCoW Prioritisation Board: [MoSCoW Board](https://github.com/users/chrisryan91/projects/12)
 
 ### Wireframes
 
@@ -229,7 +246,21 @@ xxx
 
 ### GitHub Projects
 
-xxx
+In the repository for CheesyStore I opened some issues for this project. I began by creating sixteen User Story issues. I followed this by creating corresponding Tasks for each User Story. I created three different project and imported the User Stories into each project. 
+
+- The main project board contains three columns: to do, in progress and completed. As development progressed I moved User Stories from one column to the next. This helped me keep track of what stage I was in during the project.
+
+- I created a second project board and imported both the User Stories and Tasks to help me visualise what needed to be done for each User Story. Each User Story and corresponding Task is placed in a column.
+
+- I created a third project board to help prioritise User Stories during development with MoSCoW Prioritisation with columns for Must-Have, Should-Have, Could-Have and Wont-Have.
+
+Link to Main Project Board: [Project Board](https://github.com/users/chrisryan91/projects/10)
+
+Link to User Stories + Tasks: [User Stories Board](https://github.com/users/chrisryan91/projects/11/views/1)
+
+Link to MoSCoW Prioritisation Board: [MoSCoW Board](https://github.com/users/chrisryan91/projects/12)
+
+User Stories are tested in: [TESTING.md](TESTING.md)
 
 <details>
 <summary>xxx</summary>
@@ -364,13 +395,25 @@ The **UserProfile** model contains information to display for each registered us
 
 ### CRUD Functionality
 
-**Create:** 
+#### Create
 
-**Read:** 
+- Superusers can create products for the store through the Product Management link on the Navbar. This allows administrators to add new products into the shop. The product management link only appears to admins.
 
-**Update:**
+- Registered users can add comments to each of the blog posts. New blog posts are created by administrators through the Django admin panel
 
-**Delete:**
+#### Read
+
+- Any user of the website irrespective of registration status can see the new products, blog posts or comments posted once they have been published by the admin.
+
+#### Update
+
+- Once an administrator is logged in, a small edit button appears beneath the Product displayed on the Products page and Products Detail page. Once clicked, it brings up a new page with the ability to edit the products.
+
+#### Delete
+
+- Once an administrator is logged in, a small delete button appears beneath the Product displayed on the Products page and Products detail page. Once clicked, it brings up an Alert confirming the intent to delete the product.
+
+- Similarly, a small delete button appears for signed in users below the comments they may have written. If clicked, it will bring up an Alert confirming the intent to delete the product.
 
 ### Authentication and Authorisation
 
@@ -435,7 +478,9 @@ xxx
 
 ### Features Left to Implement
 
-1. xxx
+1. I want to use ChatGPT API to create a chatbot for users of my store to use to help make purchases and navigate the store. I initially made a User Story that remains unfinished: *As a potential customer, I want to interact with a chatbot on the cheese-selling website so that I can receive personalized recommendations, get answers to my questions about the products, and have assistance throughout the checkout process, making my shopping experience smoother and more enjoyable.*
+2. 
+
 
 ## Technologies Used
 
