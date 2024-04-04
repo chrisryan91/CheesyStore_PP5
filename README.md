@@ -64,10 +64,162 @@ Link to MoSCoW Prioritisation Board: [MoSCoW Board](https://github.com/users/chr
 Wireframes were developed at the outset of my project. The general framework for how the website should be structured has remained the same. These served as a basis for my design from the beginning and prevented me from deviating too far in another direction. I created them partly because I understood that could could easily be made responsive to smaller screen sizes with bootstrap.
 
 <details>
-<summary>Search Page Initial Wireframe</summary>
+<summary>Home Page Initial Desktop Wireframe</summary>
 <br>
 
-![Search Page Initial Wireframe](static/readme_images/wireframes/New%20Wireframe%201.png)
+![Home Page Initial Desktop Wireframe](media/readme_images/wireframes/desktopwireframes/1-Homepage.png)
+
+</details>
+
+<details>
+<summary>Home Page Initial Mobile Wireframe</summary>
+<br>
+
+![Home Page Initial Mobile Wireframe](media/readme_images/wireframes/mobilewireframes/mobilewireframehome.png)
+
+</details>
+
+<details>
+<summary>Product Page Initial Desktop Wireframe</summary>
+<br>
+
+![Product Page Initial Desktop Wireframe](media/readme_images/wireframes/desktopwireframes/8-Browse-Selection.png)
+
+</details>
+
+<details>
+<summary>HProduct Page Initial Mobile Wireframe</summary>
+<br>
+
+![Product Selection Initial Mobile Wireframe](media/readme_images/wireframes/mobilewireframes/mobilewireframeproducts.png)
+
+</details>
+
+<details>
+<summary>Product Page Initial Desktop Wireframe</summary>
+<br>
+
+![Product Page Initial Desktop Wireframe](media/readme_images/wireframes/desktopwireframes/8-Browse-Selection.png)
+
+</details>
+
+<details>
+<summary>Product Page Initial Mobile Wireframe</summary>
+<br>
+
+![Product Page Initial Mobile Wireframe](media/readme_images/wireframes/mobilewireframes/mobilewireframeproducts.png)
+
+</details>
+
+<details>
+<summary>Product Page Initial Desktop Wireframe</summary>
+<br>
+
+![Product Page Initial Desktop Wireframe](media/readme_images/wireframes/desktopwireframes/3-Cheese-Detail.png)
+
+</details>
+
+<details>
+<summary>Product Page Initial Mobile Wireframe</summary>
+<br>
+
+![Product Page Initial Mobile Wireframe](media/readme_images/wireframes/mobilewireframes/mobilewireframedetail.png)
+
+</details>
+
+<details>
+<summary>Bag Initial Desktop Wireframe</summary>
+<br>
+
+![Bag Initial Desktop Wireframe](media/readme_images/wireframes/desktopwireframes/4-Bag.png)
+
+</details>
+
+<details>
+<summary>Bag Initial Mobile Wireframe</summary>
+<br>
+
+![Bag Initial Mobile Wireframe](media/readme_images/wireframes/mobilewireframes/mobilewireframebag.png)
+
+</details>
+
+<details>
+<summary>Checkout Initial Desktop Wireframe</summary>
+<br>
+
+![Checkout Initial Desktop Wireframe](media/readme_images/wireframes/desktopwireframes/5-Checkout.png)
+
+</details>
+
+<details>
+<summary>Checkout Initial Mobile Wireframe</summary>
+<br>
+
+![Checkout Initial Mobile Wireframe](media/readme_images/wireframes/mobilewireframes/mobilewireframecheckout.png)
+
+</details>
+
+<details>
+<summary>Blog Initial Desktop Wireframe</summary>
+<br>
+
+![Blog Initial Desktop Wireframe](media/readme_images/wireframes/desktopwireframes/7-Cheese-Store-Blog.png)
+
+</details>
+
+<details>
+<summary>Blog Initial Mobile Wireframe</summary>
+<br>
+
+![Blog Initial Mobile Wireframe](media/readme_images/wireframes/mobilewireframes/mobilewireframeblog.png)
+
+</details>
+
+<details>
+<summary>Blog Post Initial Mobile Wireframe</summary>
+<br>
+
+![Blog Post Initial Mobile Wireframe](media/readme_images/wireframes/mobilewireframes/mobilewireframeblogdetail.png)
+
+</details>
+
+<details>
+<summary>Contact Page Initial Desktop Wireframe</summary>
+<br>
+
+![Contact Page Initial Desktop Wireframe](media/readme_images/wireframes/desktopwireframes/2-Contact-Us.png)
+
+</details>
+
+<details>
+<summary>Contact Page Initial Mobile Wireframe</summary>
+<br>
+
+![Contact Page Initial Mobile Wireframe](media/readme_images/wireframes/mobilewireframes/wifeframemobilecontact.png)
+
+</details>
+
+<details>
+<summary>About Page Desktop Wireframe</summary>
+<br>
+
+![Contact Page Initial Mobile Wireframe](media/readme_images/wireframes/desktopwireframes/6-About.png)
+
+</details>
+
+<details>
+<summary>About Page Desktop Wireframe</summary>
+<br>
+
+![Contact Page Initial Mobile Wireframe](media/readme_images/wireframes/desktopwireframes/6-About.png)
+
+</details>
+
+<details>
+<summary>FAQ Page Mobile Wireframe</summary>
+<br>
+
+![Contact Page Initial Mobile Wireframe](media/readme_images/wireframes/mobilewireframes/mobilewireframefaq.png)
 
 </details>
 
@@ -205,7 +357,7 @@ The **UserProfile** model contains information to display for each registered us
 <summary>Data Model Diagram</summary>
 <br>
 
-![Data Model Diagram](media\readme_images\datadiagram.png)
+![Data Model Diagram](media/readme_images/datadiagram.png)
 </details>
 
 ## Features
