@@ -13,6 +13,9 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='post',
             name='keywords',
-            field=models.TextField(blank=True, help_text='Enter specific comma-separated SEO keywords'),
+            field=models.TextField(
+                blank=True,
+                help_text='Enter specific comma-separated SEO keywords'
+            ),
         ),
     ]

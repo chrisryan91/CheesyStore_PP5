@@ -1,4 +1,9 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (
+                    render,
+                    redirect,
+                    reverse,
+                    get_object_or_404,
+                    HttpResponse)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -13,6 +18,7 @@ from bag.contexts import bag_contents
 import stripe
 import json
 
+
 @require_POST
 def cache_checkout_data(request):
     # Store checkout data in PaymentIntent for use in webhook
@@ -21,11 +27,11 @@ def cache_checkout_data(request):
         # Extract the PaymentIntent ID from the 'client_secret' POST parameter
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = stripe_secret_key
-        # Modify the PaymentIntent with metadata including the bag, save_info preference, and username
+        # Modify the PaymentIntent.
         stripe.PaymentIntent.modify(pid, metadata={
             'bag': json.dumps(request.session.get('bag', {})),
             'save_info': request.POST.get('save_info'),
-            'username': request.user.username,  # Should be `request.user.username` for clarity
+            'username': request.user.username,
         })
         return HttpResponse(status=200)
     except Exception as e:
@@ -33,6 +39,7 @@ def cache_checkout_data(request):
         messages.error(request, 'Sorry, your payment cannot be \
             processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
+
 
 def checkout(request):
     # Handle the checkout process
@@ -80,7 +87,7 @@ def checkout(request):
                 except Product.DoesNotExist:
                     # Handle errors such as product not found
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
+                        "One of the products in your bag wasn't found."
                         "Please call us for assistance!")
                     )
                     order.delete()
@@ -88,7 +95,9 @@ def checkout(request):
 
             # Save the info flag in session and redirect to success page
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse(
+                'checkout_success',
+                args=[order.order_number]))
         else:
             # If form is invalid, display an error message
             messages.error(request, 'There was an error with your form. \
@@ -98,9 +107,9 @@ def checkout(request):
         bag = request.session.get('bag', {})
         if not bag:
             # Redirect if bag is empty
-            messages.error(request, "There's nothing in your bag at the moment")
+            messages.error(request, "There's nothing in your bag.")
             return redirect(reverse('products'))
-        
+
         # Calculate the total for stripe and create a payment intent
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
@@ -111,7 +120,7 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        # Pre-fill the order form with user profile info if user is authenticated
+        # Pre-fill the order form with user profile info if user authenticated.
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
@@ -133,7 +142,9 @@ def checkout(request):
 
     if not stripe_public_key:
         # Warn if stripe public key is missing
-        messages.warning(request, 'Stripe public key is missing. Please check your configuration.')
+        messages.warning(
+            request,
+            'Stripe public key is missing. Please check your configuration.')
 
     # Render the checkout page
     template = 'checkout/checkout.html'
@@ -144,6 +155,7 @@ def checkout(request):
     }
 
     return render(request, template, context)
+
 
 def checkout_success(request, order_number):
     # Handle successful checkout
@@ -172,7 +184,9 @@ def checkout_success(request, order_number):
                 user_profile_form.save()
 
     # Display a success message and clear the bag from session
-    messages.success(request, f'Order successfully processed! Your order number is {order_number}.')
+    messages.success(
+                    request,
+                    f'Order processed! Order number: {order_number}.')
     if 'bag' in request.session:
         del request.session['bag']
 

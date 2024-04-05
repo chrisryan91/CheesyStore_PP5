@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Product, Category, CheeseType, Origin, Rating
 
+
 # ProductAdmin Configuration.
 class ProductAdmin(admin.ModelAdmin):
     # Specify the fields to display in the admin list view.
@@ -15,13 +16,15 @@ class ProductAdmin(admin.ModelAdmin):
         'in_stock'
     )
 
+
 # CategoryAdmin Configuration.
 class CategoryAdmin(admin.ModelAdmin):
-    # Display fields for categories to make navigation and identification easier.
+    # Display fields for categories.
     list_display = (
         'friendly_name',
         'name'
     )
+
 
 # CheeseType Configuration.
 class CheeseTypeAdmin(admin.ModelAdmin):
@@ -31,6 +34,7 @@ class CheeseTypeAdmin(admin.ModelAdmin):
         'name'
     )
 
+
 # Cheese Origin Configuration.
 class OriginAdmin(admin.ModelAdmin):
     # Display fields for the admin model.
@@ -39,10 +43,12 @@ class OriginAdmin(admin.ModelAdmin):
         'name'
     )
 
+
 class RatingAdmin(admin.ModelAdmin):
     list_display = ('product', 'user', 'stars')
     list_filter = ('product', 'user')
     search_fields = ('product__name', 'user__username')
+
 
 # Register the models and their admin classes
 admin.site.register(Rating, RatingAdmin)

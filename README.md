@@ -31,7 +31,19 @@ Link to Main Project Board: [Project Board](https://github.com/users/chrisryan91
     - [Authentication and Authorisation](#authentication-and-authorisation)
     - [Navigation](#navigation)
     - [Homepage](#homepage)
-    - [Page 1 etc.](#page-1-etc)
+    - [CheesyStoreShop](#cheesystoreshop-1)
+    - [Product Detail](#product-detail)
+    - [Cheesy Blog](#cheesy-blog)
+    - [Cheesy Blog Posts](#cheesy-blog-posts)
+    - [Bag](#bag)
+    - [Checkout](#checkout-1)
+    - [Frequently Asked Questions](#frequently-asked-questions)
+    - [Contact Us](#contact-us)
+    - [Success Page](#success-page)
+    - [Product Management](#product-management)
+    - [My Profile](#my-profile)
+    - [Sign In](#sign-in)
+    - [Footer](#footer)
     - [Features Left to Implement](#features-left-to-implement)
   - [Business Model](#business-model)
   - [Search Engine Optimization](#search-engine-optimization)
@@ -436,54 +448,228 @@ The **UserProfile** model contains information to display for each registered us
 
 ### Navigation
 
-xxx
-
 <details>
-<summary>Larger Navbar</summary>
+<summary>Desktop Navbar</summary>
 <br>
 
-![Larger Navbar]()
+![Desktop Navbar](media/readme_images/designscreenshots/desktopheader.png)
 </details>
 
 <details>
-<summary>Smaller Navbar</summary>
+<summary>Mobile Navbar</summary>
 <br>
 
-![Smaller Navbar]()
+![Mobile Navbar](media/readme_images/designscreenshots/mobileheader.png)
 </details>
 
 <details>
-<summary>Footer</summary>
+<summary>Mobile Navbar Dropdown</summary>
 <br>
 
-![Footer]()
+![Mobile Navbar Dropdown](media/readme_images/designscreenshots/headermobiledropdown.png)
 </details>
 
 ### Homepage
 
 <details>
-<summary>Homepage</summary>
+<summary>Desktop Homepage</summary>
 <br>
 
-![Homepage]()
-</details>
-
-### Page 1 etc.
-
-xxx
-
-<details>
-<summary></summary>
-<br>
-
-![Search Page]()
+![Desktop Homepage](media/readme_images/designscreenshots/desktophomepage.png)
 </details>
 
 <details>
-<summary>Search Results</summary>
+<summary>Mobile Homepage</summary>
 <br>
 
-![Search Results]()
+![Mobile Homepage](media/readme_images/designscreenshots/homepagemobile.png)
+</details>
+
+### CheesyStoreShop
+
+<details>
+<summary>Cheesy Store Shop Desktop</summary>
+<br>
+
+![Cheesy Store Shop Desktop](media/readme_images/designscreenshots/productsdesktop.png)
+</details>
+
+<details>
+<summary>Cheesy Store Shop Mobile</summary>
+<br>
+
+![Cheesy Store Shop Mobile](media/readme_images/designscreenshots/productsmobile.png)
+</details>
+
+### Product Detail
+
+<details>
+<summary>Product Detail Desktop</summary>
+<br>
+
+![Product Detail Desktop](media/readme_images/designscreenshots/productdetailscreenshot.png)
+</details>
+
+<details>
+<summary>Product Detail Mobile</summary>
+<br>
+
+![Product Detail Mobile](media/readme_images/designscreenshots/productdetailmobile.png)
+</details>
+
+### Cheesy Blog
+
+<details>
+<summary>Cheesy Blog Desktop</summary>
+<br>
+
+![Cheesy Blog Desktop](media/readme_images/designscreenshots/blogdesktop.png)
+</details>
+
+<details>
+<summary>Cheesy Blog Mobile</summary>
+<br>
+
+![Cheesy Blog Mobile](media/readme_images/designscreenshots/blogmobile.png)
+</details>
+
+### Cheesy Blog Posts
+
+<details>
+<summary>Blog Post Desktop</summary>
+<br>
+
+![Blog Post Desktop](media/readme_images/designscreenshots/blogpostdesktop.png)
+</details>
+
+<details>
+<summary>Blog Post Mobile</summary>
+<br>
+
+![Blog Post Mobile](media/readme_images/designscreenshots/blogpostmobile.png)
+</details>
+
+### Bag
+
+<details>
+<summary>Bag Desktop</summary>
+<br>
+
+![Bag Desktop](media/readme_images/designscreenshots/bagdesktop.png)
+</details>
+
+<details>
+<summary>Bag Mobile</summary>
+<br>
+
+![Bag Mobile](media/readme_images/designscreenshots/bagmobile.png)
+</details>
+
+### Checkout
+
+<details>
+<summary>Contact Desktop</summary>
+<br>
+
+![Contact Desktop](media/readme_images/designscreenshots/checkoutdesktop.png)
+</details>
+
+<details>
+<summary>Contact Mobile</summary>
+<br>
+
+![Contact Mobile](media/readme_images/designscreenshots/checkoutmobile.png)
+</details>
+
+### Frequently Asked Questions
+
+<details>
+<summary>FAQ Desktop</summary>
+<br>
+
+![FAQ Desktop](media/readme_images/designscreenshots/faqdesktop.png)
+</details>
+
+<details>
+<summary>FAQ Mobile</summary>
+<br>
+
+![FAQ Mobile](media/readme_images/designscreenshots/bagdesktop.png)
+</details>
+
+### Contact Us
+
+<details>
+<summary>Contact Us Desktop</summary>
+<br>
+
+![Contact Us Desktop](media/readme_images/designscreenshots/contactdesktop.png)
+</details>
+
+<details>
+<summary>Contact Us Mobile</summary>
+<br>
+
+![Contact Us Mobile](media/readme_images/designscreenshots/contactmobile.png)
+</details>
+
+### Success Page
+
+<details>
+<summary>Success Desktop</summary>
+<br>
+
+![Success Desktop](media/readme_images/designscreenshots/successdesktop.png)
+</details>
+
+<details>
+<summary>Success Mobile</summary>
+<br>
+
+![Success Mobile](media/readme_images/designscreenshots/successmobile.png)
+</details>
+
+<details>
+<summary>Success Toast</summary>
+<br>
+
+![Success Toast](media/readme_images/designscreenshots/successtoast.png)
+</details>
+
+### Product Management 
+
+<details>
+<summary>Product Management Page</summary>
+<br>
+
+![Product Management Desktop](media/readme_images/designscreenshots/productmanagementdesktop.png)
+</details>
+
+### My Profile
+
+<details>
+<summary>Profile Page</summary>
+<br>
+
+![Profile Desktop](media/readme_images/designscreenshots/myprofiledesktop.png)
+</details>
+
+### Sign In
+
+<details>
+<summary>Sign In Page</summary>
+<br>
+
+![Footer](media/readme_images/designscreenshots/signinscreenshot.png)
+</details>
+
+### Footer
+
+<details>
+<summary>Footer</summary>
+<br>
+
+![Footer](media/readme_images/designscreenshots/footer.png)
 </details>
 
 ### Features Left to Implement

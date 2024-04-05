@@ -1,6 +1,7 @@
 from django import forms
 
-# Define a ContactForm class that inherits from forms.Form to create a custom form.
+
+# Define a ContactForm class that inherits from forms.Form.
 class ContactForm(forms.Form):
 
     # Define fields for name, email and message.

@@ -10,6 +10,7 @@ from django.utils.text import slugify
 from .models import Post, Comment
 from .forms import CommentForm, BlogPostForm
 
+
 # List view for displaying blog posts with pagination.
 class CheesyBlogListView(ListView):
     # Specify the model to retrieve data form.
@@ -25,7 +26,7 @@ class CheesyBlogListView(ListView):
     # Define the query to fetch published posts and order them.
     def get_queryset(self):
         return Post.objects.filter(status=1).order_by('-created_on')
-    
+
     # Context data with total posts count and pages count.
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -37,21 +38,29 @@ class CheesyBlogListView(ListView):
         context['total_pages'] = total_pages
 
         return context
-    
+
 
 # View for displaying a single post detail.
 class PostDetail(View):
 
     # Handle GET requests
     def get(self, request, slug, *args, **kwargs):
-         # Filter for published posts.
+        # Filter for published posts.
         queryset = Post.objects.filter(status=1)
         # Retrieve the post by slug or return 404 and Fetch approved comments.
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
-        
+
         # Render template with the post and comments
-        return render(request, 'cheesyblog/cheesyblogpost.html', {"post": post, "comments": comments, "comment_form": CommentForm()})
+        return render(
+            request,
+            'cheesyblog/cheesyblogpost.html',
+            {
+                "post": post,
+                "comments": comments,
+                "comment_form": CommentForm(),
+            }
+        )
 
     # Handle POST requests.
     def post(self, request, slug, *args, **kwargs):
@@ -59,19 +68,19 @@ class PostDetail(View):
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
         comment_form = CommentForm(data=request.POST)
-        
+
         # Check if form is valid.
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.user = request.user
-            # Save after associating valid comment with user, provide success message.
+            # Save after associating valid comment with user.
             comment.save()
             messages.info(request, 'Comment added - awaiting approval!')
         else:
             # Initialize form again on failure on failure.
             comment_form = CommentForm()
-        
+
         return render(request, "cheesyblog/cheesyblogpost.html", {
             "post": post,
             "comments": comments,
@@ -79,10 +88,12 @@ class PostDetail(View):
             "comment_form": comment_form,
             })
 
+
 # Function to check if a user is a superuser
 def is_super_user(user):
     return user.is_superuser
-    
+
+
 # View to add a new blog post with decorator to check if logged in.
 @login_required
 # Check if user is superuser.
@@ -106,13 +117,14 @@ def AddBlogPost(request):
         form = BlogPostForm()
     return render(request, 'cheesyblog/addblogpost.html', {'form': form})
 
+
 @login_required
 def DeleteComment(request, comment_id):
     # Return 404 error if product not found.
     comment = get_object_or_404(Comment, pk=comment_id)
     print(comment)
 
-    # Delete the product if found, provide success message and redirect to list of products.
+    # Delete the product if found and redirect to list of products.
     comment.delete()
     messages.info(request, 'Product Deleted!')
     return redirect(reverse('products'))

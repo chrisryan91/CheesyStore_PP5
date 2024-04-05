@@ -1,6 +1,7 @@
 from django import forms
 from .models import UserProfile
 
+
 # Define a form for the UserProfile model using ModelForm as a base.
 class UserProfileForm(forms.ModelForm):
     class Meta:
@@ -22,7 +23,7 @@ class UserProfileForm(forms.ModelForm):
 
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True
 
-        # Loop through the form fields to set their placeholder attributes and classes.
+        # Loop through the form fields to set their placeholders.
         for field in self.fields:
             # Skip default_country field.
             if field != 'default_country':
@@ -33,9 +34,10 @@ class UserProfileForm(forms.ModelForm):
                     placeholder = placeholders[field]
                 # Set the place holder attribute.
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-            
+
             # Set CSS
-            self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
+            self.fields[field].widget.attrs['class'] =\
+                'border-black rounded-0 profile-form-input'
 
             # Remove fields label.
             self.fields[field].label = False

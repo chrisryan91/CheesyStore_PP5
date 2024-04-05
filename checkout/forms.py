@@ -1,6 +1,7 @@
 from django import forms
 from .models import Order
 
+
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order  # Specifies the Django model to base the form on
@@ -11,8 +12,8 @@ class OrderForm(forms.ModelForm):
                   'county',)
 
     def __init__(self, *args, **kwargs):
-        # Override the default __init__ method to provide additional functionality
-        super().__init__(*args, **kwargs)  # Call to the superclass's __init__ method
+        # Override the default __init__ method
+        super().__init__(*args, **kwargs)  # Call to the __init__ method
         # Define placeholders that will be shown in the form fields
         placeholders = {
             'full_name': 'Full Name',
@@ -25,13 +26,13 @@ class OrderForm(forms.ModelForm):
             'county': 'County, State or Locality',
         }
 
-        self.fields['full_name'].widget.attrs['autofocus'] = True  # Autofocus on the first field
+        self.fields['full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            if field != 'country':  # Exclude the 'country' field from custom styling
+            if field != 'country':  # Exclude the 'country' field
                 if self.fields[field].required:
-                    placeholder = f'{placeholders[field]} *'  # Add asterisk for required fields
+                    placeholder = f'{placeholders[field]} *'  # Add asterisk
                 else:
                     placeholder = placeholders[field]
-                self.fields[field].widget.attrs['placeholder'] = placeholder  # Set placeholder text
-            self.fields[field].widget.attrs['class'] = 'stripe-style-input'  # Add CSS class for styling
+                self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False  # Hide the field's label

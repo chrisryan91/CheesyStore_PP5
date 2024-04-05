@@ -3,6 +3,7 @@ from .models import Post, Comment
 # Import the Summernote editor integration
 from django_summernote.admin import SummernoteModelAdmin
 
+
 # Register the Post model with the admin site.
 @admin.register(Post)
 # Inherits from SummernoteModelAdmin for rich text editing
@@ -11,7 +12,7 @@ class PostAdmin(SummernoteModelAdmin):
     list_display = ('title', 'slug', 'status', 'created_on')
     # Enable searching within the title and content fields
     search_fields = ['title', 'content']
-    # Automatically fill the slug field based on the title to avoid manual entry
+    # Fill the slug field based on the title to avoid manual entry
     prepopulated_fields = {'slug': ('title',)}
     # Filter options.
     list_filter = ('status', 'created_on')
@@ -27,6 +28,7 @@ class PostAdmin(SummernoteModelAdmin):
             'classes': ('collapse',),
         }),
     )
+
 
 # Register the Comment model with the admin site using a custom admin class
 @admin.register(Comment)

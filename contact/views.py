@@ -5,6 +5,7 @@ from django.conf import settings
 from django.urls import reverse
 from .forms import ContactForm
 
+
 def contact(request):
     if request.method == 'POST':
         # Initialise form with data from the request if it is a POST request.
