@@ -1,3 +1,6 @@
+/*jshint esversion: 6 */
+/* global $ */
+
 var stripePublicKey = $('#id_stripe_pubic_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
 
@@ -105,11 +108,11 @@ form.addEventListener('submit', function(ev) {
             $('#submit_button').attr('disabled', false);
             } else {
                 if (result.paymentIntent.status === 'succeeded') {
-                    form.submit()
+                    form.submit();
                 }
             }
         });
     }).fail(function () {
         location.reload();
-    })
+    });
 });
