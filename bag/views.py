@@ -1,13 +1,16 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import (
+    render, redirect, reverse, HttpResponse, get_object_or_404)
 from django.contrib import messages
 
 from cheesystoreshop.models import Product
 
+
 # Displays the shopping bag page.
 def view_bag(request):
-    
+
     # Render and return the bag template.
     return render(request, 'bag/bag.html')
+
 
 # Adds items to shopping bag.
 def add_to_bag(request, item_id):
@@ -23,7 +26,9 @@ def add_to_bag(request, item_id):
     # If the item exists, update it's quantity.
     if item_id in list(bag.keys()):
         bag[item_id] += quantity
-        messages.success(request, f'Update {product.name} quantity to {bag[item_id]}')
+        messages.success(
+            request,
+            f'Update {product.name} quantity to {bag[item_id]}')
     else:
         # If the item is not in the bag, add it.
         bag[item_id] = quantity
@@ -32,6 +37,7 @@ def add_to_bag(request, item_id):
     # Save Updated Bag
     request.session['bag'] = bag
     return redirect(redirect_url)
+
 
 # Adjusts the quantity of items in the bag.
 def adjust_bag(request, item_id):
@@ -44,7 +50,9 @@ def adjust_bag(request, item_id):
     # If the new quantity is great than 0, update the quantity.
     if quantity > 0:
         bag[item_id] = quantity
-        messages.success(request, f'Updated {product.name} quantity to {bag[item_id]}')
+        messages.success(
+            request,
+            f'Updated {product.name} quantity to {bag[item_id]}')
     else:
         # If the quantity is 0 then remove.
         bag.pop(item_id)

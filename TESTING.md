@@ -27,7 +27,167 @@ User Stories were created at the start of my project.
 
 Link to Projects Board: [Project Board](https://github.com/users/chrisryan91/projects/5/views/1)
 
-## User Story 1
+## User Story 1: As a site administrator, I can manage user accounts, including activating, deactivating, and deleting accounts, so that I can maintain the site's user base and security.
+
+I used the Code Institute template at the very beginning of my project. Once I got my Development Environment set up correctly and installed Django, I was able to create a superuser. Once configured properly, I was able to access the admin panel which would allow me to manage user accounts so that I could maintain and sites userbase and security.
+
+Here is an example of a class that Registers my blog posts with the admin panel:
+
+<details>
+<summary>User Story 1</summary>
+<br>
+
+```
+# Register the Post model with the admin site.
+@admin.register(Post)
+# Inherits from SummernoteModelAdmin for rich text editing
+class PostAdmin(SummernoteModelAdmin):
+    # Configure the list display in the admin panel to show these fields
+    list_display = ('title', 'slug', 'status', 'created_on')
+    # Enable searching within the title and content fields
+    search_fields = ['title', 'content']
+    # Fill the slug field based on the title to avoid manual entry
+    prepopulated_fields = {'slug': ('title',)}
+    # Filter options.
+    list_filter = ('status', 'created_on')
+    # Specify which fields should use the Summernote rich-text editor
+    summernote_fields = ('content',)
+
+    fieldsets = (
+        (None, {
+            'fields': ('title', 'slug', 'author', 'status')
+        }),
+        ('Content', {
+            'fields': ('content', 'keywords'),
+            'classes': ('collapse',),
+        }),
+    )
+```
+</details>
+
+## 2: As a site user, I can subscribe to the newsletter to receive updates on new cheese arrivals, promotions, and blog posts so that I can stay informed. 
+
+For this User Story to be completed, I had to set up an account with MailChimp which provided me with a form to embed into a html document, css styling and JavaScript to use in my website. Using the Dashboard on MailChimp I manage my Audience of people who signed up for a News Letter.
+
+<details>
+<summary>User Story 2</summary>
+<br>
+
+![Mailchimp Dashboard Audience](media/readme_images/mailchimpss.png)
+
+</details>
+
+## User Story 3: As a site user, I can read blog posts about cheese tasting, pairing tips, and cheese-making processes so that I can expand my knowledge and appreciation of cheese.
+
+For this user story to be completed, I needed to set up a new app using the command "python manage.py startapp cheesyblog". From here I was able to create models, views, urls and templates to creat an app. This allowed a blog post to be published by the admin through the django admin panel and render it trough a template. I created a cheesyblogpost page too for users to read the full posts. This blog will attract users to my website who are interested in cheese and turn them into potential customers.
+
+Below is the view which gets the blog post from the database and renders it to the template.
+
+<details>
+<summary>User Story 3</summary>
+<br>
+
+```
+class CheesyBlogListView(ListView):
+    # Specify the model to retrieve data form.
+    model = Post
+    # Template path.
+    template_name = 'cheesyblog/cheesyblog.html'
+    # Name of the variable in the template.
+    context_object_name = 'posts'
+    # Number of posts per page.
+    paginate_by = 6
+    posts = Post.objects.filter(status=1).order_by('-created_on')
+
+    # Define the query to fetch published posts and order them.
+    def get_queryset(self):
+        return Post.objects.filter(status=1).order_by('-created_on')
+
+    # Context data with total posts count and pages count.
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        total_posts = Post.objects.filter(status=1).count()
+        context['total_posts'] = total_posts
+
+        paginator = Paginator(self.get_queryset(), self.paginate_by)
+        total_pages = paginator.num_pages
+        context['total_pages'] = total_pages
+
+        return context
+```
+
+</details>
+
+## User Story 4: As a site user, I can leave comments and reviews on cheeses and blog posts so that I can share my opinions and experiences with other users.
+
+For this User Story to be completed, I needed to create a model for each comment. The model is based below and has fields for the post the comment is on, the user who is writing it, the text of the comment, the time it was created and it's approval status. From here, I created a form in forms.py with a meta class to specify what model the form is associated with. The form provides a field for the body as the others fields will be created automatically. Finally, I updated the view to provide commenting functionality and rendered the form in the template if the user was authenticated.
+
+<details>
+<summary>User Story 4</summary>
+<br>
+```
+class Comment(models.Model):
+    post = models.ForeignKey(
+        Post,
+        on_delete=models.CASCADE,
+        related_name="comments"
+    )
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='comments_user'
+    )
+    body = models.TextField(max_length=1000)
+    created_on = models.DateTimeField(default=timezone.now)
+    approved = models.BooleanField(default=False)
+```
+
+```
+class CommentForm(forms.ModelForm):
+    # Meta class to specify which model the form is associated with.
+    class Meta:
+        model = Comment
+        fields = ('body',)
+```
+
+```
+  {% if user.is_authenticated %}
+  <h4>Leave a comment:</h4>
+  <p class="text-muted">{{ user.username }}</p>
+  <form method="post" id="commentform">
+      {{ comment_form|crispy }}
+      {% csrf_token %}
+      <button type="submit" class="btn" id="commentsubmit"><u>Submit</u></button>
+  </form>
+  {% endif %}
+
+```
+</details>
+
+
+## 5: As a site administrator, I can create and publish blog posts about cheese-related topics so that I can engage users and attract traffic to the site.
+
+## 6: As a site administrator, I can add, edit, and delete cheeses from the store inventory so that I can manage the product catalog.
+
+## 7: As a site user, I can create an account and log in so that I can track my order history and manage my profile information.
+
+## 8: As a site user, I can view detailed information about each cheese, including its origin, flavor profile, and suggested pairings, so that I can make an informed decision.
+
+## 9: As a site user, I can search for specific types of cheeses (e.g., soft, hard, aged) so that I can find cheeses that match my preferences.
+
+## 10: As a site user, I can add cheeses to my cart and proceed to checkout so that I can purchase them. 
+
+## 11: As a site user, I can browse a variety of cheeses so that I can explore different options.
+
+## 12: As a user, I want to be able to set up an account and login in and log out so I can purchase items and leave a comment.
+
+## 13: As a potential customer, I want to interact with a chatbot on the cheese-selling website so that I can receive personalized recommendations, get answers to my questions about the products, and have assistance throughout the checkout process, making my shopping experience smoother and more enjoyable.
+
+## 14: As a user, I want to easily find answers to frequently asked questions so that I can make informed decisions about the products and policies without needing to wait for a response from customer service.
+
+## 15: As a user, I want to subscribe to a monthly cheese subscription service so that I can discover new cheeses and have a consistent supply of high-quality cheese without having to reorder manually each time.
+
+## 16: As a user, I want to participate in a loyalty program that rewards me for my purchases so that I can enjoy discounts, get early access to new products, and access exclusive content.
 
 <details>
 <summary>User Story 1</summary>

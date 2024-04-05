@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.core.paginator import Paginator
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.views.decorators.http import require_POST
+from django.urls import reverse_lazy
 from django.views.generic import ListView
 from django.views import View
 from django.utils.text import slugify
@@ -118,6 +118,7 @@ def AddBlogPost(request):
     return render(request, 'cheesyblog/addblogpost.html', {'form': form})
 
 
+
 @login_required
 def DeleteComment(request, comment_id):
     # Return 404 error if product not found.
@@ -128,3 +129,40 @@ def DeleteComment(request, comment_id):
     comment.delete()
     messages.info(request, 'Product Deleted!')
     return redirect(reverse('products'))
+
+@login_required
+def edit_comment(request, comment_id):
+
+    # Check if the user is a superuser and return error if not.
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry only store owners can do that')
+        return redirect(reverse('home'))
+
+    # Show 404 error is product is not found.
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    # Process the form data if request is POST.
+    if request.method == 'POST':
+        form = CommentForm(request.POST, request.FILES, instance=comment)
+        # Check if the form is valid and save if so.
+        if form.is_valid():
+            form.save()
+            messages.info(request, 'Successfully updated comment')
+            return redirect(reverse('cheesyblog'))
+        else:
+            messages.error(request, 'Failed to update comment')
+    else:
+        # If not a POST request initialise form with product instance.
+        form = CommentForm(instance=comment)
+        messages.info(request, f'You are editing your comment')
+
+    # Define template and context
+    template = 'cheesyblog/edit_comment.html'
+    context = {
+        'form': form,
+        'product': comment,
+        'ignore_section': True,
+    }
+
+    # Render and return the template with context.
+    return render(request, template, context)

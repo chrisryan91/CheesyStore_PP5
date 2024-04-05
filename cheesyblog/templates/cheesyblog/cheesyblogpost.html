@@ -68,6 +68,7 @@
                     </div>
                 {% if comment.user == request.user %}
                 <a href="{% url 'delete_comment' comment.id %}" class="delete_comment text-danger">Delete</a>
+                <a href="{% url 'edit_comment' comment.id %}" class="text-success">Edit</a>
                 {% endif %}
             <hr>
                 {% endfor %}

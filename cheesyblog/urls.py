@@ -12,4 +12,9 @@ urlpatterns = [
         views.DeleteComment,
         name='delete_comment'
     ),
+    path(
+        'edit/<int:comment_id>/',
+        views.edit_comment,
+        name='edit_comment'
+    ),
 ]
