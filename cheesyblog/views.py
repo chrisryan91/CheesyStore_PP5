@@ -127,8 +127,8 @@ def DeleteComment(request, comment_id):
 
     # Delete the product if found and redirect to list of products.
     comment.delete()
-    messages.info(request, 'Product Deleted!')
-    return redirect(reverse('products'))
+    messages.info(request, 'Comment Deleted!')
+    return redirect(reverse('cheesyblog'))
 
 @login_required
 def edit_comment(request, comment_id):
