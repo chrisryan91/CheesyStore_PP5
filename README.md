@@ -57,8 +57,12 @@ Link to Main Project Board: [Project Board](https://github.com/users/chrisryan91
     - [Footer](#footer)
     - [Features Left to Implement](#features-left-to-implement)
   - [Business Model](#business-model)
-  - [Search Engine Optimization](#search-engine-optimization)
-  - [Social Media Marketing](#social-media-marketing)
+  - [Web Marketing and Search Engine Optimisization](#web-marketing-and-search-engine-optimisization)
+    - [Key Words](#key-words)
+    - [Blog Keywords](#blog-keywords)
+    - [Sitemap and Robots.txt](#sitemap-and-robotstxt)
+    - [Social Media Marketing](#social-media-marketing)
+    - [Email Marketing](#email-marketing)
   - [Technologies Used](#technologies-used)
     - [Core Development Technologies](#core-development-technologies)
     - [Libraries, Frameworks and Packages](#libraries-frameworks-and-packages)
@@ -745,15 +749,100 @@ In the footer a link to the store's Privacy Policy is aligned to the right. In t
 
 ## Business Model
 
-Cheesy Store's Business Model is Business to Consumer (B2C). Products are sold directly from Fresh Nest to consumers who are the end-users. 
+Cheesy Store's Business Model is Business to Consumer (B2C). Products are sold directly from Cheesy Store to consumers who are the end-users.
 
 A customer of Cheesy Store would be someone who is most likely an adult who is interested in cheese or cheese culture. The blog can potentially attract potential customers who may be interested in it's content. From there products can be marketed and the customer can be redirected to the store.
 
-## Search Engine Optimization
+## Web Marketing and Search Engine Optimisization
 
-## Social Media Marketing
+### Key Words
 
-For this site, a Facebook business page has been created for organic social media marketing. The Facebook page includes a 'Contact Us' button which takes the user to the Contact Page on Cheesy Store.
+I chose a mixture of shorttail and longtail keywords. I struggled to only pick ten. There are many permutations regarding keywords so I chose a mixture of all sustainable, organic, gourmet and artisan.
+
+I used Google search to check Search results for other online cheese shops keywords. I also utilised WorkTracker and other word tracking services. Some screenshots are below. I learned that Sheridan's have the Irish cheese market cornered and run a monopoly for Irish cheese.
+
+
+| Cheese                     | Cheesemonger                      | Cheese Shop                      |
+| -------------------------- | --------------------------------- | -------------------------------- |
+| Irish Cheese               | Irish Cheesemonger                | Irish Cheese Shop                |
+| Sustainable Irish Cheese   | Sustainable Irish Cheesemonger    | Sustainable Irish Cheese Shop    |
+| Organic Irish Cheese       | Organic Irish Cheesemonger        | Organic Irish Cheese Shop        |
+| Gourmet Irish Cheese       | Gourmet Irish Cheesemonger        | Gourmet Irish Cheese Shop        |
+| Artisan Cheese             | Artisan Irish Cheesemonger        | Artisan Irish Cheese Shop        |
+| Buy Artisan Cheese         | Online Artisan Irish Cheesemonger | Online Artisan Irish Cheese Shop |
+| Award-Winning Irish Cheese |                                   |                                  |
+| Small-batch Irish cheese   |                                   |                                  |
+| Rare Irish cheese          |                                   |
+
+<details>
+<summary>Wordtracker Screenshot</summary>
+<br>
+
+![Cheesemonger Analytics](media/readme_images/marketingscreenshots/wordtracker1.png)
+
+</details>
+
+<details>
+<summary>Google Search</summary>
+<br>
+
+![Google Search](media/readme_images/marketingscreenshots/Screenshot%202024-03-29%20211713.png)
+
+</details>
+
+<details>
+<summary>Cheesemonger Analytics 1</summary>
+<br>
+
+![Cheesemonger Analytics](media/readme_images/marketingscreenshots/cheesemongersemrush1.png)
+
+</details>
+
+<details>
+<summary>Cheesemonger Analytics 2</summary>
+<br>
+
+![Cheesemonger Analytics](media/readme_images/marketingscreenshots/cheesemongersemrush2.png)
+
+</details>
+
+<details>
+<summary>Cheesemonger Analytics 3</summary>
+<br>
+
+![Cheesemonger Analytics](media/readme_images/marketingscreenshots/cheesemongersemrush3.png)
+
+</details>
+
+### Blog Keywords
+
+A blog can attract users to a website with interesting information. The blog on this website will attract people with an iterest in cheese. The admins who make the posts can enter in a comma-seperated string with keywords for the blog post. The keywords serve as tags which are rendered beneath the blogpost. They are also rendered in the meta tag of base.html so these keywords are rendered in the metatag of the relevent blogposts. I created a blogtags.py to seperate the string for the tags.
+
+<details>
+<summary>Blog Keyword Field</summary>
+<br>
+
+```
+keywords = models.TextField(
+    help_text="Enter specific comma-separated SEO keywords",
+    blank=True)
+```
+
+```
+{% block seo_keywords %}{% endblock seo_keywords %}
+```
+
+</details>
+
+### Sitemap and Robots.txt
+
+To enhance search engine optimization (SEO) and ensure search engines can effectively understand and navigate the site's structure, a sitemap file was created. This file, generated using xml-sitemaps.com, includes a list of important page URLs.
+
+Additionally, a robots.txt file was established to guide search engines on which areas of the website they are restricted from accessing. This measure helps improve the site's SEO by focusing search engine crawlers on the most relevant and valuable content, thereby enhancing the quality of the site in search engine rankings.
+
+### Social Media Marketing
+
+For this site, a Facebook business page has been created for social media marketing. The Facebook page includes a 'Contact Us' button which takes the user to the Contact Page on Cheesy Store. The Facebook page link is included in the footer so appear extended from base.html to every webpage.
 
 <details>
 <summary>Cheesy Store Facebook Page</summary>
@@ -762,6 +851,10 @@ For this site, a Facebook business page has been created for organic social medi
 ![Cheesy Store Facebook Page](media/readme_images/screencapture-facebook-profile-php-2024-04-04-20_40_44.png)
 
 </details>
+
+### Email Marketing
+
+Users and visitors to the website can sign up to the newsletter. They do not need an account to do so. A signup box is present on the homepage and the contact page. This allows the business to stay in touch with customers. The newsletter can contain anything from special offers to new arrivals. Mailchimp was used for this purpose.
 
 ## Technologies Used
 
@@ -793,7 +886,7 @@ For this site, a Facebook business page has been created for organic social medi
 
 ## Testing
 
-Full testing: [Testing.md](TESTING.md)
+Full testing: [TESTING.md](TESTING.md)
 
 ## Deployment - Heroku
 
@@ -1008,4 +1101,4 @@ To clone this repository follow the below steps:
 
 ## Credits
 
-I wouldn't like to dedicate this to God.
+Blankety Black Checkbook and Pen
