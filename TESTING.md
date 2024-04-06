@@ -448,27 +448,257 @@ class Product(models.Model):
 </details>
 
 
-## 9: As a site user, I can search for specific types of cheeses (e.g., soft, hard, aged) so that I can find cheeses that match my preferences.
+## User Story 9: As a site user, I can search for specific types of cheeses (e.g., soft, hard, aged) so that I can find cheeses that match my preferences.
 
-## 10: As a site user, I can add cheeses to my cart and proceed to checkout so that I can purchase them. 
+For this User Story to be completed, I needed a search bar which appears as a dropdown item on my Navigation bar. On all pages and all screen sizes the Search icon will appear allowing Users to search the store for products. The dropdown search bar is a form element which queries the 'products' url triggering the all_products view. The search term will try find the search query in the name or the description of the product. The view will return items with the search query or a message saying there is no search criteria.
 
-## 11: As a site user, I can browse a variety of cheeses so that I can explore different options.
+<details>
+<summary>User Story 8</summary>
+<br>
 
-## 12: As a user, I want to be able to set up an account and login in and log out so I can purchase items and leave a comment.
 
-## 13: As a potential customer, I want to interact with a chatbot on the cheese-selling website so that I can receive personalized recommendations, get answers to my questions about the products, and have assistance throughout the checkout process, making my shopping experience smoother and more enjoyable.
+```
+<a class="text-black nav-link" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="text-center">
+        <div><i class="fas fa-search"></i></div>
+        <p class="my-0">Search</p>
+    </div>
+</a>
+<div class="dropdown-menu border-0 w-50 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
+    <form class="form" method="GET" action="{% url 'products' %}">
+        <div class="input-group w-100">
+            <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search for products">
+            <div class="input-group-append">
+                <button class="form-control form-control btn border border-black rounded-0" type="submit">
+                    <span class="icon">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
 
-## 14: As a user, I want to easily find answers to frequently asked questions so that I can make informed decisions about the products and policies without needing to wait for a response from customer service.
 
-## 15: As a user, I want to subscribe to a monthly cheese subscription service so that I can discover new cheeses and have a consistent supply of high-quality cheese without having to reorder manually each time.
+if 'q' in request.GET:
+    query = request.GET['q']
+    if not query:
+        messages.error(request, "You didn't enter any search criteria!")
+        return redirect(reverse('products'))
+    
+    queries = Q(name__icontains=query) | Q(description__icontains=query)
+    products = products.filter(queries)
 
-## 16: As a user, I want to participate in a loyalty program that rewards me for my purchases so that I can enjoy discounts, get early access to new products, and access exclusive content.
+```
+
+</details>
+
+## User Story 10: As a site user, I can add cheeses to my cart and proceed to checkout so that I can purchase them.
+
+To complete this User story I needed to create a brand new app called Bag with python manage.py startapp bag. On the product detail page I created an "Add to Bag" button which will save the product and it's quantity into session storage. In the newly created bag app's views, the add_to_bag function will retrieve the data saved regarding the product in session storage. The infomation regarding the order can then be rendered onto the bag html page which the user can see.
+
+<details>
+<summary>User Story 10</summary>
+<br>
+
+```
+def add_to_bag(request, item_id):
+
+    product = get_object_or_404(Product, pk=item_id)
+
+    quantity = int(request.POST.get('quantity'))
+    redirect_url = request.POST.get('redirect_url')
+
+    # Retrieve the bag from the session - or initialise it.
+    bag = request.session.get('bag', {})
+
+    # If the item exists, update it's quantity.
+    if item_id in list(bag.keys()):
+        bag[item_id] += quantity
+        messages.success(
+            request,
+            f'Update {product.name} quantity to {bag[item_id]}')
+    else:
+        # If the item is not in the bag, add it.
+        bag[item_id] = quantity
+        messages.success(request, f'Added {product.name} to your bag')
+
+    # Save Updated Bag
+    request.session['bag'] = bag
+    return redirect(redirect_url)
+```
+</details>
+
+## User Story 11: As a site user, I can browse a variety of cheeses so that I can explore different options.
+
+This is User Story needed for all of the products in the database to be rendered onto the store html which a user could visit. The products in the database were retrieved with the all_products view. They are rendered onto the page with a for loop. Each product has a dedicated card div which contains it's name, image, price, rating, type and other values like whether it is in stock. All of these products are rendered onto a page which is paginated to create multiple pages.
 
 <details>
 <summary>User Story 1</summary>
 <br>
 
-![User Story 1]()
+```
+{% for product in products %}
+<div class="col-xs-1 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+    <div class="card h-100 border-0">
+        {% if product.image %}
+        <a href="{% url 'product_detail' product.id %}">
+            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+        </a>
+        {% else %}
+        <a href="{% url 'product_detail' product.id %}">
+            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+        </a>
+        {% endif %}
+        <div class="card-body pb-0">
+            <p class="mb-0">{{ product.name }}</p>
+        </div>
+        <div class="card-footer bg-white pt-0 border-0 text-left">
+            <div class="row">
+                <div class="col">
+                    {% if product.in_stock %}
+                    <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                    {% else %}
+                    <p class="lead mb-0 text-left font-weight-bold soldout">Sold Out</p>
+                    {% endif %}
+                    {% if product.origin %}
+                    <p class="small mt-1 mb-0">
+                        <a href="{% url 'products' %}?origin={{ product.origin.name }}" class="text-dark nextlast">
+                            <i class="fas fa-tag mr-1"></i>{{ product.origin.friendly_name }}
+                        </a>
+                    </p>
+                    {% endif %}
+                    {% if product.cheesetype %}
+                    <p class="small mt-1 mb-0">
+                        <a href="{% url 'products' %}?cheesetype={{ product.cheesetype.name }}" class="text-dark nextlast">
+                            <i class="fas fa-tag mr-1"></i>{{ product.cheesetype.friendly_name }}
+                        </a>
+                    </p>
+                    {% endif %}
+                    {% if product.rating %}
+                    <p class="small mt-1 mb-0"> 
+                        <small class="text-dark"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                    </p>
+                    {% else %}
+                    <p class="small mt-1 mb-0">
+                        <small class="text-dark">No Rating</small>
+                    </p>
+                    {% endif %}
+                    {% if request.user.is_superuser %}
+                        <p class="small mt-1 mb-0">
+                            <a href="{% url 'edit_product' product.id %}">Edit</a>
+                            <a href="{% url 'delete_product' product.id %}" class="text-danger deleteproduct">Delete</a>
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+</details>
+
+## user Story 12: As a user, I want to be able to set up an account and login in and log out so I can purchase items and leave a comment.
+
+The account tab in the navigation bar allows users to sign-in, sign-out and register. Each of theese three links have three seperate html pages on which forms giving using login and logout functionality. While it is not nescessary to have an account to purchase an item, setting one up allows users to have a saveable user profile and gives them the ability to comment on blog posts.
+Authentication functionality is handled by Django AllAuth. 
+
+
+<details>
+<summary>User Story 12 - Register Screenshot</summary>
+<br>
+
+![User Story 1](media/readme_images/signinsc.png)
+</details>
+
+
+<details>
+<summary>User Story 12 - Login Screenshot</summary>
+<br>
+
+![User Story 1](media/readme_images/loginscreens.png)
+</details>
+
+
+
+## 13: As a user, I want to easily find answers to frequently asked questions so that I can make informed decisions about the products and policies without needing to wait for a response from customer service.
+
+For this User Story, I needed to create a Frequently Asked Questions page. In my research, I checkout out other online stores Frequently Asked Questions and made note of what type of questions are recurring for this type of business: privacy questions, safety questions regarding card data, return policies, account detail inforation and other useful internal links. 
+
+I created a new app for this feature as I want to expand it's functionality in the future. There were now new models needed just a basic view to return a webpage and a template which extends base.html and has a series and questions and answers.
+
+<details>
+<summary>User Story 13 - FAQ Screenshot</summary>
+<br>
+
+![User Story 13 - FAQ Screenshot](media/readme_images/faqscreenshot.png)
+</details>
+
+## User Story 14: As a potential customer, I want to interact with a chatbot on the cheese-selling website so that I can receive personalized recommendations, get answers to my questions about the products, and have assistance throughout the checkout process, making my shopping experience smoother and more enjoyable.
+
+This User Story never got finished. In my research of other sites, it seemed a lot of useful online stores had chatbots. I was made aware of ChatGPT API and it's ability to be integrated into a webapp and this concept interested me. I did not have enough time to complete this User Story as I had a submission date and so was on a deadline. This feature is something I will work on once the project is submitted.
+
+The API key is still stored in my env.py file so it is not pushed to GitHub.
+
+
+## User Story 15: As a user, I want to subscribe to a monthly cheese subscription service so that I can discover new cheeses and have a consistent supply of high-quality cheese without having to reorder manually each time.
+
+This User Story is unfinished. Currently, Cheesy Store only has once off payments. I added this User Story as I wanted to create some kind of subscription payment model with Stripe. I wanted to learn how to use Stipe to achieve that functionality. I also think the idea of cheesemonger lends itself to a subscription based model where someone pays for new cheeses once per month.
+
+I found a basic example of a Stripe payment function to create a new subscription so I would expand on it.
+
+<details>
+<summary></summary>
+<br>
+
+```
+def create_subscription(user: User, plan_id: str):
+    try:
+        # Create a new Stripe customer if the user doesn't already have one
+        if not user.profile.stripe_customer_id:
+            customer = stripe.Customer.create(
+                email=user.email,
+                name=user.get_full_name(),
+            )
+            user.profile.stripe_customer_id = customer.id
+            user.profile.save()
+
+        # Create the subscription
+        subscription = stripe.Subscription.create(
+            customer=user.profile.stripe_customer_id,
+            items=[{'plan': plan_id}],
+        )
+
+        return subscription
+    except stripe.error.StripeError as e:
+        # Handle any Stripe errors
+        print(f"Stripe error: {e}")
+        return None
+
+```
+
+</details>
+
+## 16: As a user, I want to participate in a loyalty program that rewards me for my purchases so that I can enjoy discounts, get early access to new products, and access exclusive content.
+
+This User story is unfinished. A loyalty prohgram seemed a great way to encourage repeat business which could build a stronger relationship with my customers. For this, I would expand my User Profile app. I would create a LoyaltyPoint class based view and determine the points the users has accumulated. I would need to access their Order History and the amount they have spent. I would need to determine the mechanism for spending points - and how many points are needed for discounts, access to new products etc.
+
+<details>
+<summary></summary>
+<br>
+
+```
+class LoyaltyPoint(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    points = models.IntegerField(default=0)
+    earned_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.points} points"
+
+```
+
 </details>
 
 ## Validator Testing
@@ -682,6 +912,9 @@ Beneath is Lighthouse testing from Chrome Dev tools for each of the main pages o
 |Order Number Button|Click|Links to Checkout Sucess page with Order Details|Yes|
 |Countries Dropdown|Click|Dropdown Appears|Yes|
 |Update Information Button|Click|Success box appears, form submits| |
+
+
+## Stripe Webhook Testing
 
 ## Responsiveness Testing
 
