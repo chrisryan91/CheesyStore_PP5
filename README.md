@@ -2,11 +2,11 @@
 
 Welcome to CheesyStore, an online cheesemonger based in Ireland. Our website offers a handpicked selection of the finest cheeses from Ireland and around the world. CheesyStore goes beyond just selling cheese. Alongside the shop there is a blog featuring pairing guides, the stories behind our products, and the latest news from the dairy world. These insights, along with special offers, are shared across various social media platforms to keep our community engaged and informed.
 
+![Cheesy Store](media/readme_images/amiresponsivescreenshot.png)
+
 Live Website here: [Cheesy Store](http://cheesystore-191ae9e3f358.herokuapp.com/)
 
 Link to Main Project Board: [Project Board](https://github.com/users/chrisryan91/projects/10)
-
-![Cheesy Store]()
 
 ## Table of Contents
 - [CheesyStore](#cheesystore)
@@ -14,14 +14,25 @@ Link to Main Project Board: [Project Board](https://github.com/users/chrisryan91
   - [Concept](#concept)
   - [Development](#development)
     - [User Stories](#user-stories)
-    - [Wireframes](#wireframes)
     - [Design](#design)
+    - [Wireframes](#wireframes)
     - [GitHub Projects](#github-projects)
     - [Database and Data Models](#database-and-data-models)
       - [cheesystoreshop](#cheesystoreshop)
+        - [Product](#product)
+        - [Category](#category)
+        - [Origin](#origin)
+        - [CheeseType](#cheesetype)
+        - [Rating](#rating)
       - [cheesyblog](#cheesyblog)
+        - [Post](#post)
+        - [Comment](#comment)
       - [checkout](#checkout)
+        - [Order](#order)
+        - [OrderLine Item](#orderline-item)
       - [profiles](#profiles)
+        - [User Profile](#user-profile)
+      - [Database Model Diagram](#database-model-diagram)
   - [Features](#features)
     - [CRUD Functionality](#crud-functionality)
       - [Create](#create)
@@ -69,9 +80,11 @@ Link to Main Project Board: [Project Board](https://github.com/users/chrisryan91
 
 ## Concept
 
-This web application is a submission for Portfolio Project 5 with a focus on ecommerce. Given the criteria of the project, I needed a concept that would process payments with Stripe and that could be marketed on Social Media platforms. I decided on an online cheesemonger because there are lots of varieties to categorise it by and it has a universal appeal which means it is easily marketable.
+This web application is a submission for Portfolio Project 5, with a focus on e-commerce. The project required a concept that could process payments using Stripe and be marketable on social media platforms. The chosen concept is an online cheesemonger, which offers a variety of cheese products. The website is designed to cater to a wide audience and is structured for easy categorization of products.
 
-I also wanted a concept that I could expand further. Given the deadline and the requirement for a Minimum Viable Product (MVP), I held back on integrating features that were not completely necessary. In future CheesyStore could expand to include recipes, pairing guides and an integrated chatbot with the ChatGPT API.
+To enhance marketing efforts and attract customers, the website includes a blog. The blog allows the site owners to publish posts related to cheese products, history, and culture. This feature aims to engage visitors and provide additional value beyond just e-commerce.
+
+The current version of the website is a Minimum Viable Product (MVP), developed within the project's deadline constraints. Future expansions are planned to include features such as recipes, pairing guides, and an integrated chatbot using the ChatGPT API. These additions are intended to further enhance the user experience and the website's offerings.
 
 ## Development
 
@@ -94,13 +107,20 @@ I also wanted a concept that I could expand further. Given the deadline and the 
 15. As a user, I want to participate in a loyalty program that rewards me for my purchases so that I can enjoy discounts, get early access to new products, and access exclusive content.
 16. As a potential customer, I want to interact with a chatbot on the cheese-selling website so that I can receive personalized recommendations, get answers to my questions about the products, and have assistance throughout the checkout process, making my shopping experience smoother and more enjoyable.
 
-User Stories are tested in: [Testing.md](Testing.md)
+User Stories are tested in: [Testing.md](TESTING.md)
 
 Link to User Stories + Tasks: [User Stories Board](https://github.com/users/chrisryan91/projects/11/views/1)
 
+### Design
+
+???
+
 ### Wireframes
 
-Wireframes were developed at the outset of my project. The general framework for how the website should be structured has remained the same. These served as a basis for my design from the beginning and prevented me from deviating too far in another direction. I created them partly because I understood that could could easily be made responsive to smaller screen sizes with bootstrap.
+
+Wireframes were created at the start of the project to establish the website's structure. The initial framework has largely stayed consistent throughout the development process. These wireframes were used as a reference for the design, ensuring that it did not stray significantly from the intended direction. They were also designed with responsiveness in mind, knowing that Bootstrap could be used to adapt the layout for smaller screens.
+
+Although there were some deviations from the original design, such as not including an "About Us" section, I made efforts to adhere to the initial wireframe as closely as possible. The wireframes proved to be valuable, providing a solid foundation for the design. They helped prevent excessive deviation during the styling process, which often led to cluttered HTML and CSS.
 
 <details>
 <summary>Home Page Initial Desktop Wireframe</summary>
@@ -127,7 +147,7 @@ Wireframes were developed at the outset of my project. The general framework for
 </details>
 
 <details>
-<summary>HProduct Page Initial Mobile Wireframe</summary>
+<summary>Product Page Initial Mobile Wireframe</summary>
 <br>
 
 ![Product Selection Initial Mobile Wireframe](media/readme_images/wireframes/mobilewireframes/mobilewireframeproducts.png)
@@ -262,19 +282,15 @@ Wireframes were developed at the outset of my project. The general framework for
 
 </details>
 
-### Design
-
-xxx
-
 ### GitHub Projects
 
-In the repository for CheesyStore I opened some issues for this project. I began by creating sixteen User Story issues. I followed this by creating corresponding Tasks for each User Story. I created three different project and imported the User Stories into each project. 
+In the repository for CheesyStore, I initiated the project by creating sixteen User Story issues. Subsequently, I generated corresponding Tasks for each User Story. Three different project boards were created, and the User Stories were imported into each.
 
-- The main project board contains three columns: to do, in progress and completed. As development progressed I moved User Stories from one column to the next. This helped me keep track of what stage I was in during the project.
+1. The main project board comprises three columns: to do, in progress, and completed. As development advanced, I transitioned User Stories from one column to another, aiding in tracking the project's progress.
 
-- I created a second project board and imported both the User Stories and Tasks to help me visualise what needed to be done for each User Story. Each User Story and corresponding Task is placed in a column.
+2. A second project board was created, incorporating both User Stories and Tasks. This board was designed to provide an overview of the tasks associated with each User Story, with each User Story and its corresponding Task placed in a specific column.
 
-- I created a third project board to help prioritise User Stories during development with MoSCoW Prioritisation with columns for Must-Have, Should-Have, Could-Have and Wont-Have.
+3. A third project board was created to prioritize User Stories using the MoSCoW Prioritization method. This board featured columns for Must-Have, Should-Have, Could-Have, and Won't-Have, facilitating the prioritization of development tasks.
 
 Link to Main Project Board: [Project Board](https://github.com/users/chrisryan91/projects/10)
 
@@ -284,14 +300,6 @@ Link to MoSCoW Prioritisation Board: [MoSCoW Board](https://github.com/users/chr
 
 User Stories are tested in: [TESTING.md](TESTING.md)
 
-<details>
-<summary>xxx</summary>
-<br>
-
-![]()
-
-</details>
-
 ### Database and Data Models
 
 CheesyStore has four app folders with models. The **User** model is handled by Django AllAuth.
@@ -300,111 +308,135 @@ CheesyStore has four app folders with models. The **User** model is handled by D
 
 This app contains five models. These models are for the products, the categories for the products and the rating of the products.
 
-The **Product** model contains the information to store details of the product for sale. The origin, category, cheesetype and rating fields are linked with foreign keys to the others models in this folder:
+##### Product
 
-- category
-- cheesetype
-- origin
-- sku
-- name
-- description
-- price
-- rating
-- in_stock
-- image_url
-- image
+The Product model contains the information to store details of the product for sale. The origin, category, cheesetype and rating fields are linked with foreign keys to the others models in this folder:
 
-The main **Category** model is for the main category to place the product into:
+1. category
+2. cheesetype
+3. origin
+4. sku
+5. name
+6. description
+7. price
+8. rating
+9. in_stock
+10. image_url
+11. image
 
-- name
-- friendly_name
+#####  Category
 
-The subcategory **Origin** model is for where the cheese comes from:
+The main Category model is for the main category to place the product into:
 
--  name
--  friendly_name
+1. name
+2. friendly_name#
 
-The second subcategory **CheeseType** is for the type of cheese it is:
+##### Origin
 
-- name
-- friendly_name
+The subcategory Origin model is for where the cheese comes from:
 
-The **Rating** model holds the User rating for the specific product.
+1. name
+2. friendly_name
 
-- product
-- user
-- stars
+##### CheeseType
+
+The second subcategory CheeseType is for the type of cheese it is:
+
+1. name
+2. friendly_name
+
+##### Rating
+
+The Rating model holds the User rating for the specific product.
+
+1. product
+2. user
+3. stars
 
 #### cheesyblog 
 
 This app contains two models. These models are the blog posts and the comments on the web applications blog.
 
-The **Post** model is for the blog posts themselves to be written by a superuser or through django-admin:
+##### Post
 
-- title
-- slug
-- author
-- updated_on
-- content
-- featured_image
-- excerpt
-- created_on
-- status
-- keywords
+The Post model is for the blog posts themselves to be written by a superuser or through django-admin:
 
-The **Comment** model is the comments on the blog posts. It is linked to the Post model and User model through foreign keys:
+1. title
+2. slug
+3. author
+4. updated_on
+5. content
+6. featured_image
+7. excerpt
+8. created_on
+9. status
+10. keywords
 
-- post
-- user
-- body
-- created_on
-- approved
+##### Comment
+
+The Comment model is the comments on the blog posts. It is linked to the Post model and User model through foreign keys:
+
+1. post
+2. user
+3. body
+4. created_on
+5. approved
 
 #### checkout
 
 This app contains two models. These models are for the Order and Order Line Items - or the products themselves in the order:
 
-The **Order** model contains the information for each specific order including user, address, contact details and order number:
+##### Order
 
-- order_number
-- user_profile
-- full_name
-- email
-- phone_number
-- country
-- postcode
-- town_or_city
-- street_address1
-- street-address2
-- county
-- date
-- delivery_cost
-- order_total
-- grand_total
-- original_bag
-- stripe_pid
+The Order model contains the information for each specific order including user, address, contact details and order number:
 
-The **OrderLineItem** model contains the products and the quantity of each in each order:
+1. order_number
+2. user_profile
+3. full_name
+4. phone_number
+5. email
+6. country
+7. postcode
+8. town_or_city
+9. street_address1
+10. street-address2
+11. county
+12. date
+13. delivery_cost
+14. order_total
+15. grand_total
+16. original_bag
+17. stripe_pid
 
-- order
-- product
-- quantity
-- lineitem_total
+##### OrderLine Item
+
+The OrderLineItem model contains the products and the quantity of each in each order:
+
+1. order
+2. product
+3. quantity
+4. lineitem_total
 
 #### profiles
 
 This app contains the information for each User profile. The User model itself is handled by Django AllAuth but it is extended here to aid the creation of profiles for each user:
 
-The **UserProfile** model contains information to display for each registered user:
+##### User Profile
 
-- user
-- default_phone_number
-- default_street_address1
-- default_street_address2
-- default_town_or_city
-- default_county
-- default_postcode
-- default_country
+The UserProfile model contains information to display for each registered user:
+
+1. user
+2. default_phone_number
+3. default_street_address1
+4. default_street_address2
+5. default_town_or_city
+6. default_county
+7. default_postcode
+8. default_country
+
+#### Database Model Diagram
+
+I created this Database Diagram Model with DrawSQL.
 
 <details>
 <summary>Data Model Diagram</summary>
@@ -419,23 +451,23 @@ The **UserProfile** model contains information to display for each registered us
 
 #### Create
 
-- Superusers can create products for the store through the Product Management link on the Navbar. This allows administrators to add new products into the shop. The product management link only appears to admins.
+- Superusers can add new products to the store via the "Product Management" link in the Navbar. This feature is only for administrators, allowing them to update the shop's inventory. The "Product Management" link is visible only to admins.
 
-- Registered users can add comments to each of the blog posts. New blog posts are created by administrators through the Django admin panel
+- Registered users have the ability to post comments on blog entries. Administrators can create new blog posts through the Django admin panel.
 
 #### Read
 
-- Any user of the website irrespective of registration status can see the new products, blog posts or comments posted once they have been published by the admin.
+- Any user of the website irrespective of registration status can see the new products, blog posts or comments posted once they have been approved and posted by the admin.
 
 #### Update
 
-- Once an administrator is logged in, a small edit button appears beneath the Product displayed on the Products page and Products Detail page. Once clicked, it brings up a new page with the ability to edit the products.
+- Administrators, once logged in, will see a small "edit" button beneath each product listing on the "Products" page and the "Product Detail" page. Clicking this button directs them to a page where they can modify the product details. Similarly, a comment can be edited by bringing up a seperate HTML page for editing a comment. 
 
 #### Delete
 
-- Once an administrator is logged in, a small delete button appears beneath the Product displayed on the Products page and Products detail page. Once clicked, it brings up an Alert confirming the intent to delete the product.
+- Administrators, once logged in, will notice a small "delete" button beneath each product listing on the "Products" page and the "Product Detail" page. Clicking this button triggers a form with text beneath the button to confirm the deletion of the product.
 
-- Similarly, a small delete button appears for signed in users below the comments they may have written. If clicked, it will bring up an Alert confirming the intent to delete the product.
+- Similarly, registered users will see a "delete" button below their comments. Clicking this button triggers a form with text beneath the button to confirm the deletion of the comment.
 
 ### Authentication and Authorisation
 
@@ -447,6 +479,12 @@ The **UserProfile** model contains information to display for each registered us
 - Only authorised users can visit the submit review page and update review page.
 
 ### Navigation
+
+On larger screens, the navigation bar contains tabs aligned to the right and aligned to the left. On the right, there is an icon for the store which serves as link to the homepage. It is followed by links to three dropdown icons for Products, Categories and More. By clicking Product we find links All Products, Cheeses and Other Products. By clicking Categories we find links the products in the store categorised by Cheese Type and Origin. By clicking More we find links to the FAQ, Contact and Blog Page. 
+
+On the left of the navigation bar, two dropdown icons and a link. The two dropdown links are for Search and My Account. By clicking Search, a dropdown appears with a Form to search the products in the store. By clicking My Account, links to login, register, sign-out and my profile appear. A further Product Management link appears if the user is a Superuser. The final link is a link to the Bag page contains products selected to purchase.
+
+On smaller screens, the Navigation bar responds by turning the Icon into another Dropdown Menu. Remaining on the mobile Navigation bar are Search and Bag icons which have the same functionality as on Desktop. The CheesyStore Icon Dropdown menu contains all the other links from the Desktop navigation bar including a Home and My Account link.
 
 <details>
 <summary>Desktop Navbar</summary>
@@ -471,6 +509,9 @@ The **UserProfile** model contains information to display for each registered us
 
 ### Homepage
 
+
+The Homepage is structured into three sections. The top section features a "Welcome" message alongside a brief description of the Store, accompanied by a "Shop Now" button designed as a prompt for visitors to explore the store further. The middle section displays three thumbnails, each linking to one of the three most recent blog posts. The inclusion of a new blog post dynamically refreshes this section to showcase the latest content. On devices with smaller screens, the display adjusts to highlight just a single post. The bottom section is divided into two parts: the first part highlights the most recent addition to the store's product range, and the second part provides a subscription form for the mailing list. When viewed on smaller screens, these parts stack vertically.
+
 <details>
 <summary>Desktop Homepage</summary>
 <br>
@@ -486,6 +527,8 @@ The **UserProfile** model contains information to display for each registered us
 </details>
 
 ### CheesyStoreShop
+
+The products page layout remains consistent across all product categories, with products organized in rows. The number of products displayed per row varies with screen size: six products are shown per row on the largest screens, while only one product is displayed on the smallest screens. Each product card features an image, name, price, origin, cheese type, and rating. For administrators, additional "Edit" and "Delete" buttons are available for each product for easy management. The content is divided into multiple pages through pagination.
 
 <details>
 <summary>Cheesy Store Shop Desktop</summary>
@@ -503,6 +546,8 @@ The **UserProfile** model contains information to display for each registered us
 
 ### Product Detail
 
+The product details page is designed with two-columns. On one side, there's a large image of the featured product. The opposite column displays the same product information found on the main store page, including specifics like name, price, origin, cheese type, and rating, along with a short product description. For users who are logged in, there's an option to rate the product with up to five stars. Below the rating, a quantity selector allows users to adjust how many units they wish to purchase, using plus and minus buttons for adjustment. The page concludes with two action buttons: one to continue shopping and another to add the selected product quantity to the shopping bag. On smaller screen sizes, the large image of the product will not display.
+
 <details>
 <summary>Product Detail Desktop</summary>
 <br>
@@ -518,6 +563,8 @@ The **UserProfile** model contains information to display for each registered us
 </details>
 
 ### Cheesy Blog
+
+The Blog section mirrors the store's design, organizing blog posts into rows of cards. Each card displays a featured image and an excerpt from the blog post, as well as the time and date it was submitted. To facilitate easier navigation, the blog pages are also paginated. On smaller screen sizes, the blog posts will display as a single column.
 
 <details>
 <summary>Cheesy Blog Desktop</summary>
@@ -535,6 +582,8 @@ The **UserProfile** model contains information to display for each registered us
 
 ### Cheesy Blog Posts
 
+The layout for viewing individual blog posts is designed similarly to the product details page. The first part is divided into two columns: one for the main text of the blog post and another for the featured image. On smaller screens, the featured image is designed to be hidden for viewing space. The second part of the layout is dedicated to user interactions, specifically comments. It's split into two sections: one displaying existing comments and the other featuring a form for submitting new comments. Beneath each comment, "Edit" and "Delete" buttons are provided, visible only to the comment's author. On smaller screens, these two sections stack vertically.
+
 <details>
 <summary>Blog Post Desktop</summary>
 <br>
@@ -550,6 +599,8 @@ The **UserProfile** model contains information to display for each registered us
 </details>
 
 ### Bag
+
+The bag page features a table listing all the items added by the user. Each product has a separate row within the table, with columns to display the product's image, title, price, quantity, and subtotal. The quantity column includes a form for each product, allowing users to either remove the product or adjust its quantity. The final row of the table presents the grand total of the items in the bag, accompanied by two links: one to "Keep Shopping" and another to "Continue to Checkout." For better readability on smaller screens, the table layout shifts to a single-column, where each section presents the product's image, details, and the quantity adjustment form.
 
 <details>
 <summary>Bag Desktop</summary>
@@ -567,6 +618,8 @@ The **UserProfile** model contains information to display for each registered us
 
 ### Checkout
 
+The checkout page is divided into two main sections. On the left side, there is a summary of the order, providing an overview of the items selected for purchase. On the right side, users are presented with a form to enter their personal and shipping details, as well as a separate section designated for entering payment information i.e card details. For users who are logged in, the form fields for personal and shipping information are automatically populated with their stored details, streamlining the checkout process. These two sections stack vertically on smaller screen sizes.
+
 <details>
 <summary>Contact Desktop</summary>
 <br>
@@ -582,6 +635,8 @@ The **UserProfile** model contains information to display for each registered us
 </details>
 
 ### Frequently Asked Questions
+
+The Frequently Asked Questions (FAQ) Page is organized with a single, centrally aligned column that groups each question with its relevant answer. This layout facilitates easy navigation and readability, allowing users to quickly find the information they need.
 
 <details>
 <summary>FAQ Desktop</summary>
@@ -599,6 +654,8 @@ The **UserProfile** model contains information to display for each registered us
 
 ### Contact Us
 
+The "Contact Us" page is split into two distinct sections. The first section features a form where users can fill out their name, email, and the message they wish to send to the administrators for various purposes. The second section includes the subscription form that is also found on the homepage, allowing users to subscribe to newsletters or updates directly from the "Contact Us" page. This dual-section setup serves both communication and engagement purposes on the same page.
+
 <details>
 <summary>Contact Us Desktop</summary>
 <br>
@@ -614,6 +671,8 @@ The **UserProfile** model contains information to display for each registered us
 </details>
 
 ### Success Page
+
+The success page displays an order summary for the user, providing details about their purchase. This summary includes the order number, the date of the order, and information regarding the shipping details. This layout ensures users have a clear confirmation of their transaction, including when and where their order will be shipped.
 
 <details>
 <summary>Success Desktop</summary>
@@ -636,7 +695,9 @@ The **UserProfile** model contains information to display for each registered us
 ![Success Toast](media/readme_images/designscreenshots/successtoast.png)
 </details>
 
-### Product Management 
+### Product Management
+
+The Product Management page features a comprehensive form designed for entering the details of new products, including an option to upload an image. The form incorporates dropdown menus, allowing for the selection of categories under which the new products will be placed. This setup facilitates organized product addition, ensuring each item is correctly categorized for easy browsing and management.
 
 <details>
 <summary>Product Management Page</summary>
@@ -647,6 +708,8 @@ The **UserProfile** model contains information to display for each registered us
 
 ### My Profile
 
+The profile page is divided into two main sections to enhance user experience. The first section lists all orders associated with the user. Each listed order includes a link to the relevant checkout success page. The second section of the profile page presents a form for updating the Default Delivery Information. This form includes fields for users to input or amend their standard shipping details.
+
 <details>
 <summary>Profile Page</summary>
 <br>
@@ -656,6 +719,8 @@ The **UserProfile** model contains information to display for each registered us
 
 ### Sign In
 
+The Sign In page features a straightforward design, with a form that's centrally aligned for ease of use. This form contains fields for entering a Login and Password. Pages for registration, password recovery, and displaying errors follow a similar design ethos, ensuring a consistent and user-friendly experience.
+
 <details>
 <summary>Sign In Page</summary>
 <br>
@@ -664,6 +729,8 @@ The **UserProfile** model contains information to display for each registered us
 </details>
 
 ### Footer
+
+In the footer a link to the store's Privacy Policy is aligned to the right. In the center, social media links are displayed, offering a way for users to connect with the store. Also rightly aligned is a link to the Contact Page. On smaller screen sizes, the design simplifies to display only the social media links.
 
 <details>
 <summary>Footer</summary>
