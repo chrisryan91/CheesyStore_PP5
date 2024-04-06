@@ -26,13 +26,13 @@
                 <p class="px-25">
                     {{ post.content | safe }}
                 </p>
+                {% with post.keywords|split:"," as keyword_list %}
                 <p class="small mt-1 mb-0 tagblog">
-                    {% with post.keywords|split:"," as keyword_list %}
-                        {% for keyword in keyword_list %}
-                            <i class="fas fa-tag mr-1"></i>{{ keyword|striptags|safe }}
-                        {% endfor %}
-                    {% endwith %}
+                    {% for keyword in keyword_list %}
+                        <i class="fas fa-tag mr-1"></i>{{ keyword|striptags|safe }}
+                    {% endfor %}
                 </p>
+                {% endwith %}
                 <a href="{% url 'cheesyblog' %}" class="small mt-5"><u>Back to Blog</u></a>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">

@@ -29,7 +29,7 @@ Link to Projects Board: [Project Board](https://github.com/users/chrisryan91/pro
 
 ## User Story 1: As a site administrator, I can manage user accounts, including activating, deactivating, and deleting accounts, so that I can maintain the site's user base and security.
 
-I used the Code Institute template at the very beginning of my project. Once I got my Development Environment set up correctly and installed Django, I was able to create a superuser. Once configured properly, I was able to access the admin panel which would allow me to manage user accounts so that I could maintain and sites userbase and security.
+At the start of the project, the Code Institute template was utilized. After setting up the Development Environment and installing Django, a superuser was created. Proper configuration provided access to the admin panel, enabling the management of user accounts for site userbase and security maintenance.
 
 Here is an example of a class that Registers my blog posts with the admin panel:
 
@@ -89,7 +89,7 @@ class RatingAdmin(admin.ModelAdmin):
 
 ## 2: As a site user, I can subscribe to the newsletter to receive updates on new cheese arrivals, promotions, and blog posts so that I can stay informed. 
 
-For this User Story to be completed, I had to set up an account with MailChimp which provided me with a form to embed into a html document, css styling and JavaScript to use in my website. Using the Dashboard on MailChimp I manage my Audience of people who signed up for a News Letter.
+To complete this User Story, an account with MailChimp was established, which supplied an embeddable form, CSS styling, and JavaScript for integration into the website. The MailChimp dashboard is used to manage the audience list of individuals who subscribed to the newsletter.
 
 <details>
 <summary>User Story 2</summary>
@@ -101,7 +101,7 @@ For this User Story to be completed, I had to set up an account with MailChimp w
 
 ## User Story 3: As a site user, I can read blog posts about cheese tasting, pairing tips, and cheese-making processes so that I can expand my knowledge and appreciation of cheese.
 
-For this user story to be completed, I needed to set up a new app using the command "python manage.py startapp cheesyblog". From here I was able to create models, views, urls and templates to creat an app. This allowed a blog post to be published by the admin through the django admin panel and render it trough a template. I created a cheesyblogpost page too for users to read the full posts. This blog will attract users to my website who are interested in cheese and turn them into potential customers.
+To fulfill this user story, a new app was initiated with the command "python manage.py startapp cheesyblog". This step enabled the creation of models, views, URLs, and templates necessary for the app's functionality. Consequently, it became possible for an admin to publish blog posts through the Django admin panel and display them on the site using a template. A dedicated page, "cheesyblogpost", was also developed for users to read the complete posts. The intention behind the blog is to draw visitors interested in cheese to the website and convert them into potential customers.
 
 Below is the view which gets the blog post from the database and renders it to the template.
 
@@ -142,7 +142,7 @@ class CheesyBlogListView(ListView):
 
 ## User Story 4: As a site user, I can leave comments and reviews on cheeses and blog posts so that I can share my opinions and experiences with other users.
 
-For this User Story to be completed, I needed to create a model for each comment. The model is based below and has fields for the post the comment is on, the user who is writing it, the text of the comment, the time it was created and it's approval status. From here, I created a form in forms.py with a meta class to specify what model the form is associated with. The form provides a field for the body as the others fields will be created automatically. Finally, I updated the view to provide commenting functionality and rendered the form in the template if the user was authenticated.
+To achieve this User Story, a model for comments was established, including fields for the associated post, the commenting user, the comment text, creation time, and approval status. Subsequently, a form was defined in forms.py, utilizing a meta class to link the form with the comment model. This form exclusively offers a field for the comment body, as the remaining fields are populated automatically. The final step involved updating the view to enable commenting features, ensuring the form is displayed in the template only to authenticated users.
 
 <details>
 <summary>User Story 4</summary>
@@ -189,7 +189,7 @@ class CommentForm(forms.ModelForm):
 
 ## User Story 5: As a site administrator, I can create and publish blog posts about cheese-related topics so that I can engage users and attract traffic to the site.
 
-After creating my blog models, views, urls and got them wired up with templates, all I needed to do was register the Post and Comment models in the admin panel that Django provides. Once they were registered, I could add posts and approved comments from users of the website. The two admin classes are below.
+Following the setup of blog models, views, URLs, and their integration with templates, the next step was to register the Post and Comment models in Django's admin panel. This registration allowed for the addition and approval of posts and user comments directly from the admin interface. The necessary admin classes for these actions were then established.
 
 <details>
 <summary>User Story 5</summary>
@@ -241,12 +241,12 @@ class CommentAdmin(admin.ModelAdmin):
 
 ## User Story 6: As a site administrator, I can add, edit, and delete cheeses from the store inventory so that I can manage the product catalog.
 
-For this user story, I created two seperate html pages for editing and deleting products from the database. I created two buttons - delete and edit - and rendered them only to superusers. They appear below the items on the main store and on the product detail page. They are connected to urls which trigger the below views for adding, editing and deleting products. Clicking a delete button will generate a question asking "are you sure?" while clicking edit a product will bring you to the edit_product html page. 
+For this user story, separate HTML pages were developed for the editing and deletion of products from the database. "Delete" and "Edit" buttons were introduced, visible only to superusers, placed beneath the product listings on both the main store page and the individual product detail pages. These buttons are linked to URLs that activate specific views for adding, editing, and deleting products. When the delete button is clicked, a confirmation query "Are you sure?" is presented to the user, and selecting the edit button redirects the user to an 'edit_product' HTML page for modifications.
 
-In the navigation bar, under my account, for superusers a link is shown with a link to the add_product page. This will generate a blank form to add new products.
+Additionally, within the navigation bar's "My Account" section, a dedicated link to an 'add_product' page is made available exclusively for superusers. This link leads to a blank form, allowing for the entry of new products into the database.
 
 <details>
-<summary>User Story 1</summary>
+<summary>User Story 6</summary>
 <br>
 
 ```
@@ -340,9 +340,11 @@ def delete_product(request, product_id):
 
 ## User Story 7: As a site user, I can create an account and log in so that I can track my order history and manage my profile information.
 
-Authentication is handled with django AllAuth. I installed and imported AllAuth's User model to handle User information. Users can register with an email and a password. Once they have registered, a profile page is automatically generated. The profile page appears as a link in the Navigation bar. The profile page contains all the users shipping information and order history. I created a User Profile Form in forms.py and imported it into the view generating the Profile page. The fields in the form in the profile page are prepopulated with saved information but can be updated.
+Authentication within the project is managed using Django AllAuth. The AllAuth User model was installed and imported to manage user information efficiently. Users have the capability to register using an email and a password. Upon registration, a profile page is automatically created for each user, accessible via a link in the navigation bar. This profile page displays the user's shipping information and order history.
 
-The Order History part of the profile page retrieves the Users previous orders from the database. A link provided for each order will link back to the Checkout Success page after the original purchase. The view for this is pasted below.
+A User Profile Form was crafted in forms.py and incorporated into the view that renders the Profile page. This form on the profile page comes pre-filled with the user's existing information, which can be updated as needed.
+
+For each order listed, a link is provided that redirects to the Checkout Success page relevant to that particular purchase, allowing users to review the details of their past transactions. The details for this functionality are shown in the specified view below:
 
 <details>
 <summary>User Story 7</summary>
@@ -414,9 +416,9 @@ def order_history(request, order_number):
 
 ## User Story 8: As a site user, I can view detailed information about each cheese, including its origin, flavor profile, and suggested pairings, so that I can make an informed decision.
 
-This view is not finished as I have no completed the functionality to provide each cheese's flavor profile and suggested pairings. So far, each cheese has associated with it in it's model a category, origin and type. A brief description of the cheese is also provided to the user alongside a picture.
+This User Story is incomplete because the functionality for displaying each cheese's flavor profile and suggested pairings has not yet been implemented. Currently, the model for each cheese includes attributes for category, origin, type, a brief description, and an image.
 
-For this, I linked from the main store to a Product Detail page which contained all the information about the cheese from the database. Pasted below is the Product model and an image of the finished product detail page.
+To present this information, a link directs from the main store to a Product Detail page, which displays all the available data about the cheese from the database. Below are the Product model details and an image of what the Product Detail page looks like upon completion.
 
 <details>
 <summary>User Story 8</summary>
@@ -450,7 +452,7 @@ class Product(models.Model):
 
 ## User Story 9: As a site user, I can search for specific types of cheeses (e.g., soft, hard, aged) so that I can find cheeses that match my preferences.
 
-For this User Story to be completed, I needed a search bar which appears as a dropdown item on my Navigation bar. On all pages and all screen sizes the Search icon will appear allowing Users to search the store for products. The dropdown search bar is a form element which queries the 'products' url triggering the all_products view. The search term will try find the search query in the name or the description of the product. The view will return items with the search query or a message saying there is no search criteria.
+To fulfill this User Story, a search bar was integrated as a dropdown item in the Navigation bar. This search icon is visible across all pages and adapts to all screen sizes, providing users with the ability to search the store's products. The dropdown search bar, designed as a form element, sends queries to the 'products' URL, activating the all_products view. The search functionality attempts to match the query with product names or descriptions. The resulting view displays products that match the search criteria or, alternatively, a message indicating the absence of matching items.
 
 <details>
 <summary>User Story 8</summary>
@@ -495,7 +497,7 @@ if 'q' in request.GET:
 
 ## User Story 10: As a site user, I can add cheeses to my cart and proceed to checkout so that I can purchase them.
 
-To complete this User story I needed to create a brand new app called Bag with python manage.py startapp bag. On the product detail page I created an "Add to Bag" button which will save the product and it's quantity into session storage. In the newly created bag app's views, the add_to_bag function will retrieve the data saved regarding the product in session storage. The infomation regarding the order can then be rendered onto the bag html page which the user can see.
+To achieve this User Story, a new app named Bag was initiated using the command python manage.py startapp bag. An "Add to Bag" button was introduced on the product detail page, designed to store the selected product and its specified quantity in session storage. Within the Bag app's views, the add_to_bag function is responsible for extracting product information stored in session storage. This information is then displayed on the Bag HTML page, allowing users to view the details of their intended purchase.
 
 <details>
 <summary>User Story 10</summary>
@@ -531,7 +533,7 @@ def add_to_bag(request, item_id):
 
 ## User Story 11: As a site user, I can browse a variety of cheeses so that I can explore different options.
 
-This is User Story needed for all of the products in the database to be rendered onto the store html which a user could visit. The products in the database were retrieved with the all_products view. They are rendered onto the page with a for loop. Each product has a dedicated card div which contains it's name, image, price, rating, type and other values like whether it is in stock. All of these products are rendered onto a page which is paginated to create multiple pages.
+For this User Story, the requirement was to display all products from the database on the store HTML page accessible by users. This was achieved using the all_products view to fetch the products. The rendering of these products on the page is accomplished through a for loop, where each product is presented within a dedicated card div. This div includes the product's name, image, price, rating, type, availability (e.g., in stock or not), among other attributes. To manage the display of a large number of products, the page implements pagination, dividing the content across multiple pages for easier navigation.
 
 <details>
 <summary>User Story 1</summary>
@@ -601,9 +603,7 @@ This is User Story needed for all of the products in the database to be rendered
 
 ## user Story 12: As a user, I want to be able to set up an account and login in and log out so I can purchase items and leave a comment.
 
-The account tab in the navigation bar allows users to sign-in, sign-out and register. Each of theese three links have three seperate html pages on which forms giving using login and logout functionality. While it is not nescessary to have an account to purchase an item, setting one up allows users to have a saveable user profile and gives them the ability to comment on blog posts.
-Authentication functionality is handled by Django AllAuth. 
-
+The account tab in the navigation bar provides users with options to sign in, sign out, and register, each leading to separate HTML pages equipped with forms for login and logout functionality. Although creating an account is not a prerequisite for making a purchase, registering enables users to create a savable profile and grants them the privilege to comment on blog posts. The authentication process is managed through Django AllAuth.
 
 <details>
 <summary>User Story 12 - Register Screenshot</summary>
@@ -624,9 +624,9 @@ Authentication functionality is handled by Django AllAuth.
 
 ## 13: As a user, I want to easily find answers to frequently asked questions so that I can make informed decisions about the products and policies without needing to wait for a response from customer service.
 
-For this User Story, I needed to create a Frequently Asked Questions page. In my research, I checkout out other online stores Frequently Asked Questions and made note of what type of questions are recurring for this type of business: privacy questions, safety questions regarding card data, return policies, account detail inforation and other useful internal links. 
+For this User Story, the objective was to develop a Frequently Asked Questions (FAQ) page. Initial research involved reviewing FAQ sections of other online stores to identify common questions relevant to this business type, such as inquiries about privacy, card data security, return policies, account details, and other pertinent internal links.
 
-I created a new app for this feature as I want to expand it's functionality in the future. There were now new models needed just a basic view to return a webpage and a template which extends base.html and has a series and questions and answers.
+A new app was created to facilitate this feature, anticipating future functionalies. No new models were required for this implementation — only a simple view to serve a webpage and a template. This template extends base.html and presents a series of questions and answers addressing the identified common concerns.
 
 <details>
 <summary>User Story 13 - FAQ Screenshot</summary>
@@ -637,16 +637,15 @@ I created a new app for this feature as I want to expand it's functionality in t
 
 ## User Story 14: As a potential customer, I want to interact with a chatbot on the cheese-selling website so that I can receive personalized recommendations, get answers to my questions about the products, and have assistance throughout the checkout process, making my shopping experience smoother and more enjoyable.
 
-This User Story never got finished. In my research of other sites, it seemed a lot of useful online stores had chatbots. I was made aware of ChatGPT API and it's ability to be integrated into a webapp and this concept interested me. I did not have enough time to complete this User Story as I had a submission date and so was on a deadline. This feature is something I will work on once the project is submitted.
+This User Story remains incomplete. During the research of other online stores, I saw that many featured chatbots, highlighting their usefulness. The potential for integrating the ChatGPT API into a web application caught my interest. However, due to the constraints of a submission deadline, there was insufficient time to implement this feature. Post-submission, the development of the chatbot integration will be a priority enhancement for the project.
 
 The API key is still stored in my env.py file so it is not pushed to GitHub.
 
-
 ## User Story 15: As a user, I want to subscribe to a monthly cheese subscription service so that I can discover new cheeses and have a consistent supply of high-quality cheese without having to reorder manually each time.
 
-This User Story is unfinished. Currently, Cheesy Store only has once off payments. I added this User Story as I wanted to create some kind of subscription payment model with Stripe. I wanted to learn how to use Stipe to achieve that functionality. I also think the idea of cheesemonger lends itself to a subscription based model where someone pays for new cheeses once per month.
+This User Story has not been completed. At present, Cheesy Store supports only single payments. The addition of this User Story was motivated by the desire to implement a subscription payment model using Stripe. The concept of a cheesemonger service is well-suited to a subscription model, where customers could pay for a selection of new cheeses on a monthly basis.
 
-I found a basic example of a Stripe payment function to create a new subscription so I would expand on it.
+A basic example of a Stripe payment function for creating new subscriptions was foundon Stackover which will serve as a foundation for further development.
 
 <details>
 <summary></summary>
@@ -714,11 +713,34 @@ class LoyaltyPoint(models.Model):
 
 ### CSS
 
+The four css files were tested with no errors with the W3 CSS Validator.
+
 <details>
-<summary>CSS Validation</summary>
+<summary>Base CSS Validation</summary>
 <br>
 
-![CSS Validation]()
+![Base CSS Validation](media/readme_images/validatorscreenshots/basecssvalidator.png)
+</details>
+
+<details>
+<summary>Blog CSS Validation</summary>
+<br>
+
+![Blog CSS Validation](media/readme_images/validatorscreenshots/blogcssvalidator.png)
+</details>
+
+<details>
+<summary>Profile CSS Validation</summary>
+<br>
+
+![Profile CSS Validation](media/readme_images/validatorscreenshots/profilecssvalidator.png)
+</details>
+
+<details>
+<summary>Checkout CSS Validation</summary>
+<br>
+
+![Checkout CSS Validation](media/readme_images/validatorscreenshots/checkoutcssvalidator.png)
 </details>
 
 ### JavaScript

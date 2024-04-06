@@ -22,7 +22,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 mt-10">
-                <div id="blogrow" class="row">
+                <div class="row blogrow">
                 {% for post in posts %}
                         <div class="col-md-4 card mb-4">
                             <div class="card-body">
@@ -38,7 +38,7 @@
                         </div>
                 {% if forloop.counter|divisibleby:3 %}
                 </div>
-                <div  id="blogrow" class="row">
+                <div class="row blogrow">
                 {% endif %}
                 {% endfor %}
                 </div>

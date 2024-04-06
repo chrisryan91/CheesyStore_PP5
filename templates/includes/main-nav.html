@@ -7,10 +7,10 @@
             <a class="nav-link dropdown item d-block d-lg-none ddlink" href="{% url 'products' %}">All Cheeses</a>
         </li>
         <li class="nav-inline-item dropdown">
-            <a class="nav-link d-block d-lg-none ddlink" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link d-block d-lg-none ddlink" id="cheesetypes-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Cheese Types
             </a>
-            <div class="dropdown-menu border-0 searchmobbk" aria-labelledby="types-link">
+            <div class="dropdown-menu border-0 searchmobbk" aria-labelledby="cheesetypes-link">
                 <a class="dropdown-item ddlink" href="{% url 'products' %}?cheesytype=bluecheese">Blue Cheese</a>
                 <a class="dropdown-item ddlink" href="{% url 'products' %}?cheesytype=firmcheese">Firm Cheese</a>
                 <a class="dropdown-item ddlink" href="{% url 'products' %}?cheesytype=hardcheese">Hard Cheese</a>
@@ -22,10 +22,10 @@
             </div>
         </li>
         <li class="list-inline-item dropdown">
-          <a class="nav-link text-black d-block d-lg-none ddlink" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link text-black d-block d-lg-none ddlink" id="origins-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Origin
           </a>
-          <div class="dropdown-menu border-0 searchmobbk" aria-labelledby="origin-link">
+          <div class="dropdown-menu border-0 searchmobbk" aria-labelledby="origins-link">
               <a href="{% url 'products' %}?origin=Ireland" class="dropdown-item ddlink">Ireland</a>
               <a href="{% url 'products' %}?origin=France" class="dropdown-item ddlink">France</a>
               <a href="{% url 'products' %}?origin=Switzerland" class="dropdown-item ddlink">Switzerland</a>
@@ -47,10 +47,10 @@
             </a>
         </li>
         <li class="list-inline-item dropdown">
-            <a class="nav-link text-black d-block d-lg-none ddlink" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link text-black d-block d-lg-none ddlink" id="productmanagement-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 My Account
             </a>
-            <div class="dropdown-menu border-0 searchmobbk" aria-labelledby="origin-link">
+            <div class="dropdown-menu border-0 searchmobbk" aria-labelledby="productmanagement-link">
                 {% if request.user.is_authenticated %}
                     {% if request.user.is_superuser %}
                         <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>

@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token }}">
         <meta name="description" 
-            content="Treat yourself with delicious cheese from Ireland and abroad." content="Christopher Ryan">
+            content="Treat yourself with delicious cheese from Ireland and abroad.">
         <meta name="keywords"
             content="Cheese, Cheesemonger, Irish cheese, Artisan cheese, Cheese online, Gourmet cheese, Cheese shop, Buy Irish cheese online, Best Irish artisan cheese, Artisan cheese delivery Ireland, Online cheese market Ireland, Irish cheese gift baskets, Gourmet Irish cheese platter, Handmade Irish cheese, Irish cheese varieties,Sustainable Irish cheese,Irish dairy cheese online, Award-winning Irish cheese, Small-batch Irish cheese, Organic Irish cheese online, Rare Irish cheeses, Irish cheese tasting box, Irish Cheesemonger, {% block seo_keywords %}{% endblock seo_keywords %}">
 
@@ -29,7 +29,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
         <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
-        <link rel="icon" href="data:;base64,iVBORwOKGO=">
+        <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
     {% endblock %}
     
     {% block extra_css %}
@@ -91,15 +92,15 @@
                             <a href="{% url 'products' %}?origin=Greece" class="dropdown-item">Greece</a>
                         </div>
                     </li>
-                <li class="list-inline-item nav-item">
-                    <a class="dropdown-item navbackground" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        More</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{% url 'faq' %}">FAQ</a>
-                        <a class="dropdown-item" href="{% url 'contact' %}">Contact</a>
-                        <a class="dropdown-item" href="{% url 'cheesyblog' %}">Blog</a>
-                    </div>
-                </li>
+                    <li class="list-inline-item nav-item">
+                        <a class="dropdown-item navbackground" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            More</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{% url 'faq' %}">FAQ</a>
+                            <a class="dropdown-item" href="{% url 'contact' %}">Contact</a>
+                            <a class="dropdown-item" href="{% url 'cheesyblog' %}">Blog</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
             <div class="col-12 col-lg-6 my-auto py-1 py-lg-0">
@@ -166,10 +167,8 @@
         <div class="row" id="topnav2">
             <nav class="navbar navbar-expand-lg navbar-light w-100">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <div>
-                        <img src="https://cheesystore.s3.eu-west-1.amazonaws.com/media/cheese.png" alt="block of cheese icon" class="cheeseicon">
-                        <span class="mobiletitle"><strong>Cheesy Store </strong></span>
-                    </div>
+                    <img src="https://cheesystore.s3.eu-west-1.amazonaws.com/media/cheese.png" alt="block of cheese icon" class="cheeseicon">
+                    <span class="mobiletitle"><strong>Cheesy Store </strong></span>
                 </button>
                 {% include 'includes/mobile-top-header.html' %}
                 {% include 'includes/main-nav.html' %}
@@ -219,7 +218,7 @@
     </footer>
 
     {% block postloadjs %}
-    <script type="text/javascript">
+    <script>
         $('.toast').toast('show');
     </script>
     <script>

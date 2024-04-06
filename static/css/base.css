@@ -360,7 +360,7 @@ button {
 
 /* Blog styling*/
 
-#blogrow {
+.blogrow {
     margin-left: 100px;
     margin-right: 100px;
 }
@@ -687,7 +687,7 @@ button {
         font-size: 20px;
     }
 
-    #blogrow {
+    .blogrow {
         margin-left: 10px;
         margin-right: 10px;
     }

@@ -111,7 +111,7 @@ The current version of the website is a Minimum Viable Product (MVP), developed 
 15. As a user, I want to participate in a loyalty program that rewards me for my purchases so that I can enjoy discounts, get early access to new products, and access exclusive content.
 16. As a potential customer, I want to interact with a chatbot on the cheese-selling website so that I can receive personalized recommendations, get answers to my questions about the products, and have assistance throughout the checkout process, making my shopping experience smoother and more enjoyable.
 
-User Stories are tested in: [Testing.md](TESTING.md)
+User Stories are tested in: [TESTING.md](TESTING.md)
 
 Link to User Stories + Tasks: [User Stories Board](https://github.com/users/chrisryan91/projects/11/views/1)
 

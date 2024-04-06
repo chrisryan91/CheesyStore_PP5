@@ -1,38 +1,37 @@
 <script>
- $(document).ready(function(){
-    $(".rating-star").click(function(){
-        console.log("Star clicked");
-        var stars = $(this).data('value');
-        var productId = $(this).closest('[data-product-id]').data('product-id');
-        console.log(productId)
+    $(document).ready(function(){
+        $(".rating-star").click(function(){
+            console.log("Star clicked");
+            var stars = $(this).data('value');
+            var productId = $(this).closest('[data-product-id]').data('product-id');
+            console.log(productId)
 
-        // Immediately provide visual feedback
-        $(this).prevAll().addBack().addClass('fas').css('color', 'black');
-        $(this).nextAll().removeClass('fas').addClass('far').css('color', '');
-        var csrftoken = $('meta[name="csrf-token"]').attr('content');
-        var dataPayload = JSON.stringify({
-            'stars': stars,
-            'product_id': productId
+            // Immediately provide visual feedback
+            $(this).prevAll().addBack().addClass('fas').css('color', 'black');
+            $(this).nextAll().removeClass('fas').addClass('far').css('color', '');
+            var csrftoken = $('meta[name="csrf-token"]').attr('content');
+            var dataPayload = JSON.stringify({
+                'stars': stars,
+                'product_id': productId
+            });
+
+            console.log("Sending data:", dataPayload); // Verify the payload
+
+            // Structuring the AJAX call
+            $.ajax({
+                url: '/products/rate-product/',
+                type: 'POST',
+                data: dataPayload,
+                headers: {"X-CSRFToken": csrftoken},
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function(response) {
+                    console.log("Success:", response);
+                },
+                error: function(xhr, status, error) {
+                    console.log("Error:", xhr.responseText);
+                }
+            });
         });
-
-        console.log("Sending data:", dataPayload); // Verify the payload
-
-        // Structuring the AJAX call
-        $.ajax({
-    url: '/products/rate-product/',
-    type: 'POST',
-    data: dataPayload,
-    headers: {"X-CSRFToken": csrftoken},
-    contentType: 'application/json',
-    dataType: 'json',
-    success: function(response) {
-        console.log("Success:", response);
-    },
-    error: function(xhr, status, error) {
-        console.log("Error:", xhr.responseText);
-    }
-});
     });
-});
-
 </script>
