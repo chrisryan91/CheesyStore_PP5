@@ -704,12 +704,25 @@ class LoyaltyPoint(models.Model):
 
 ### HTML
 
-<details>
-<summary></summary>
-<br>
+Each seperate page was tested twice: once if a user is logged in, and again if a user is logged out. One error was found and remains unfixed. On the Edit Product page, the img element for a product to be edited does not have an alt attribute. The img element in this page is a preview of an image so it remains unfixed.
 
-![Sign Up Page]()
-</details>
+| Page             | Logged In                                             | Logged Out |
+| ---------------- | ----------------------------------------------------- | ---------- |
+| Home Page        | No Errors                                             | No Errors  |
+| Products         | No Errors                                             | No Errors  |
+| Product Details  | No Errors                                             | No Errors  |
+| Blog             | No Errors                                             | No Errors  |
+| Blog Detail      | No Errors                                             | No Errors  |
+| FAQ              | No Errors                                             | No Errors  |
+| Contact Us       | No Errors                                             | No Errors  |
+| Profile          | No Errors                                             | N/A        |
+| Add Product      | No Errors                                             | N/A        |
+| Edit Product     | Error - Alt Altribute Not Present For "Current Image" | N/A        |
+| Edit Comment     | No Errors                                             | N/A        |
+| Bag              | No Errors                                             | No Errors  |
+| Checkout         | No Errors                                             | No Errors  |
+| Checkout Success | No Errors                                             | No Errors  |
+| 404 Error        | No Errors                                             | No Errors  |
 
 ### CSS
 

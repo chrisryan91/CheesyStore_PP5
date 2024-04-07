@@ -25,7 +25,6 @@
                 <p class="">{{ post.created_on }}</p>
                 <p class="px-25">
                     {{ post.content | safe }}
-                </p>
                 {% with post.keywords|split:"," as keyword_list %}
                 <p class="small mt-1 mb-0 tagblog">
                     {% for keyword in keyword_list %}
