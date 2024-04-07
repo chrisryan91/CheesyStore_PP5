@@ -64,10 +64,7 @@ Link to Main Project Board: [Project Board](https://github.com/users/chrisryan91
     - [Social Media Marketing](#social-media-marketing)
     - [Email Marketing](#email-marketing)
   - [Technologies Used](#technologies-used)
-    - [Core Development Technologies](#core-development-technologies)
-    - [Libraries, Frameworks and Packages](#libraries-frameworks-and-packages)
-    - [Python/Django packages](#pythondjango-packages)
-    - [Infrastructural Technologies](#infrastructural-technologies)
+    - [Core Development Technologies \& Languages](#core-development-technologies--languages)
   - [Testing](#testing)
   - [Deployment - Heroku](#deployment---heroku)
     - [Create the Heroku App:](#create-the-heroku-app)
@@ -858,31 +855,37 @@ Users and visitors to the website can sign up to the newsletter. They do not nee
 
 ## Technologies Used
 
-### Core Development Technologies
+### Core Development Technologies & Languages
 
-- [Django](https://www.djangoproject.com/) was used a full-stack framework.
+- [Django](https://www.djangoproject.com/)
 - [JavaScript](https://ecma-international.org/publications-and-standards/standards/ecma-262/)
 - [jQuery](https://jquery.com/)
 - [CSS](https://www.w3.org/Style/CSS/Overview.en.html)
 - [HTML](https://html.spec.whatwg.org/multipage/)
-- [Django Templating Language](https://docs.djangoproject.com/en/4.2/ref/templates/language/) for building pages
-
-### Libraries, Frameworks and Packages
-
+- [Django Templating Language](https://docs.djangoproject.com/en/4.2/ref/templates/language/)
 - [Bootstrap](https://getbootstrap.com/)
-
-### Python/Django packages
-
 - [Gunicorn](https://pypi.org/project/gunicorn/)
 - [psycopg2](https://pypi.org/project/psycopg2/)
 - [crispy_forms](https://django-crispy-forms.readthedocs.io/en/latest/)
 - [django_summernote](https://pypi.org/project/django-summernote/)
-  
-### Infrastructural Technologies
-
 - [PostgreSQL](https://www.postgresql.org/)
 - [Heroku](https://www.heroku.com/home)
-- [Cloudinary](https://cloudinary.com/)
+- [Amazon Web Services](https://aws.amazon.com/)
+- [Wireframe CC](https://wireframe.cc/)
+- [AmIResponsive](https://ui.dev/amiresponsive)
+- [Heroku](https://www.heroku.com/)
+- [Stripe](https://stripe.com/ie)
+- [Chrome DevTools](https://developer.chrome.com/docs/devtools/)
+- [Mailchimp](https://mailchimp.com/)
+- [Font Awesome](https://fontawesome.com/)
+- [GitHub](https://github.com/)
+- [Google Fonts](https://fonts.google.com/)
+- [W3](https://www.w3.org/)
+- [JSHint](https://jshint.com/)
+- [Table to Markdown](https://tabletomarkdown.com/convert-spreadsheet-to-markdown/)
+- [Privacy Policy Generator](https://www.privacypolicygenerator.info/)
+- [XML Sitemaps](https://www.xml-sitemaps.com/)
+
 
 ## Testing
 

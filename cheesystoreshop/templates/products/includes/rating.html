@@ -4,7 +4,6 @@
             console.log("Star clicked");
             var stars = $(this).data('value');
             var productId = $(this).closest('[data-product-id]').data('product-id');
-            console.log(productId)
 
             // Immediately provide visual feedback
             $(this).prevAll().addBack().addClass('fas').css('color', 'black');

@@ -5,7 +5,6 @@ from django.conf import settings
 
 from .models import Order, OrderLineItem
 from cheesystoreshop.models import Product
-from profiles.models import UserProfile
 
 import json
 import time
@@ -63,8 +62,6 @@ class StripeWH_Handler:
         metadata = intent.metadata
         # Shopping bag from metadata.
         bag = metadata.get('bag')
-        # Save info flag.
-        save_info = metadata.get('save_info')
         # Retrieve charge object.
         stripe_charge = stripe.Charge.retrieve(
             intent.latest_charge

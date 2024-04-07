@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import CheesyBlogListView, PostDetail, AddBlogPost, DeleteComment
+from .views import CheesyBlogListView, PostDetail, AddBlogPost
 
 # URL routers for CheesyBlog
 urlpatterns = [

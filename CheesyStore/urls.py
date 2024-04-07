@@ -26,7 +26,7 @@ urlpatterns = [
 
     # Store App
     path('products/', include('cheesystoreshop.urls')),
-    
+
     # Shopping Bag App
     path('bag/', include('bag.urls')),
 
@@ -45,4 +45,3 @@ urlpatterns = [
     # Frequently Asked Questions
     path('faq/', include('faq.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-

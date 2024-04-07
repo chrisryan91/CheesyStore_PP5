@@ -11,6 +11,7 @@ from django.db.models.functions import Lower
 from .models import Product, Category, CheeseType, Origin, Rating
 from .forms import ProductForms
 
+
 # A view to display products in their entirety or based on request parameters.
 def all_products(request):
 
@@ -42,7 +43,7 @@ def all_products(request):
                     direction = request.GET['direction']
                     if direction == 'desc':
                         sortkey = f'-{sortkey}'
-                
+
                 products = products.order_by(sortkey)
 
         print(request.GET)
@@ -67,10 +68,13 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(request, "You didn't enter anything!")
                 return redirect(reverse('products'))
-            
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+
+            queries = (
+                Q(name__icontains=query) |
+                Q(description__icontains=query)
+            )
             products = products.filter(queries)
 
     # Implement pagination.
@@ -85,7 +89,7 @@ def all_products(request):
         # If page is out of range, show last page.
         products = paginator.page(paginator.num_pages)
 
-    # Prepare the context for the template and it's sorting. 
+    # Prepare the context for the template and it's sorting.
     current_sorting = f'{sort}_{direction}'
     context = {
         'products': products,
@@ -96,8 +100,9 @@ def all_products(request):
         'current_sorting': current_sorting,
     }
 
-    # Render the template with the context.    
+    # Render the template with the context.
     return render(request, 'products/products.html', context)
+
 
 # A view for displaying the details of a specific product.
 def product_detail(request, product_id):
@@ -105,17 +110,23 @@ def product_detail(request, product_id):
     user_rating = None
     if request.user.is_authenticated:
         # Try to get the existing rating for this user and product
-        rating_query = Rating.objects.filter(product=product, user=request.user).first()
+        rating_query = Rating.objects.filter(
+            product=product,
+            user=request.user).first()
         if rating_query:
             user_rating = rating_query.stars
-    return render(request, 'products/product_detail.html', {'product': product, 'user_rating': user_rating})
+    return render(
+        request,
+        'products/product_detail.html',
+        {'product': product, 'user_rating': user_rating})
+
 
 # A view to add a product with a decorator to restrict access to superusers.
 @login_required
 def add_product(request):
 
     if not request.user.is_superuser:
-        
+
         # Return error message is user is not a superuser.
         messages.error(request, 'Sorry only store owners can do that')
         return redirect(reverse('home'))
@@ -195,10 +206,11 @@ def delete_product(request, product_id):
     # Return 404 error if product not found.
     product = get_object_or_404(Product, pk=product_id)
 
-    # Delete the product if found, provide success message and redirect to list of products.
+    # Delete the product if found
     product.delete()
     messages.info(request, 'Product Deleted!')
     return redirect(reverse('products'))
+
 
 class RateProduct(View):
     def post(self, request, *args, **kwargs):
@@ -206,7 +218,9 @@ class RateProduct(View):
 
         if not request.user.is_authenticated:
             print("not authenticated")
-            return JsonResponse({'error': 'Authentication required'}, status=401)
+            return JsonResponse(
+                                {'error': 'Authentication required'},
+                                status=401)
 
         # Parsing JSON data from request body
         data = json.loads(request.body)
@@ -235,8 +249,14 @@ class RateProduct(View):
         )
 
         # Recalculate the average rating
-        new_average_rating = product.ratings.aggregate(avg_rating=Avg('stars'))['avg_rating']
-        product.rating = round(new_average_rating, 2) if new_average_rating is not None else None
+        new_average_rating =\
+            product.ratings.aggregate(avg_rating=Avg('stars'))['avg_rating']
+        rating = round(new_average_rating, 2) if new_average_rating else None
+        product.rating = rating
         product.save()
 
-        return JsonResponse({'success': 'Rating updated', 'new_average_rating': float(product.rating) if product.rating else None})
+        new_avg_rating = float(product.rating) if product.rating else None
+        return JsonResponse({
+            'success': 'Rating updated',
+            'new_average_rating': new_avg_rating
+        })

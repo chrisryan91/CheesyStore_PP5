@@ -3,7 +3,6 @@ from django.urls import reverse
 from django.core.paginator import Paginator
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.urls import reverse_lazy
 from django.views.generic import ListView
 from django.views import View
 from django.utils.text import slugify
@@ -118,7 +117,6 @@ def AddBlogPost(request):
     return render(request, 'cheesyblog/addblogpost.html', {'form': form})
 
 
-
 @login_required
 def DeleteComment(request, comment_id):
     # Return 404 error if product not found.
@@ -129,6 +127,7 @@ def DeleteComment(request, comment_id):
     comment.delete()
     messages.info(request, 'Comment Deleted!')
     return redirect(reverse('cheesyblog'))
+
 
 @login_required
 def edit_comment(request, comment_id):
@@ -154,7 +153,7 @@ def edit_comment(request, comment_id):
     else:
         # If not a POST request initialise form with product instance.
         form = CommentForm(instance=comment)
-        messages.info(request, f'You are editing your comment')
+        messages.info(request, 'You are editing your comment')
 
     # Define template and context
     template = 'cheesyblog/edit_comment.html'

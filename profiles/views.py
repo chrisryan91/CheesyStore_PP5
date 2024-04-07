@@ -6,6 +6,7 @@ from .forms import UserProfileForm
 
 from checkout.models import Order
 
+
 # Decorator ensures that only logged-in users can access the profile view.
 @login_required
 def profile(request):
@@ -40,6 +41,7 @@ def profile(request):
 
     # Render and return the profile page with context data.
     return render(request, template, context)
+
 
 def order_history(request, order_number):
 

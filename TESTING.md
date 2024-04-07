@@ -758,20 +758,87 @@ The four css files were tested with no errors with the W3 CSS Validator.
 
 ### JavaScript
 
+Aside from one error from Stripe, my dedicated JavaScript and jQuery files ran no errors.
+
 <details>
-<summary>JavaScript Validation</summary>
+<summary>Add Product Script</summary>
 <br>
 
-![JavaScript Validation]()
+![Add Product Script](media/readme_images/jshintscreenshots/addproductscriptjshint.png)
+</details>
+
+<details>
+<summary>Bag Script 1</summary>
+<br>
+
+![Bag Script 1](media/readme_images/jshintscreenshots/bagjshint.png)
+</details>
+
+<details>
+<summary>Bag Script 2</summary>
+<br>
+
+![Bag Script 2](media/readme_images/jshintscreenshots/bagscrolljshint.png)
+</details>
+
+<details>
+<summary>Blog Post Script 1</summary>
+<br>
+
+![Blog Post Script 1](media/readme_images/jshintscreenshots/blogpostscriptjs.png)
+</details>
+
+<details>
+<summary>Blog Post Script 2</summary>
+<br>
+
+![Blog Post Script 2](media/readme_images/jshintscreenshots/blogpostscriptjs1.png)
+</details>
+
+<details>
+<summary>Delete Comment Script</summary>
+<br>
+
+![Delete Comment Script](media/readme_images/jshintscreenshots/commentdeletescriptjshint.png)
+</details>
+
+<details>
+<summary>Product Detail Script</summary>
+<br>
+
+![Product Detail Script](media/readme_images/jshintscreenshots/productdetailscriptjshint.png)
+</details>
+
+<details>
+<summary>Product Script</summary>
+<br>
+
+![Product Script](media/readme_images/jshintscreenshots/productsjshint.png)
+</details>
+
+<details>
+<summary>Sort Selector Script</summary>
+<br>
+
+![Sort Selector Script](media/readme_images/jshintscreenshots/sortselectorscriptjshint.png)
+</details>
+
+<details>
+<summary>Stripe Script</summary>
+<br>
+
+![Stripe Script](media/readme_images/jshintscreenshots/stripejshint.png)
 </details>
 
 ### Python
 
+Using the Code Institute PEP8 Python linter and Flake8 in my IDE, I confirmed that all my Python files adhere to PEP8 standards, with no issues reported by the online PEP8 linter. Flake8 identified some concerns, primarily within Django-generated migration files; I chose not to modify these auto-generated files. The env.py file, not uploaded to GitHub, also raised issues. Additionally, Flake8 flagged several unused imports, which I've retained for anticipated future use.
+
 <details>
-<summary>admin.py</summary>
+<summary>Flake8</summary>
 <br>
 
-![Admin.py]()
+![Flake8](media/readme_images/flake8python.png)
 </details>
 
 ### Django Extensions
