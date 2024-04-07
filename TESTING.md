@@ -938,6 +938,50 @@ Beneath is Lighthouse testing from Chrome Dev tools for each of the main pages o
 
 ## Stripe Webhook Testing
 
+My Development Environment allowed me to install the Stripe Command Line Interface (CLI) which facilitated testing webhooks throughout development. Once my project was deployed and the correct webhook adress linked to Stripe, all webhooks worked smoothly showing no errors.
+
+<details>
+<summary>Stripe Dashboard Integration</summary>
+<br>
+
+![Stripe Dashboard Integration](media/readme_images/stripescreenshots/stripe%20dashboard.png)
+</details>
+
+<details>
+<summary>Stripe Webhooks</summary>
+<br>
+
+![Admin.py](media/readme_images/stripescreenshots/stripe%20webhooks.png)
+</details>
+
+<details>
+<summary>Payment_intent.created</summary>
+<br>
+
+![Payment_intent.created](media/readme_images/stripescreenshots/payment_intent.created.png)
+</details>
+
+<details>
+<summary>charge.succeeded</summary>
+<br>
+
+![charge.succeeded](media/readme_images/stripescreenshots/charge.succeeded.png)
+</details>
+
+<details>
+<summary>payment_intent.succeeded</summary>
+<br>
+
+![payment_intent.succeeded](media/readme_images/stripescreenshots/payment_intent.succeeded.png)
+</details>
+
+<details>
+<summary>Stripe Logs</summary>
+<br>
+
+![Stripe Logs](media/readme_images/stripescreenshots/stripe.logs.png)
+</details>
+
 ## Responsiveness Testing
 
 ### Browsers 
