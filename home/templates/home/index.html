@@ -31,7 +31,7 @@
             </div>
             <div class="col-6 d-none d-md-block parent-div">
                 <div class="image-container">
-                    <img src="{{ post.featured_image.url }}" alt="Placeholder Image" class="">
+                    <img src="{{ post.featured_image.url }}" alt="Placeholder Image" loading="lazy" >
                 </div>
             </div>
         </div>
@@ -55,7 +55,7 @@
             <div class="col-6 parent-div1">
                 <div class="card border-0">
                     <a href="{% url 'post_detail' post.slug  %}">
-                        <img class="card-img-top img-fluid newarrimg" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+                        <img class="card-img-top img-fluid newarrimg" loading="lazy"  src="{{ post.featured_image.url }}" alt="{{ post.title }}">
                     </a>
                 </div>                        
             </div>
@@ -101,11 +101,11 @@
                     <div class="card border-0">
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid newarrimg" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            <img class="card-img-top img-fluid newarrimg" loading="lazy"  src="{{ product.image.url }}" alt="{{ product.name }}">
                         </a>
                         {% else %}
                         <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid newarrimg" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                            <img class="card-img-top img-fluid newarrimg" loading="lazy"  src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                         </a>
                         {% endif %}
                     </div>

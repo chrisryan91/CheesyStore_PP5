@@ -1,9 +1,5 @@
-/*jshint esversion: 6 */
-/* global $ */
-
 var stripePublicKey = $('#id_stripe_pubic_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
-
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 
@@ -22,12 +18,10 @@ var style = {
         iconColor: '#dc3545'
     }
 };
-
 var card = elements.create('card', {style: style});
 card.mount('#card-element');
 
 // Handle realtime validation errors on the card element
-
 card.addEventListener('change', function (event){
     var errorDiv = document.getElementById('card-errors');
     if (event.error) {
@@ -44,16 +38,13 @@ card.addEventListener('change', function (event){
 });
 
 // Handle form submission
-
 var form = document.getElementById('payment-form');
-
 form.addEventListener('submit', function(ev) {
     ev.preventDefault();
     card.update({ 'disabled':true});
     $('#submit_button').attr('disabled', true);
     $('#payment-form').fadeToggle(100);
     $('#loading-overlay').fadeToggle(100);
-
     var saveInfo = Boolean($('#id-save-info').attr('checked'));
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     var postData = {
@@ -62,7 +53,6 @@ form.addEventListener('submit', function(ev) {
         'save_info': saveInfo,
     };
     var url = '/checkout/cache_checkout_data/';
-
     $.post(url, postData).done(function () {
         stripe.confirmCardPayment(clientSecret, {
             payment_method: {

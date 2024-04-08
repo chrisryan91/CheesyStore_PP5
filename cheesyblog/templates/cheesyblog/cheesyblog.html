@@ -16,7 +16,7 @@
 {% block content %}
     {% if request.user.is_superuser %}
     <div class="text-center mb-5">
-        <a href="{% url 'addblogpost' %}" class="text-dark" id="addpost"><strong>ADD POST</strong></a>
+        <a href="{% url 'addblogpost' %}" class="text-light" id="addpost"><strong>ADD POST</strong></a>
     </div>
     {% endif %}
     <div class="container-fluid">
@@ -27,7 +27,7 @@
                         <div class="col-md-4 card mb-4">
                             <div class="card-body">
                                 <div class="image-container2">
-                                    <img src="{{ post.featured_image.url }}" alt="" class="card-img-top img-fluid blogimg">
+                                    <img src="{{ post.featured_image.url }}" loading="lazy" alt="image for {{ post.title }}" class="card-img-top img-fluid blogimg">
                                 </div>
                                 <a href="{% url 'post_detail' post.slug  %}" class="post-link">
                                     <h2 class="lead mb-0 text-left font-weight-bold">{{ post.title }}</h2>

@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Select all elements with the class 'confirmButton'
     var confirmButtons = document.querySelectorAll('.confirmButton');
-    
     // Iterate over the NodeList and attach an event listener to each button
     confirmButtons.forEach(function(button) {
         button.addEventListener('click', function(event) {

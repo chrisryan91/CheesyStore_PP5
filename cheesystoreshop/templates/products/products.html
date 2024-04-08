@@ -38,6 +38,7 @@
                 <div class="row mt-1 mb-2">
                     <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                         <div class="sort-select-wrapper w-50">
+                            <label for="sort-selector" class="sr-only">Sort By</label>
                             <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                                 <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
@@ -66,11 +67,11 @@
                             <div class="card h-100 border-0">
                                 {% if product.image %}
                                 <a href="{% url 'product_detail' product.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                    <img class="card-img-top img-fluid" loading="lazy"  src="{{ product.image.url }}" alt="{{ product.name }}">
                                 </a>
                                 {% else %}
                                 <a href="{% url 'product_detail' product.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                    <img class="card-img-top img-fluid" loading="lazy"  src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                 </a>
                                 {% endif %}
                                 <div class="card-body pb-0">
@@ -177,25 +178,20 @@
 			window.scrollTo(0,0);
 		});
 	</script>
-    
     <script>
         $('#sort-selector').change(function() {
             var selector = $(this);
             var currentUrl = new URL(window.location);
-
             var selectedVal = selector.val();
             if(selectedVal != "reset"){
                 var sort = selectedVal.split("_")[0];
                 var direction = selectedVal.split("_")[1];
-
                 currentUrl.searchParams.set("sort", sort);
                 currentUrl.searchParams.set("direction", direction);
-
                 window.location.replace(currentUrl);
             } else {
                 currentUrl.searchParams.delete("sort");
                 currentUrl.searchParams.delete("direction");
-
                 window.location.replace(currentUrl);
             }
         });
@@ -209,7 +205,6 @@
                     link.addEventListener('click', deleteProduct);
                 });
             }
-
             // Function to remove event listeners from delete links
             function removeEventListenersFromLinks() {
                 var deleteLinks = document.querySelectorAll('.deleteproduct');
@@ -217,11 +212,9 @@
                     link.removeEventListener('click', deleteProduct);
                 });
             }
-
             // Function to handle delete action
             function deleteProduct(event) {
                 event.preventDefault(); // Prevent the link from being followed immediately
-                
                 removeEventListenersFromLinks(); // Remove event listeners from delete links
                 
                 // Create confirmation message and buttons
@@ -258,7 +251,6 @@
                     addEventListenersToLinks();
                 });
             }
-
             // Add initial event listeners to delete links
             addEventListenersToLinks();
         });
