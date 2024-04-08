@@ -329,7 +329,7 @@ button {
 
 .productdetail {
     background-color: white;
-    padding: 30px;
+    padding: 50px;
     border-radius: 5px;
 }
 
@@ -733,11 +733,6 @@ button {
 
 
 @media (max-width: 760px) {
-    
-    .image-container {
-        display: none;
-
-    } 
 
     .blogpreview {
         background-color: white;
