@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
 {% block content %}
 
 <div class="row indexdiv1">
@@ -31,7 +35,7 @@
             </div>
             <div class="col-6 d-none d-md-block parent-div">
                 <div class="image-container">
-                    <img src="{{ post.featured_image.url }}" alt="Placeholder Image" loading="lazy" >
+                    <img src="{{ post.featured_image.url }}" loading="lazy" alt="Placeholder Image" loading="lazy" >
                 </div>
             </div>
         </div>

@@ -22,7 +22,7 @@
 }
 
 .stripe-style-input::placeholder {
-    color: #aab7c4;
+    color: #696969 !important;
 }
 
 .fieldset-label {
@@ -38,12 +38,16 @@
 
 select,
 select option {
-  color: pink;
+  color: #696969 !important;
 }
 
 select:invalid,
 select optiuion[value=""] {
-  color: skyblue !important;
+  color: #696969 !important;
+}
+
+.text-info {
+  color: black !important;
 }
 
 #loading-overlay {

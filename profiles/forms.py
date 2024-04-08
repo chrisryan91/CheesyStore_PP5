@@ -39,5 +39,9 @@ class UserProfileForm(forms.ModelForm):
             style = 'border-black rounded-0 profile-form-input'
             self.fields[field].widget.attrs['class'] = style
 
-            # Remove fields label.
-            self.fields[field].label = False
+            # Remove fields label, except for the country field
+            if field != 'default_country':  # Assuming 'country' is the name of your field
+                self.fields[field].label = False
+            else:
+                # Explicitly set or reset the label for the country field here if needed
+                self.fields['default_country'].label = 'Default country field'

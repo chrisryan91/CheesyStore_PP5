@@ -162,7 +162,7 @@ footer div div a:hover {
 
 .indexdiv {
     padding-bottom: 25px;
-    height: 35%;
+    height: 30%;
 }
 
 .indexdiv3 {
@@ -188,7 +188,7 @@ footer div div a:hover {
 }
 
 .indexdiv1 {
-    height: 60% !important;
+    height: 70% !important;
 }
 
 .divrow {
@@ -254,8 +254,8 @@ footer div div a:hover {
 }
 
 .newarrimg {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     margin-top: 30px;
 }
 
@@ -634,6 +634,12 @@ button {
         font-size: 25px;
     }
 
+    .newarrimg {
+        width: 150px;
+        height: 150px;
+        margin-top: 30px;
+    }
+
 }
 
 @media (min-width: 992px) {
@@ -734,6 +740,12 @@ button {
 
 @media (max-width: 760px) {
 
+    .newarrimg {
+        width: 200px;
+        height: 200px;
+        margin-top: 30px;
+    }
+
     .blogpreview {
         background-color: white;
         width: 100%;
@@ -753,7 +765,7 @@ button {
 
     .divrow {
         width: 105% !important;
-        height: 40% !important;
+        height: 25% !important;
         background-color: white !important;
         border-top: 1px solid black;
     }
@@ -796,6 +808,12 @@ button {
 }
 
 @media (max-width: 560px) {
+
+    .newarrimg {
+        margin-top: 50px;
+        width: 125px;
+        height: 125px;
+    }
 
     .prodname {
         font-size: 10px;
