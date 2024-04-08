@@ -255,8 +255,6 @@ footer div div a:hover {
 
 .newarrimg {
     width: 250px;
-    height: 250px;
-    margin-top: 30px;
 }
 
 .mailchimpindex {
@@ -636,7 +634,6 @@ button {
 
     .newarrimg {
         width: 150px;
-        height: 150px;
         margin-top: 30px;
     }
 
@@ -742,7 +739,6 @@ button {
 
     .newarrimg {
         width: 200px;
-        height: 200px;
         margin-top: 30px;
     }
 
@@ -812,7 +808,6 @@ button {
     .newarrimg {
         margin-top: 50px;
         width: 125px;
-        height: 125px;
     }
 
     .prodname {
