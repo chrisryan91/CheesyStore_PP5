@@ -176,7 +176,6 @@ footer div div a:hover {
     border-radius: 5px;
     padding: 10px;
     height: 180px;
-    border: 2px solid black;
 }
 
 .sampleblog img {
@@ -590,16 +589,11 @@ button {
     border-radius: 5px;
 }
 
-.authbox {
-    border: 1px solid black !important;
-}
-
 .authbox2 {
     margin-top: 100px;
     padding: 50px;
     background-color: white;
     border-radius: 5px;
-    border: 1px solid black !important;
 }
 
 .authbox3 {
@@ -607,7 +601,6 @@ button {
     padding: 50px;
     background-color: white;
     border-radius: 5px;
-    border: 1px solid black !important;
 }
 
 .signin {
