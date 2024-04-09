@@ -13,6 +13,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6 container5">
+                <h1 class="text-dark">Edit Product <i class="far fa-edit fa-sm"></i></h1>
+                <hr>
                 <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}

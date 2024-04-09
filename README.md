@@ -2,6 +2,8 @@
 
 Welcome to CheesyStore, an online cheesemonger based in Ireland. Our website offers a handpicked selection of the finest cheeses from Ireland and around the world. CheesyStore goes beyond just selling cheese. Alongside the shop there is a blog featuring pairing guides, the stories behind our products, and the latest news from the dairy world. These insights, along with special offers, are shared across various social media platforms to keep our community engaged and informed.
 
+CheesyStore is a B2C e-commerce store and blog. The site is targeted towards potential customers both in Ireland and internationally. The payment system uses Stripe. 
+
 ![Cheesy Store](media/readme_images/amiresponsivescreenshot.png)
 
 Live Website here: [Cheesy Store](http://cheesystore-191ae9e3f358.herokuapp.com/)
@@ -15,6 +17,9 @@ Link to Main Project Board: [Project Board](https://github.com/users/chrisryan91
   - [Development](#development)
     - [User Stories](#user-stories)
     - [Design](#design)
+      - [Color Scheme](#color-scheme)
+      - [Imagery](#imagery)
+      - [Fonts](#fonts)
     - [Wireframes](#wireframes)
     - [GitHub Projects](#github-projects)
     - [Database and Data Models](#database-and-data-models)
@@ -114,7 +119,17 @@ Link to User Stories + Tasks: [User Stories Board](https://github.com/users/chri
 
 ### Design
 
-???
+#### Color Scheme
+
+#### Imagery
+
+CheesyStore contains a background image that is present on most of the pages on the site. It is from Pexels.com and it is called "Slice Cheese, Biscuits and Bowl of Fruits". I chose it because the centre of the image is blank which would have been nice for a call to action. A link can be found [here](https://www.pexels.com/photo/slice-cheese-biscuits-and-bowl-of-fruits-543733/).
+
+#### Fonts
+
+For CheesyStore, I selected the Rubik font due to its versatility. Being a sans-serif typeface, it's excellent for headings and titles. For body text or more extensive sections of text, I opted for the Lora font. Its readability paired well with Rubik so it was an ideal choice.
+
+Links: [Rubik](https://fonts.google.com/specimen/Rubik?query=rubik) and [Lato](https://fonts.google.com/specimen/Lato?query=lato).
 
 ### Wireframes
 

@@ -13,7 +13,7 @@
             <div class="d-flex justify-content-center align-items-center maintext">
                 <h1 class="text-white">Welcome to Cheesy Store</h1>
                 <h2 class="text-white hometext">Our online cheesemonger offer the best local and international cheeses, straight from the farm to your door. We pick only the best, made with care and traditional recipes. It's an easy way to enjoy delicious, authentic cheese without leaving home!</h2>
-                <a href="{% url 'products' %}" class="text-white"><u>SHOP NOW</u></a>
+                <a href="{% url 'products' %}" class="text-white"><u>SHOP NOW</u> <i class="fas fa-cheese fa-sm"></i></a>
             </div>
         </div>
     </div>
@@ -59,7 +59,7 @@
             <div class="col-6 parent-div1">
                 <div class="card border-0">
                     <a href="{% url 'post_detail' post.slug  %}">
-                        <img class="card-img-top img-fluid newarrimg" loading="lazy"  src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+                        <img class="card-img-top img-fluid newarrimg" loading="lazy" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
                     </a>
                 </div>                        
             </div>

@@ -1102,10 +1102,8 @@ My Development Environment allowed me to install the Stripe Command Line Interfa
 
 ### Fixed Bugs
 
-- **xxx**
-
-- **xxx**
+- 
 
 ### Known Bugs
 
-- **xxx**
+- A bug noticed just at the end of development happens in the Products Page. The JavaScript attaches an event listener to all of the delete anchor tags which disables their default action i.e to delete. When one is clicked, and the message pops up, "Are you sure?", the event listener is removed from all of the other delete buttons on the page. This means that when the message for one product appears, any of the other delete buttons can be clicked with no message popping up.

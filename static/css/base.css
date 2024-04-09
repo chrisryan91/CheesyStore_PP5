@@ -13,7 +13,7 @@ body {
     background: url(/media/pexels-foodie-factor-543733.webp) no-repeat center center fixed;
     background-size: cover;
     color: black;
-    font-family: 'Rubik';
+    font-family: 'Rubik', sans-serif;
 }
 
 .overlay {
@@ -267,6 +267,7 @@ footer div div a:hover {
 }
 
 .hometext {
+    font-family: 'Lato', sans-serif;
     font-size: 15px;
 }
 
@@ -329,6 +330,10 @@ button {
     background-color: white;
     padding: 50px;
     border-radius: 5px;
+}
+
+.proddescription {
+    font-family: 'Lato', sans-serif;
 }
 
 #topbutton {
@@ -561,11 +566,14 @@ button {
 
 .faqqanda {
     padding-bottom: 20px !important;
-
 }
 
 .faqqanda h2 {
     font-size: 20px;
+}
+
+.faqqanda p {
+    font-family: 'Lato', sans-serif;
 }
 
 .faqlink {
