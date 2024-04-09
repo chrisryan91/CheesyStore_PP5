@@ -479,7 +479,7 @@ button {
 }
 
 #contactdiv {
-    height: 100vh;
+    height: 60vh;
     padding-left: 25px;
     padding-right: 25px;
 }
@@ -573,6 +573,10 @@ button {
 
 .faqqanda p {
     font-family: 'Lato', sans-serif;
+}
+
+.faqqanda p a {
+    color: black !important;
 }
 
 .faqlink {

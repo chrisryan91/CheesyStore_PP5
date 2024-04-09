@@ -118,12 +118,13 @@
         window.scrollTo(0,0);
     });
 </script>
-<script>
+<script type="text/javascript">
     // Update quantity on click
     $('.update-link').click(function(e) {
         var form = $(this).prev('.update-form');
         form.submit();
     })
+
     // Remove item and reload on click
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
@@ -131,6 +132,7 @@
         var size = $(this).data('product_size');
         var url = `/bag/remove/${itemId}/`;
         var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+
         $.post(url, data)
          .done(function() {
              location.reload();
