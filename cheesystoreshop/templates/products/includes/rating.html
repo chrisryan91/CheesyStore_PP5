@@ -1,7 +1,6 @@
 <script>
     $(document).ready(function(){
         $(".rating-star").click(function(){
-            console.log("Star clicked");
             var stars = $(this).data('value');
             var productId = $(this).closest('[data-product-id]').data('product-id');
 
@@ -13,8 +12,6 @@
                 'stars': stars,
                 'product_id': productId
             });
-
-            console.log("Sending data:", dataPayload); // Verify the payload
 
             // Structuring the AJAX call
             $.ajax({

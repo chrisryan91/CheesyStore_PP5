@@ -15,7 +15,6 @@ def bag_contents(request):
     # Iterate through items in shopping bag.
     for item_id, quantity in bag.items():
         product = get_object_or_404(Product, pk=item_id)
-        print(product)
         total += quantity * product.price
         product_count += quantity
         # Attach products to bag_items list.

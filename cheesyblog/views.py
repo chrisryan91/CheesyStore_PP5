@@ -121,7 +121,6 @@ def AddBlogPost(request):
 def DeleteComment(request, comment_id):
     # Return 404 error if product not found.
     comment = get_object_or_404(Comment, pk=comment_id)
-    print(comment)
 
     # Delete the product if found and redirect to list of products.
     comment.delete()

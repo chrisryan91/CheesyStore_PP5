@@ -136,12 +136,10 @@
                 parentContainer.appendChild(noButton);
                 // Add event listeners for Yes and No buttons
                 yesButton.addEventListener('click', function() {
-                    console.log('User clicked Yes');
                     // Follow the original link (delete action)
                     window.location.href = event.target.href;
                 });
                 noButton.addEventListener('click', function() {
-                    console.log('User clicked No');
                     // Remove confirmation message and buttons
                     parentContainer.removeChild(areYouSureElement);
                     parentContainer.removeChild(yesButton);

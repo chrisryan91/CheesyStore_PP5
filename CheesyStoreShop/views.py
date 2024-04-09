@@ -46,8 +46,6 @@ def all_products(request):
 
                 products = products.order_by(sortkey)
 
-        print(request.GET)
-
         # Filtering by category, cheesetype or origin.
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
@@ -214,10 +212,8 @@ def delete_product(request, product_id):
 
 class RateProduct(View):
     def post(self, request, *args, **kwargs):
-        print("called")
 
         if not request.user.is_authenticated:
-            print("not authenticated")
             return JsonResponse(
                                 {'error': 'Authentication required'},
                                 status=401)

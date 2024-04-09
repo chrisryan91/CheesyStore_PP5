@@ -23,7 +23,6 @@ class StripeWH_Handler:
     def _send_confirmation_email(self, order):
         # Customer's email address
         cust_email = order.email
-        print(settings.DEFAULT_FROM_EMAIL)
         # Render email subject template.
         subject = render_to_string(
             'checkout/confirmation_emails/confirmation_email_subject.txt',
