@@ -901,7 +901,6 @@ Users and visitors to the website can sign up to the newsletter. They do not nee
 - [Privacy Policy Generator](https://www.privacypolicygenerator.info/)
 - [XML Sitemaps](https://www.xml-sitemaps.com/)
 
-
 ## Testing
 
 Full testing: [TESTING.md](TESTING.md)

@@ -265,9 +265,9 @@ footer div div a:hover {
     padding-left: 30px;
 }
 
-.hometext {
-    font-family: 'Lato', sans-serif;
-    font-size: 15px;
+.hometext, .hometext a {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 15px !important;
 }
 
 /* Button Stying */

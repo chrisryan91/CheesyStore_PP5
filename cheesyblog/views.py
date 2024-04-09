@@ -132,11 +132,6 @@ def DeleteComment(request, comment_id):
 @login_required
 def edit_comment(request, comment_id):
 
-    # Check if the user is a superuser and return error if not.
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry only store owners can do that')
-        return redirect(reverse('home'))
-
     # Show 404 error is product is not found.
     comment = get_object_or_404(Comment, pk=comment_id)
 
