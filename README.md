@@ -17,7 +17,6 @@ Link to Main Project Board: [Project Board](https://github.com/users/chrisryan91
   - [Development](#development)
     - [User Stories](#user-stories)
     - [Design](#design)
-      - [Color Scheme](#color-scheme)
       - [Imagery](#imagery)
       - [Fonts](#fonts)
     - [Wireframes](#wireframes)
@@ -119,7 +118,7 @@ Link to User Stories + Tasks: [User Stories Board](https://github.com/users/chri
 
 ### Design
 
-#### Color Scheme
+This project does not have a specific color scheme. The header and footer feature a black background with white text. To maintain a clean appearance, especially due to the numerous images associated with products and blog posts, the design predominantly employs a monochrome palette. Most pages on the website display a background image, with the exception of the store and checkout pages. To avoid clutter on these pages, a white overlay has been applied. On pages where the overlay has not been applied, the content of the page rests on white card divs.
 
 #### Imagery
 
@@ -759,6 +758,18 @@ In the footer a link to the store's Privacy Policy is aligned to the right. In t
 
 1. I want to use ChatGPT API to create a chatbot for users of my store to use to help make purchases and navigate the store. I initially made a User Story that remains unfinished: *As a potential customer, I want to interact with a chatbot on the cheese-selling website so that I can receive personalized recommendations, get answers to my questions about the products, and have assistance throughout the checkout process, making my shopping experience smoother and more enjoyable.*
 
+2. In the future, I will add more categorisations to the cheese. Part of the reason I decided on a cheesemonger was due to the many ways you could categorise cheese. I will remove Goats cheese as a cheese type and created a dairy type category. I could create a texture model.
+
+3. I want to add a subscription service whereby someone can monthy for a cheese board. The images for the cheeseboards are already in the media folder. I could implement Stripe to take monthly payments. Stripe has code to implement for this purpose. This was a user story from the start: *As a user, I want to subscribe to a monthly cheese subscription service so that I can discover new cheeses and have a consistent supply of high-quality cheese without having to reorder manually each time.*
+
+4. I want to introduce a loyalty scheme. It was a User Story from the beginning: *As a user, I want to participate in a loyalty program that rewards me for my purchases so that I can enjoy discounts, get early access to new products, and access exclusive content.* This would reward users and incentivise them to return. I got into further detail in TESTING.md User Story testing section.
+
+5. I would like to spend more time improving the sites design. It could be improved and it is something I will work on after submission. For example, when a user rates an item, the rating could automatically update. At the moment, the pages needs to be refreshed before it updates. 
+
+6. Another example is for Editing a comment. Similar to how a paragraph appears on the screen asking to confirm deletion, I would like a form to appear to edit the comment rather than having to edit the comment on an external page.
+
+7. The user profile section could be updated. I want users who have placed an order to leave or a review or testimonial. I considered implemeting it before submission but left it aside as what needed to be submitted was a minimum viable product and I considered a testimonial page to be not nescessary for the deadline.
+
 ## Business Model
 
 Cheesy Store's Business Model is Business to Consumer (B2C). Products are sold directly from Cheesy Store to consumers who are the end-users.
@@ -1118,4 +1129,10 @@ To clone this repository follow the below steps:
 
 ## Credits
 
-Blankety Black Checkbook and Pen
+- Bootstrap documentation especially regarding Toasts:[Bootstrap Toasts](https://getbootstrap.com/docs/4.3/components/toasts/)
+- This YouTube video regarding Keyword research: [How to Do Keyword Research for Free in 2024 & Beyond](https://www.youtube.com/watch?v=k4rLJD7E0D0)
+- These Stackoverflow questions regarding a five star rating sytem: [How to make simple star rating?](https://stackoverflow.com/questions/53240610/how-to-make-simple-star-rating) [5 star rating system database design](https://stackoverflow.com/questions/45727487/5-star-rating-system-database-design) [Star-rating with css [duplicate]](https://stackoverflow.com/questions/47300759/star-rating-with-css)
+- Similarly from Code Review: [Simple star rating system](https://codereview.stackexchange.com/questions/444/simple-star-rating-system)
+- Code Institute Template and Boutique Ado
+- W3 Schools especially sections on AJAX: [AJAX Introduction](https://www.w3schools.com/js/js_ajax_intro.asp)
+- This Markdown helped: [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
