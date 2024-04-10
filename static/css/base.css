@@ -779,6 +779,7 @@ button {
     .divrow {
         width: 105% !important;
         height: 25% !important;
+        min-height: 250px;
         background-color: white !important;
         border-top: 1px solid black;
     }
@@ -849,6 +850,10 @@ button {
 
     .maintext h2 {
         display: none;
+    }
+
+    .maintext h1 {
+        font-size: 25px !important;
     }
         
 }
