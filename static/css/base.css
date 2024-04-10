@@ -10,7 +10,7 @@ body {
     height: 100% !important;
     width: 100% !important;
     margin: 0;
-    background: url(/media/pexels-foodie-factor-543733.webp) no-repeat center center fixed;
+    background: url(/media/pexels-foodie-factor-5437333.webp) no-repeat center center fixed;
     background-size: cover;
     color: black;
     font-family: 'Rubik', sans-serif;
@@ -445,6 +445,10 @@ button {
 
 /* Contact page styling */
 
+.contactrow {
+    margin-top: 200px;
+}
+
 .contactform {
     background-color: white;
     padding: 30px;
@@ -538,6 +542,14 @@ button {
     border-radius: 5px;
     padding: 30px;
     margin-top: 100px;
+}
+
+/* Edit Comment */
+
+.container7 {
+    background-color: white;
+    border-radius: 5px;
+    padding: 30px;
 }
 
 /* FAQ */

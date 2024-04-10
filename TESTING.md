@@ -29,6 +29,20 @@ Link to Projects Board: [Project Board](https://github.com/users/chrisryan91/pro
 
 ### User Story 1: As a site administrator, I can manage user accounts, including activating, deactivating, and deleting accounts, so that I can maintain the site's user base and security.
 
+#### Task 1
+
+Create database models for storing cheese information, including name, description, origin, and price.
+
+#### Task 2
+
+Implement backend logic to store comments and reviews in the database.
+
+#### Task 3
+
+Implement validation logic to ensure data integrity when modifying the cheese inventory.
+
+----
+
 At the start of the project, the Code Institute template was utilized. After setting up the Development Environment and installing Django, a superuser was created. Proper configuration provided access to the admin panel, enabling the management of user accounts for site userbase and security maintenance.
 
 Here is an example of a class that Registers my blog posts with the admin panel:
@@ -87,7 +101,17 @@ class RatingAdmin(admin.ModelAdmin):
 ```
 </details>
 
-### 2: As a site user, I can subscribe to the newsletter to receive updates on new cheese arrivals, promotions, and blog posts so that I can stay informed. 
+### 2: As a site user, I can subscribe to the newsletter to receive updates on new cheese arrivals, promotions, and blog posts so that I can stay informed.
+
+#### Task 1
+
+Design a subscription form for users to enter their email addresses.
+
+#### Task 2
+
+Configure mailchimp and integrate with website.
+
+---
 
 To complete this User Story, an account with MailChimp was established, which supplied an embeddable form, CSS styling, and JavaScript for integration into the website. The MailChimp dashboard is used to manage the audience list of individuals who subscribed to the newsletter.
 
@@ -101,7 +125,17 @@ To complete this User Story, an account with MailChimp was established, which su
 
 ### User Story 3: As a site user, I can read blog posts about cheese tasting, pairing tips, and cheese-making processes so that I can expand my knowledge and appreciation of cheese.
 
-To fulfill this user story, a new app was initiated with the command "python manage.py startapp cheesyblog". This step enabled the creation of models, views, URLs, and templates necessary for the app's functionality. Consequently, it became possible for an admin to publish blog posts through the Django admin panel and display them on the site using a template. A dedicated page, "cheesyblogpost", was also developed for users to read the complete posts. The intention behind the blog is to draw visitors interested in cheese to the website and convert them into potential customers.
+#### Task 1
+
+Design a blog page listing all available blog posts.
+
+#### Task 2
+
+Implement views and templates to display individual blog posts with their content and comments.
+
+---
+
+To complete this user story, a new app was initiated with the command "python manage.py startapp cheesyblog". This step enabled the creation of models, views, URLs, and templates necessary for the app's functionality. Consequently, it became possible for an admin to publish blog posts through the Django admin panel and display them on the site using a template. A dedicated page, "cheesyblogpost", was also developed for users to read the complete posts. The intention behind the blog is to draw visitors interested in cheese to the website and convert them into potential customers.
 
 Below is the view which gets the blog post from the database and renders it to the template.
 
@@ -141,6 +175,20 @@ class CheesyBlogListView(ListView):
 </details>
 
 ### User Story 4: As a site user, I can leave comments and reviews on cheeses and blog posts so that I can share my opinions and experiences with other users.
+
+#### Task 1
+
+Develop functionality to allow users to naviagte between blog posts and leave comments.
+
+#### Task 2
+
+Implement functionality to approve, edit, or delete user-generated content as needed.
+
+#### Task 3
+
+Design comment and review forms for cheeses and blog posts.
+
+---
 
 To achieve this User Story, a model for comments was established, including fields for the associated post, the commenting user, the comment text, creation time, and approval status. Subsequently, a form was defined in forms.py, utilizing a meta class to link the form with the comment model. This form exclusively offers a field for the comment body, as the remaining fields are populated automatically. The final step involved updating the view to enable commenting features, ensuring the form is displayed in the template only to authenticated users.
 
@@ -186,10 +234,21 @@ class CommentForm(forms.ModelForm):
 ```
 </details>
 
-
 ### User Story 5: As a site administrator, I can create and publish blog posts about cheese-related topics so that I can engage users and attract traffic to the site.
 
+#### Task 1
+
+Implement backend logic to store blog posts in the database.
+
+#### Task 2
+
+Develop blog post creation forkms for administrators to write and format content.
+
+---
+
 Following the setup of blog models, views, URLs, and their integration with templates, the next step was to register the Post and Comment models in Django's admin panel. This registration allowed for the addition and approval of posts and user comments directly from the admin interface. The necessary admin classes for these actions were then established.
+
+The second task changed signifigantly as I decided to user Summernote to allow administrators to add blog posts through the admin panel rather than a front-end for.
 
 <details>
 <summary>User Story 5</summary>
@@ -240,6 +299,16 @@ class CommentAdmin(admin.ModelAdmin):
 </details>
 
 ### User Story 6: As a site administrator, I can add, edit, and delete cheeses from the store inventory so that I can manage the product catalog.
+
+#### Task 1
+
+Delevop views and templates to display a list of cheeses with relevant details.
+
+#### Task 2
+
+Create admin views and forms for adding, editing and deleting cheeses.
+
+---
 
 For this user story, separate HTML pages were developed for the editing and deletion of products from the database. "Delete" and "Edit" buttons were introduced, visible only to superusers, placed beneath the product listings on both the main store page and the individual product detail pages. These buttons are linked to URLs that activate specific views for adding, editing, and deleting products. When the delete button is clicked, a confirmation query "Are you sure?" is presented to the user, and selecting the edit button redirects the user to an 'edit_product' HTML page for modifications.
 
@@ -340,6 +409,16 @@ def delete_product(request, product_id):
 
 ### User Story 7: As a site user, I can create an account and log in so that I can track my order history and manage my profile information.
 
+#### Task 1
+
+Create user profile pages where users can view and edit their account information.
+
+#### Task 2
+
+Develop admin views and forms for managing user accounts, including activation and deactivation.
+
+---
+
 Authentication within the project is managed using Django AllAuth. The AllAuth User model was installed and imported to manage user information efficiently. Users have the capability to register using an email and a password. Upon registration, a profile page is automatically created for each user, accessible via a link in the navigation bar. This profile page displays the user's shipping information and order history.
 
 A User Profile Form was crafted in forms.py and incorporated into the view that renders the Profile page. This form on the profile page comes pre-filled with the user's existing information, which can be updated as needed.
@@ -416,6 +495,16 @@ def order_history(request, order_number):
 
 ### User Story 8: As a site user, I can view detailed information about each cheese, including its origin, flavor profile, and suggested pairings, so that I can make an informed decision.
 
+#### Task 1
+
+Design a cheese detail page to display comprehensive information about each cheese.
+
+#### Task 2
+
+Populate the cheese detail page with relevant data from the database.
+
+---
+
 This User Story is incomplete because the functionality for displaying each cheese's flavor profile and suggested pairings has not yet been implemented. Currently, the model for each cheese includes attributes for category, origin, type, a brief description, and an image.
 
 To present this information, a link directs from the main store to a Product Detail page, which displays all the available data about the cheese from the database. Below are the Product model details and an image of what the Product Detail page looks like upon completion.
@@ -451,6 +540,16 @@ class Product(models.Model):
 
 
 ### User Story 9: As a site user, I can search for specific types of cheeses (e.g., soft, hard, aged) so that I can find cheeses that match my preferences.
+
+#### Task 1
+
+Implement a search functionality allowing users to filter cheeses by type.
+
+#### Task 2
+
+Create search filters based on cheese attributes and implement them in the search view.
+
+---
 
 To fulfill this User Story, a search bar was integrated as a dropdown item in the Navigation bar. This search icon is visible across all pages and adapts to all screen sizes, providing users with the ability to search the store's products. The dropdown search bar, designed as a form element, sends queries to the 'products' URL, activating the all_products view. The search functionality attempts to match the query with product names or descriptions. The resulting view displays products that match the search criteria or, alternatively, a message indicating the absence of matching items.
 
@@ -497,6 +596,20 @@ if 'q' in request.GET:
 
 ### User Story 10: As a site user, I can add cheeses to my cart and proceed to checkout so that I can purchase them.
 
+#### Task 1
+
+Integrate a payment gateway to process transactions securely with Stripe.
+
+#### Task 2
+
+Design a shopping cart interface where users can add and remove items.
+
+#### Task 3
+
+Implement a checkout process allowing users to end shipping and payment information with Stripe.
+
+---
+
 To achieve this User Story, a new app named Bag was initiated using the command python manage.py startapp bag. An "Add to Bag" button was introduced on the product detail page, designed to store the selected product and its specified quantity in session storage. Within the Bag app's views, the add_to_bag function is responsible for extracting product information stored in session storage. This information is then displayed on the Bag HTML page, allowing users to view the details of their intended purchase.
 
 <details>
@@ -532,6 +645,16 @@ def add_to_bag(request, item_id):
 </details>
 
 ### User Story 11: As a site user, I can browse a variety of cheeses so that I can explore different options.
+
+#### Task 1
+
+Design and implement a homepoage showcasing a selection of featured cheeses.
+
+#### Task 2
+
+Design frontend views to display blog posts on the site.
+
+---
 
 For this User Story, the requirement was to display all products from the database on the store HTML page accessible by users. This was achieved using the all_products view to fetch the products. The rendering of these products on the page is accomplished through a for loop, where each product is presented within a dedicated card div. This div includes the product's name, image, price, rating, type, availability (e.g., in stock or not), among other attributes. To manage the display of a large number of products, the page implements pagination, dividing the content across multiple pages for easier navigation.
 
@@ -603,6 +726,18 @@ For this User Story, the requirement was to display all products from the databa
 
 ### user Story 12: As a user, I want to be able to set up an account and login in and log out so I can purchase items and leave a comment.
 
+#### Task 1
+
+Design user registration and authentication views and templates.
+
+#### Task 2
+
+Implement user authentication using Django's built-in authentication system.
+
+---
+
+AllAuth handled authentication.
+
 The account tab in the navigation bar provides users with options to sign in, sign out, and register, each leading to separate HTML pages equipped with forms for login and logout functionality. Although creating an account is not a prerequisite for making a purchase, registering enables users to create a savable profile and grants them the privilege to comment on blog posts. The authentication process is managed through Django AllAuth.
 
 <details>
@@ -620,9 +755,17 @@ The account tab in the navigation bar provides users with options to sign in, si
 ![User Story 1](media/readme_images/loginscreens.png)
 </details>
 
-
-
 ### 13: As a user, I want to easily find answers to frequently asked questions so that I can make informed decisions about the products and policies without needing to wait for a response from customer service.
+
+#### Task 1
+
+Gather and organise common customer questions.
+
+#### Task 2
+
+Design and implement the FAW section on the website.
+
+---
 
 For this User Story, the objective was to develop a Frequently Asked Questions (FAQ) page. Initial research involved reviewing FAQ sections of other online stores to identify common questions relevant to this business type, such as inquiries about privacy, card data security, return policies, account details, and other pertinent internal links.
 
@@ -637,11 +780,39 @@ A new app was created to facilitate this feature, anticipating future functional
 
 ### User Story 14: As a potential customer, I want to interact with a chatbot on the cheese-selling website so that I can receive personalized recommendations, get answers to my questions about the products, and have assistance throughout the checkout process, making my shopping experience smoother and more enjoyable.
 
+#### Task 1
+
+Implement Chatbot Framework on the Website.
+
+#### Task 2
+
+Develop cheese recommendation system within the Chatbot.
+
+#### Task 3
+
+Implement Checkout Assistant feature in the Chatbot
+
+---
+
 This User Story remains incomplete. During the research of other online stores, I saw that many featured chatbots, highlighting their usefulness. The potential for integrating the ChatGPT API into a web application caught my interest. However, due to the constraints of a submission deadline, there was insufficient time to implement this feature. Post-submission, the development of the chatbot integration will be a priority enhancement for the project.
 
 The API key is still stored in my env.py file so it is not pushed to GitHub.
 
 ### User Story 15: As a user, I want to subscribe to a monthly cheese subscription service so that I can discover new cheeses and have a consistent supply of high-quality cheese without having to reorder manually each time.
+
+#### Task 1
+
+Design the Subscription Model
+
+#### Task 2
+
+Implement a Subscription Management System
+
+#### Task 3
+
+Curate monthly cheese selections
+
+---
 
 This User Story has not been completed. At present, Cheesy Store supports only single payments. The addition of this User Story was motivated by the desire to implement a subscription payment model using Stripe. The concept of a cheesemonger service is well-suited to a subscription model, where customers could pay for a selection of new cheeses on a monthly basis.
 
@@ -682,6 +853,18 @@ def create_subscription(user: User, plan_id: str):
 ### 16: As a user, I want to participate in a loyalty program that rewards me for my purchases so that I can enjoy discounts, get early access to new products, and access exclusive content.
 
 This User story is unfinished. A loyalty prohgram seemed a great way to encourage repeat business which could build a stronger relationship with my customers. For this, I would expand my User Profile app. I would create a LoyaltyPoint class based view and determine the points the users has accumulated. I would need to access their Order History and the amount they have spent. I would need to determine the mechanism for spending points - and how many points are needed for discounts, access to new products etc.
+
+#### Task 1
+
+Design the Loyalty Program Structure.
+
+#### Task 2
+
+Develop the Loyalty Program Tracking and Reward system.
+
+#### Task 3
+
+Integrate Loyalty Program Marketing and Communication.
 
 <details>
 <summary></summary>

@@ -326,11 +326,11 @@ This app contains five models. These models are for the products, the categories
 
 ##### Product
 
-The Product model contains the information to store details of the product for sale. The origin, category, cheesetype and rating fields are linked with foreign keys to the others models in this folder:
+The Product model contains the information to store details of the product for sale. The origin, category, cheesetype and rating fields are linked with foreign keys to the others models in this folder in a one-to-many relationship. The rating model is linked to the Product model but in a many-to-one relationship.
 
-1. category
-2. cheesetype
-3. origin
+1. category (Foreign Key, Category)
+2. cheesetype (Foreign Key, CheeseType)
+3. origin (Foreign Key, Origin)
 4. sku
 5. name
 6. description
@@ -345,7 +345,7 @@ The Product model contains the information to store details of the product for s
 The main Category model is for the main category to place the product into:
 
 1. name
-2. friendly_name#
+2. friendly_name
 
 ##### Origin
 
@@ -365,13 +365,13 @@ The second subcategory CheeseType is for the type of cheese it is:
 
 The Rating model holds the User rating for the specific product.
 
-1. product
+1. product (Foreign Key, Product)
 2. user
 3. stars
 
 #### cheesyblog 
 
-This app contains two models. These models are the blog posts and the comments on the web applications blog.
+This app contains two models. These models are the blog posts and the comments on the web applications blog. There is a many-to-one relatiionship between post and user, comment and post, and comment and user.
 
 ##### Post
 
@@ -379,7 +379,7 @@ The Post model is for the blog posts themselves to be written by a superuser or 
 
 1. title
 2. slug
-3. author
+3. author (Foreign Key, User)
 4. updated_on
 5. content
 6. featured_image
@@ -392,22 +392,22 @@ The Post model is for the blog posts themselves to be written by a superuser or 
 
 The Comment model is the comments on the blog posts. It is linked to the Post model and User model through foreign keys:
 
-1. post
-2. user
+1. post (Forign Key, Post)
+2. user (Foreign Key, User)
 3. body
 4. created_on
 5. approved
 
 #### checkout
 
-This app contains two models. These models are for the Order and Order Line Items - or the products themselves in the order:
+This app contains two models. These models are for the Order and Order Line Items - or the products themselves in the order. There is a one-to-many relationship from UserProfile to Order, and Order to OrderLineItem. There is a many-to-one relationship between Product and OrderLineItem.
 
 ##### Order
 
 The Order model contains the information for each specific order including user, address, contact details and order number:
 
 1. order_number
-2. user_profile
+2. user_profile (Foreign Key, User Profile)
 3. full_name
 4. phone_number
 5. email
@@ -428,8 +428,8 @@ The Order model contains the information for each specific order including user,
 
 The OrderLineItem model contains the products and the quantity of each in each order:
 
-1. order
-2. product
+1. order (Foreign Key, Order)
+2. product (Foreign Key, Product)
 3. quantity
 4. lineitem_total
 
@@ -439,9 +439,9 @@ This app contains the information for each User profile. The User model itself i
 
 ##### User Profile
 
-The UserProfile model contains information to display for each registered user:
+The UserProfile model contains information to display for each registered user. There is a one-to-one relationship between UserProfile and User.
 
-1. user
+1. user (Foreign Key, User)
 2. default_phone_number
 3. default_street_address1
 4. default_street_address2
