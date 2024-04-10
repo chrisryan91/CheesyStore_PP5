@@ -1021,12 +1021,12 @@ Beneath is Lighthouse testing from Chrome Dev tools for each of the main pages o
 
 This project has no automated testing yet.
 
-## Manual Testingpyt
+## Manual Testing
 
 ### Main Nav
 
-| ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | Element                                         | Action                     | Expected Result                                  | Works     |
+| ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | CheesyStore Icon                                | Click                      | Return Home                                      | Yes       |
 | Products Link                                   | Click                      | Menu Dropdown                                    | Yes       |
 | Categories Link                                 | Click                      | Menu Dropdown                                    | Yes       |
@@ -1037,6 +1037,7 @@ This project has no automated testing yet.
 
 ### Footer
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | Privacy Policy Link                             | Click                      | Links Externally to Privacy Policy               | Yes       |
 | Facebook Link                                   | Click                      | Links to Facebook                                | Yes       |
@@ -1044,6 +1045,7 @@ This project has no automated testing yet.
 
 ### Products Dropdown
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | All Products Link                               | Click                      | Links to all products                            | Yes       |
 | Cheeses Link                                    | Click                      | Links to cheeses                                 | Yes       |
@@ -1051,13 +1053,14 @@ This project has no automated testing yet.
 
 ### Categories Drodown
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
-| Categories Dropdown                             |                            |                                                  |           |
 | Types Links                                     | Click                      | Links to each specifc cheese type                | Yes       |
 | Origins Links                                   | Click                      | Links to each specific origin                    | Yes       |
 
 ### More Dropdown
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | FAQ Link                                        | Click                      | Links to FAQ page                                | Yes       |
 | Contact Link                                    | Click                      | Links to contact page                            | Yes       |
@@ -1065,6 +1068,7 @@ This project has no automated testing yet.
 
 ### My Account Dropdown
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | Product Management Link\*\*                     | Click                      | Links to Product Managment page                  | Sometimes |
 | My Profile Link\*                               | Click                      | Links to My Profile page                         | Sometimes |
@@ -1074,11 +1078,13 @@ This project has no automated testing yet.
 
 ### Sign Out*
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | Sign Out link                                   | Click                      | Sign Out and return Home                         | Yes       |
 
 ### Register Page
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | Sign Up Link                                    | Click (if data is invalid) | Returns form with notice where there is an error | Yes       |
 | Sign Up Link                                    | Click (if data is valid)   | Sends Email                                      | Yes       |
@@ -1086,6 +1092,7 @@ This project has no automated testing yet.
 
 ### Sign In Page
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | Sign In Link                                    | Click (if data is invalid) | Returns form with invalid information            | Yes       |
 | Sign In Link                                    | Click (if data is valid)   | Logins in                                        | Yes       |
@@ -1094,6 +1101,7 @@ This project has no automated testing yet.
 
 ### Products Page
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | Sort Dropdown                                   | Click                      | Dropdown Appears                                 | Yes       |
 | Sort Dropdown Options                           | Click                      | Sorts Product Correctly                          | Yes       |
@@ -1107,6 +1115,7 @@ This project has no automated testing yet.
 
 ### Product Page
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | Decrease Button (when quantity is one)          | Click                      | Nothing                                          | Yes       |
 | Decrease Button (when quantity is two or above) | Click                      | Value Decreases                                  | Yes       |
@@ -1125,6 +1134,7 @@ This project has no automated testing yet.
 
 ### Product Management - Add Product
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | Category, CheeseType, Origin, In Stock Dropdown | Click                      | Dropdown Menu Appears with Correct Values        | Yes       |
 | Select Image Button                             | Click                      | Box Appears to with File Explorer                | Yes       |
@@ -1133,8 +1143,8 @@ This project has no automated testing yet.
 
 ### Product Management - Edit Product
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
-| Product Management - Edit Product\*\*           |                            |                                                  |           |
 | Category, CheeseType, Origin, In Stock Dropdown | Click                      | Dropdown Menu Appears with Correct Values        | Yes       |
 | Select Image Button                             | Click                      | Box Appears to with File Explorer                | Yes       |
 | Remove Option                                   | Ticked                     | Image Removed                                    | Yes       |
@@ -1145,6 +1155,7 @@ This project has no automated testing yet.
 
 ### Bag Page
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | Minus Button (if value is 1)                    | Click                      | Nothing                                          | Yes       |
 | Minus Button (if value is 1 or more)            | Click                      | Increases Value                                  | Yes       |
@@ -1156,6 +1167,7 @@ This project has no automated testing yet.
 
 ### Checkout Page
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | Adjust Bag Button                               | Click                      | Links us to Bag                                  | Yes       |
 | Card Number Field                               | Enter Invalid Data         | Message Appears with Error                       | Yes       |
@@ -1165,11 +1177,13 @@ This project has no automated testing yet.
 
 ### Checkout Success Page
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | See Products Link                               | Click                      | Links to Products Page                           | Yes       |
 
 ### FAQ Page
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | Blog Link                                       | Click                      | Links to Blog                                    | Yes       |
 | Contact Link                                    | Click                      | Links to Contact Page                            | Yes       |
@@ -1178,6 +1192,7 @@ This project has no automated testing yet.
 
 ### Contact Page
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | Submit Button (with invalid data)               | Click                      | Returns form with error tags                     | Yes       |
 | Submit Button (with valid data)                 | Click                      | Success Message Appears                          | Yes       |
@@ -1186,6 +1201,7 @@ This project has no automated testing yet.
 
 ### Blog Page
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | Add Post Link\*\*                               | Click                      | Links to Add Blog Post Page                      | Yes       |
 | Blog Title Link                                 | Click                      | Links to Blog Post Page                          | Yes       |
@@ -1193,6 +1209,7 @@ This project has no automated testing yet.
 
 ### Blog Post Page
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | Submit Comment Button (with text)\*             | Click                      | Success Message Appears, Comment Awaits Approval | Yes       |
 | Submit Comment Button (with no text)\*          | Click                      | Form returns blank with Error Tag                | Yes       |
@@ -1204,6 +1221,7 @@ This project has no automated testing yet.
 
 ### My Profile Page
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | Order Number Button                             | Click                      | Links to Checkout Sucess page with Order Details | Yes       |
 | Countries Dropdown                              | Click                      | Dropdown Appears                                 | Yes       |
@@ -1211,6 +1229,7 @@ This project has no automated testing yet.
 
 ### Edit Comment Page
 
+| Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
 | Edit Comment (with valid data)                  | Click                      | Form does not submit                             | Yes       |
 | Edit Comment (with invalid data)                | Click                      | Form does submit                                 | Yes       |
@@ -1432,3 +1451,7 @@ document.addEventListener('DOMContentLoaded', function () {
 ### Known Bugs
 
 #### Strange Beviour From My Account Dropdown
+
+There is a bug somewhere which I found in testing the website. It was a tricky one to pin down because sometimes it worked, sometimes it did not. On the Navbar, there is a My Account Dropdown menu with three anchor tag links in the dropdown linking to either Product Management, My Profile and Sign-out, or Register and Sign-In, depending if the user is logged in, and if they are either a normal user or a superuser. Sometimes when the homepage loaded, the links did not work. Even when hovered over, the pointer would not change. It was as if the anchor tags had vanished.
+
+This only happened on the homepage. It did not matter whether the website was running locally or deployed through Heroku. I never got a real chance to investigate - especially as most of the time, the links worked.
