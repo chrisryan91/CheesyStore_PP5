@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.conf import settings
 from django.urls import reverse
 from .forms import ContactForm
+from .models import ContactMessage
 
 
 def contact(request):
@@ -16,6 +17,9 @@ def contact(request):
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
+
+            # Save the message to the database
+            ContactMessage.objects.create(name=name, email=email, message=message)
 
             # Use Django's send_mail function to send an email.
             send_mail(

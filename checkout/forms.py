@@ -36,5 +36,5 @@ class OrderForm(forms.ModelForm):
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
         else:
-            self.fields[field].label = 'Country Label'
+            self.fields[field].label = 'County, State, Locality'
 

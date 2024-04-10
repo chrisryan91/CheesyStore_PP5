@@ -4,7 +4,6 @@
 - [Full Testing](#full-testing)
   - [Contents](#contents)
   - [Testing User Stories](#testing-user-stories)
-  - [User Story 1](#user-story-1)
   - [Validator Testing](#validator-testing)
     - [HTML](#html)
     - [CSS](#css)
