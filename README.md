@@ -1149,3 +1149,5 @@ To clone this repository follow the below steps:
 - W3 Schools especially sections on AJAX: [AJAX Introduction](https://www.w3schools.com/js/js_ajax_intro.asp)
 - This Markdown helped: [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
 - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+- The Code Institute Slack Channel for everything
+- Special Thanks to my tutor Antonio
