@@ -1498,7 +1498,9 @@ document.addEventListener('DOMContentLoaded', function () {
 ```
 </details>
 
-#### 
+#### Stripe Webhooks
+
+An issue that I struggled with for ages was having the wrong webhook host in my Stripe dashboard. I forget the slash at the end of the webhook link. The Slack channel saved me in the end
 
 ### Known Bugs
 
@@ -1507,3 +1509,7 @@ document.addEventListener('DOMContentLoaded', function () {
 There is a bug somewhere which I found in testing the website. It was a tricky one to pin down because sometimes it worked, sometimes it did not. On the Navbar, there is a My Account Dropdown menu with three anchor tag links in the dropdown linking to either Product Management, My Profile and Sign-out, or Register and Sign-In, depending if the user is logged in, and if they are either a normal user or a superuser. Sometimes when the homepage loaded, the links did not work. Even when hovered over, the pointer would not change. It was as if the anchor tags had vanished.
 
 This only happened on the homepage. It did not matter whether the website was running locally or deployed through Heroku. I never got a real chance to investigate - especially as most of the time, the links worked.
+
+#### Viewport Width
+
+Checking how responsive my website is across devices, sometimes the viewport exceeds 100% on some devices. I tried to fix it by targeting the html and body elements. The source of the issue is not the elements within the body section. I tried targeting with 100% width, 100vw, and max-width 100%. I also tried targeting the background image.
