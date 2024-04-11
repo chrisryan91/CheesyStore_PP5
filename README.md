@@ -36,6 +36,7 @@ Link to Main Project Board: [Project Board](https://github.com/users/chrisryan91
         - [OrderLine Item](#orderline-item)
       - [profiles](#profiles)
         - [User Profile](#user-profile)
+        - [Contact](#contact)
       - [Database Model Diagram](#database-model-diagram)
   - [Features](#features)
     - [CRUD Functionality](#crud-functionality)
@@ -43,7 +44,7 @@ Link to Main Project Board: [Project Board](https://github.com/users/chrisryan91
       - [Read](#read)
       - [Update](#update)
       - [Delete](#delete)
-    - [Authentication and Authorisation](#authentication-and-authorisation)
+    - [Authentication and Authorization](#authentication-and-authorization)
     - [Navigation](#navigation)
     - [Homepage](#homepage)
     - [CheesyStoreShop](#cheesystoreshop-1)
@@ -61,7 +62,7 @@ Link to Main Project Board: [Project Board](https://github.com/users/chrisryan91
     - [Footer](#footer)
     - [Features Left to Implement](#features-left-to-implement)
   - [Business Model](#business-model)
-  - [Web Marketing and Search Engine Optimisization](#web-marketing-and-search-engine-optimisization)
+  - [Web Marketing and Search Engine Optimization](#web-marketing-and-search-engine-optimization)
     - [Key Words](#key-words)
     - [Blog Keywords](#blog-keywords)
     - [Sitemap and Robots.txt](#sitemap-and-robotstxt)
@@ -135,7 +136,7 @@ Links: [Rubik](https://fonts.google.com/specimen/Rubik?query=rubik) and [Lato](h
 
 Wireframes were created at the start of the project to establish the website's structure. The initial framework has largely stayed consistent throughout the development process. These wireframes were used as a reference for the design, ensuring that it did not stray significantly from the intended direction. They were also designed with responsiveness in mind, knowing that Bootstrap could be used to adapt the layout for smaller screens.
 
-Although there were some deviations from the original design, such as not including an "About Us" section, I made efforts to adhere to the initial wireframe as closely as possible. The wireframes proved to be valuable, providing a solid foundation for the design. They helped prevent excessive deviation during the styling process, which often led to cluttered HTML and CSS.
+Although there were some deviations from the original design, such as not including an "About Us" section, I made efforts to adhere to the initial wireframes as closely as possible. The wireframes proved to be valuable, providing a solid foundation for the design. They helped prevent excessive deviation during the styling process, which often led to cluttered HTML and CSS.
 
 <details>
 <summary>Home Page Initial Desktop Wireframe</summary>
@@ -311,7 +312,7 @@ Link to Main Project Board: [Project Board](https://github.com/users/chrisryan91
 
 Link to User Stories + Tasks: [User Stories Board](https://github.com/users/chrisryan91/projects/11/views/1)
 
-Link to MoSCoW Prioritisation Board: [MoSCoW Board](https://github.com/users/chrisryan91/projects/12)
+Link to MoSCoW Prioritization Board: [MoSCoW Board](https://github.com/users/chrisryan91/projects/12)
 
 User Stories are tested in: [TESTING.md](TESTING.md)
 
@@ -370,7 +371,7 @@ The Rating model holds the User rating for the specific product.
 
 #### cheesyblog 
 
-This app contains two models. These models are the blog posts and the comments on the web applications blog. There is a many-to-one relatiionship between post and user, comment and post, and comment and user.
+This app contains two models. These models are the blog posts and the comments on the web applications blog. There is a many-to-one relationship between post and user, comment and post, and comment and user.
 
 ##### Post
 
@@ -391,7 +392,7 @@ The Post model is for the blog posts themselves to be written by a superuser or 
 
 The Comment model is the comments on the blog posts. It is linked to the Post model and User model through foreign keys:
 
-1. post (Forign Key, Post)
+1. post (Foreign Key, Post)
 2. user (Foreign Key, User)
 3. body
 4. created_on
@@ -449,6 +450,15 @@ The UserProfile model contains information to display for each registered user. 
 7. default_postcode
 8. default_country
 
+##### Contact
+
+The Contact model contains information to display to the admin. It is a standalone model. Every time someone fills out the contact form, an email is sent and the message saved in the database.
+
+1. name
+2. email
+3. message
+4. created_at
+
 #### Database Model Diagram
 
 I created this Database Diagram Model with DrawSQL.
@@ -476,7 +486,7 @@ I created this Database Diagram Model with DrawSQL.
 
 #### Update
 
-- Administrators, once logged in, will see a small "edit" button beneath each product listing on the "Products" page and the "Product Detail" page. Clicking this button directs them to a page where they can modify the product details. Similarly, a comment can be edited by bringing up a seperate HTML page for editing a comment. 
+- Administrators, once logged in, will see a small "edit" button beneath each product listing on the "Products" page and the "Product Detail" page. Clicking this button directs them to a page where they can modify the product details. Similarly, a comment can be edited by bringing up a separate HTML page for editing a comment. 
 
 #### Delete
 
@@ -484,18 +494,18 @@ I created this Database Diagram Model with DrawSQL.
 
 - Similarly, registered users will see a "delete" button below their comments. Clicking this button triggers a form with text beneath the button to confirm the deletion of the comment.
 
-### Authentication and Authorisation
+### Authentication and Authorization
 
 **Django All Auth** is used for backend authentication:
 
 - Users can create an account in the sign-up page.
 - Users can sign-in to their account to leave comments, posts and likes using the sign-in page.
 - Users can login back into their account using the login page.
-- Only authorised users can visit the submit review page and update review page.
+- Only authorized users can visit the submit review page and update review page.
 
 ### Navigation
 
-On larger screens, the navigation bar contains tabs aligned to the right and aligned to the left. On the right, there is an icon for the store which serves as link to the homepage. It is followed by links to three dropdown icons for Products, Categories and More. By clicking Product we find links All Products, Cheeses and Other Products. By clicking Categories we find links the products in the store categorised by Cheese Type and Origin. By clicking More we find links to the FAQ, Contact and Blog Page. 
+On larger screens, the navigation bar contains tabs aligned to the right and aligned to the left. On the right, there is an icon for the store which serves as link to the homepage. It is followed by links to three dropdown icons for Products, Categories and More. By clicking Product we find links All Products, Cheeses and Other Products. By clicking Categories we find links the products in the store categorized by Cheese Type and Origin. By clicking More we find links to the FAQ, Contact and Blog Page. 
 
 On the left of the navigation bar, two dropdown icons and a link. The two dropdown links are for Search and My Account. By clicking Search, a dropdown appears with a Form to search the products in the store. By clicking My Account, links to login, register, sign-out and my profile appear. A further Product Management link appears if the user is a Superuser. The final link is a link to the Bag page contains products selected to purchase.
 
@@ -758,17 +768,17 @@ In the footer a link to the store's Privacy Policy is aligned to the right. In t
 
 1. I want to use ChatGPT API to create a chatbot for users of my store to use to help make purchases and navigate the store. I initially made a User Story that remains unfinished: *As a potential customer, I want to interact with a chatbot on the cheese-selling website so that I can receive personalized recommendations, get answers to my questions about the products, and have assistance throughout the checkout process, making my shopping experience smoother and more enjoyable.*
 
-2. In the future, I will add more categorisations to the cheese. Part of the reason I decided on a cheesemonger was due to the many ways you could categorise cheese. I will remove Goats cheese as a cheese type and created a dairy type category. I could create a texture model.
+2. In the future, I will add more categorizations to the cheese. Part of the reason I decided on a cheesemonger was due to the many ways you could categories cheese. I will remove Goats cheese as a cheese type and created a dairy type category. I could create a texture model.
 
-3. I want to add a subscription service whereby someone can monthy for a cheese board. The images for the cheeseboards are already in the media folder. I could implement Stripe to take monthly payments. Stripe has code to implement for this purpose. This was a user story from the start: *As a user, I want to subscribe to a monthly cheese subscription service so that I can discover new cheeses and have a consistent supply of high-quality cheese without having to reorder manually each time.*
+3. I want to add a subscription service whereby someone can subscribe monthly for a cheese board. The images for the cheeseboards are already in the media folder. I could implement Stripe to take monthly payments. Stripe has code to implement for this purpose. This was a user story from the start: *As a user, I want to subscribe to a monthly cheese subscription service so that I can discover new cheeses and have a consistent supply of high-quality cheese without having to reorder manually each time.*
 
-4. I want to introduce a loyalty scheme. It was a User Story from the beginning: *As a user, I want to participate in a loyalty program that rewards me for my purchases so that I can enjoy discounts, get early access to new products, and access exclusive content.* This would reward users and incentivise them to return. I got into further detail in TESTING.md User Story testing section.
+4. I want to introduce a loyalty scheme. It was a User Story from the beginning: *As a user, I want to participate in a loyalty program that rewards me for my purchases so that I can enjoy discounts, get early access to new products, and access exclusive content.* This would reward users and incentivize them to return. I got into further detail in TESTING.md User Story testing section.
 
 5. I would like to spend more time improving the sites design. It could be improved and it is something I will work on after submission. For example, when a user rates an item, the rating could automatically update. At the moment, the pages needs to be refreshed before it updates. 
 
 6. Another example is for Editing a comment. Similar to how a paragraph appears on the screen asking to confirm deletion, I would like a form to appear to edit the comment rather than having to edit the comment on an external page.
 
-7. The user profile section could be updated. I want users who have placed an order to leave or a review or testimonial. I considered implemeting it before submission but left it aside as what needed to be submitted was a minimum viable product and I considered a testimonial page to be not nescessary for the deadline.
+7. The user profile section could be updated. I want users who have placed an order to leave or a review or testimonial. I considered implementing it before submission but left it aside as what needed to be submitted was a minimum viable product and I considered a testimonial page to be not necessary for the deadline.
 
 ## Business Model
 
@@ -776,13 +786,13 @@ Cheesy Store's Business Model is Business to Consumer (B2C). Products are sold d
 
 A customer of Cheesy Store would be someone who is most likely an adult who is interested in cheese or cheese culture. The blog can potentially attract potential customers who may be interested in it's content. From there products can be marketed and the customer can be redirected to the store.
 
-## Web Marketing and Search Engine Optimisization
+## Web Marketing and Search Engine Optimization
 
 ### Key Words
 
-I chose a mixture of shorttail and longtail keywords. I struggled to only pick ten. There are many permutations regarding keywords so I chose a mixture of all sustainable, organic, gourmet and artisan.
+I chose a mixture of short-tail and long-tail keywords. I struggled to only pick ten. There are many permutations regarding keywords so I chose a mixture of all sustainable, organic, gourmet and artisan.
 
-I used Google search to check Search results for other online cheese shops keywords. I also utilised WorkTracker and other word tracking services. Some screenshots are below. I learned that Sheridan's have the Irish cheese market cornered and run a monopoly for Irish cheese.
+I used Google search to check Search results for other online cheese shops keywords. I also utilized WorkTracker and other word tracking services. Some screenshots are below. I learned that Sheridan's have the Irish cheese market cornered and run a monopoly for Irish cheese.
 
 
 | Cheese                     | Cheesemonger                      | Cheese Shop                      |
@@ -839,7 +849,7 @@ I used Google search to check Search results for other online cheese shops keywo
 
 ### Blog Keywords
 
-A blog can attract users to a website with interesting information. The blog on this website will attract people with an iterest in cheese. The admins who make the posts can enter in a comma-seperated string with keywords for the blog post. The keywords serve as tags which are rendered beneath the blogpost. They are also rendered in the meta tag of base.html so these keywords are rendered in the metatag of the relevent blogposts. I created a blogtags.py to seperate the string for the tags.
+A blog can attract users to a website with interesting information. The blog on this website will attract people with an interest in cheese. The admins who make the posts can enter in a comma-separated string with keywords for the blog post. The keywords serve as tags which are rendered beneath the blog post. They are also rendered in the meta tag of base.html so these keywords are rendered in the metatag of the relevant blog posts. I created a blogtags.py to separate the string for the tags.
 
 <details>
 <summary>Blog Keyword Field</summary>
@@ -877,7 +887,7 @@ For this site, a Facebook business page has been created for social media market
 
 ### Email Marketing
 
-Users and visitors to the website can sign up to the newsletter. They do not need an account to do so. A signup box is present on the homepage and the contact page. This allows the business to stay in touch with customers. The newsletter can contain anything from special offers to new arrivals. Mailchimp was used for this purpose.
+Users and visitors to the website can sign up to the newsletter. They do not need an account to do so. A sign-up box is present on the homepage and the contact page. This allows the business to stay in touch with customers. The newsletter can contain anything from special offers to new arrivals. Mailchimp was used for this purpose.
 
 ## Technologies Used
 
@@ -968,18 +978,21 @@ DATABASES = {
 ### Update Heroku Config Vars
 Add the following Config Vars in Heroku:
 
-|     Variable name     |                           Value/where to find value                           |
-|:---------------------:|:-----------------------------------------------------------------------------:|
-| AWS_ACCESS_KEY_ID     | AWS CSV file(instructions below)                                               |
-| AWS_SECRET_ACCESS_KEY | AWS CSV file(instructions below)                                               |
-| DATABASE_URL          | Postgres generated (as per step above)                                        |
-| EMAIL_HOST_PASS       | Password from email client                                                    |
-| EMAIL_HOST_USER       | Site's email address                                                          |
-| SECRET_KEY            | Random key generated as above                                                 |
-| STRIPE_PUBLIC_KEY     | Stripe Dashboard > Developers tab > API Keys > Publishable key                |
-| STRIPE_SECRET_KEY     | Stripe Dashboard > Developers tab > API Keys > Secret key                     |
-| STRIPE_WH_SECRET      | Stripe Dashboard > Developers tab > Webhooks > site endpoint > Signing secret |
-| USE_AWS               | True (when AWS set up - instructions below)                                   |
+|     Variable name        |                        Value/where to find value                              |
+|:------------------------:|:-----------------------------------------------------------------------------:|
+| AWS_ACCESS_KEY_ID        | AWS CSV file                                                                  |
+| AWS_S3_REGION_NAME       | eu-west-1                                                                     |
+| AWS_SECRET_ACCESS_KEY    | AWS CSV file                                                                  |
+| AWS_STORAGE_BUCKET_NAME  | cheesystore                                                                   |
+| DATABASE_URL             | Postgres generated (as per step above)                                        |
+| EMAIL_HOST_PASS          | Password from email client                                                    |
+| EMAIL_HOST_USER          | Site's email address                                                          |
+| PORT                     | 8000                                                                          |
+| SECRET_KEY               | Random key generated as above                                                 |
+| STRIPE_PUBLIC_KEY        | Stripe Dashboard > Developers tab > API Keys > Publishable key                |
+| STRIPE_SECRET_KEY        | Stripe Dashboard > Developers tab > API Keys > Secret key                     |
+| STRIPE_WH_SECRET         | Stripe Dashboard > Developers tab > Webhooks > site endpoint > Signing secret |
+| USE_AWS                  | True (when AWS set up - instructions below)                                   |
 
 ### Deploy
 - NB: Ensure in Django settings, DEBUG is False
@@ -1114,14 +1127,13 @@ AWS_S3_OBJECT_PARAMETERS = {
 
 ## Forking this repository
 - Locate the repository at this link [Cheesy Store](https://github.com/chrisryan91/CheesyStore_PP5).
-- At the top of the repository, on the right side of the page, select "Fork" from the buttons available. 
-- A copy of the repository is now created.
+- At the top of the repository, on the right side of the page, select "Fork" from the buttons available.
 
 ## Cloning this repository
 To clone this repository follow the below steps: 
 
 1. Locate the repository at this link [Cheesy Store](https://github.com/chrisryan91/CheesyStore_PP5). 
-2. Under **'Code'**, see the different cloning options, HTTPS, SSH, and GitHub CLI. Click the prefered cloning option, and then copy the link provided. 
+2. Under **'Code'**, see the different cloning options, HTTPS, SSH, and GitHub CLI. Click the preferred cloning option, and then copy the link provided. 
 3. Open **Terminal**.
 4. In Terminal, change the current working directory to the desired location of the cloned directory.
 5. Type **'git clone'**, and then paste the URL copied from GitHub earlier. 
@@ -1131,8 +1143,9 @@ To clone this repository follow the below steps:
 
 - Bootstrap documentation especially regarding Toasts:[Bootstrap Toasts](https://getbootstrap.com/docs/4.3/components/toasts/)
 - This YouTube video regarding Keyword research: [How to Do Keyword Research for Free in 2024 & Beyond](https://www.youtube.com/watch?v=k4rLJD7E0D0)
-- These Stackoverflow questions regarding a five star rating sytem: [How to make simple star rating?](https://stackoverflow.com/questions/53240610/how-to-make-simple-star-rating) [5 star rating system database design](https://stackoverflow.com/questions/45727487/5-star-rating-system-database-design) [Star-rating with css [duplicate]](https://stackoverflow.com/questions/47300759/star-rating-with-css)
+- These Stack Overflow questions regarding a five star rating system: [How to make simple star rating?](https://stackoverflow.com/questions/53240610/how-to-make-simple-star-rating) [5 star rating system database design](https://stackoverflow.com/questions/45727487/5-star-rating-system-database-design) [Star-rating with css [duplicate]](https://stackoverflow.com/questions/47300759/star-rating-with-css)
 - Similarly from Code Review: [Simple star rating system](https://codereview.stackexchange.com/questions/444/simple-star-rating-system)
 - Code Institute Template and Boutique Ado
 - W3 Schools especially sections on AJAX: [AJAX Introduction](https://www.w3schools.com/js/js_ajax_intro.asp)
 - This Markdown helped: [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)

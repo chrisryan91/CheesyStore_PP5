@@ -41,7 +41,7 @@ Implement validation logic to ensure data integrity when modifying the cheese in
 
 #### Progress
 
-At the start of the project, the Code Institute template was utilized. After setting up the Development Environment and installing Django, a superuser was created. Proper configuration provided access to the admin panel, enabling the management of user accounts for site userbase and security maintenance.
+At the start of the project, the Code Institute template was utilized. After setting up the Development Environment and installing Django, a superuser was created. Proper configuration provided access to the admin panel, enabling the management of user accounts for site's user base and security maintenance.
 
 Here is an example of a class that Registers my blog posts with the admin panel:
 
@@ -107,11 +107,11 @@ Design a subscription form for users to enter their email addresses.
 
 #### Task 2
 
-Configure mailchimp and integrate with website.
+Configure Mailchimp and integrate with website.
 
 #### Progress
 
-To complete this User Story, an account with MailChimp was established, which supplied an embeddable form, CSS styling, and JavaScript for integration into the website. The MailChimp dashboard is used to manage the audience list of individuals who subscribed to the newsletter.
+To complete this User Story, an account with MailChimp was established, which supplied a form, CSS styling, and JavaScript for integration into the website. The MailChimp dashboard is used to manage the audience list of individuals who subscribed to the newsletter.
 
 <details>
 <summary>User Story 2</summary>
@@ -176,7 +176,7 @@ class CheesyBlogListView(ListView):
 
 #### Task 1
 
-Develop functionality to allow users to naviagte between blog posts and leave comments.
+Develop functionality to allow users to navigate between blog posts and leave comments.
 
 #### Task 2
 
@@ -240,13 +240,13 @@ Implement backend logic to store blog posts in the database.
 
 #### Task 2
 
-Develop blog post creation forkms for administrators to write and format content.
+Develop blog post creation for for administrators to write and format content.
 
 #### Progress
 
 Following the setup of blog models, views, URLs, and their integration with templates, the next step was to register the Post and Comment models in Django's admin panel. This registration allowed for the addition and approval of posts and user comments directly from the admin interface. The necessary admin classes for these actions were then established.
 
-The second task changed signifigantly as I decided to user Summernote to allow administrators to add blog posts through the admin panel rather than a front-end for.
+The second task changed as I decided to user Summernote to allow administrators to add blog posts through the admin panel rather than a front-end for.
 
 <details>
 <summary>User Story 5</summary>
@@ -300,7 +300,7 @@ class CommentAdmin(admin.ModelAdmin):
 
 #### Task 1
 
-Delevop views and templates to display a list of cheeses with relevant details.
+Develop views and templates to display a list of cheeses with relevant details.
 
 #### Task 2
 
@@ -371,7 +371,7 @@ def edit_product(request, product_id):
         else:
             messages.error(request, 'Failed to update product')
     else:
-        # If not a POST request initialise form with product instance.
+        # If not a POST request initialize form with product instance.
         form = ProductForms(instance=product)
         messages.info(request, f'You are editing {product.name}')
 
@@ -622,7 +622,7 @@ def add_to_bag(request, item_id):
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
 
-    # Retrieve the bag from the session - or initialise it.
+    # Retrieve the bag from the session - or initialize it.
     bag = request.session.get('bag', {})
 
     # If the item exists, update it's quantity.
@@ -646,7 +646,7 @@ def add_to_bag(request, item_id):
 
 #### Task 1
 
-Design and implement a homepoage showcasing a selection of featured cheeses.
+Design and implement a homepage showcasing a selection of featured cheeses.
 
 #### Task 2
 
@@ -757,7 +757,7 @@ The account tab in the navigation bar provides users with options to sign in, si
 
 #### Task 1
 
-Gather and organise common customer questions.
+Gather and organize common customer questions.
 
 #### Task 2
 
@@ -767,7 +767,7 @@ Design and implement the FAQ section on the website.
 
 For this User Story, the objective was to develop a Frequently Asked Questions (FAQ) page. Initial research involved reviewing FAQ sections of other online stores to identify common questions relevant to this business type, such as inquiries about privacy, card data security, return policies, account details, and other pertinent internal links.
 
-A new app was created to facilitate this feature, anticipating future functionalies. No new models were required for this implementation — only a simple view to serve a webpage and a template. This template extends base.html and presents a series of questions and answers addressing the identified common concerns.
+A new app was created to facilitate this feature, anticipating future functionalities. No new models were required for this implementation — only a simple view to serve a webpage and a template. This template extends base.html and presents a series of questions and answers addressing the identified common concerns.
 
 <details>
 <summary>User Story 13 - FAQ Screenshot</summary>
@@ -792,7 +792,7 @@ Implement Checkout Assistant feature in the Chatbot
 
 #### Progress
 
-This User Story remains incomplete. During the research of other online stores, I saw that many featured chatbots, highlighting their usefulness. The potential for integrating the ChatGPT API into a web application caught my interest. However, due to the constraints of a submission deadline, there was insufficient time to implement this feature. Post-submission, the development of the chatbot integration will be a priority enhancement for the project.
+This User Story remains incomplete. During the research of other online stores, I saw that many featured a chatbot, highlighting their usefulness. The potential for integrating the ChatGPT API into a web application caught my interest. However, due to the constraints of a submission deadline, there was insufficient time to implement this feature. Post-submission, the development of the chatbot integration will be a priority enhancement for the project.
 
 The API key is still stored in my env.py file so it is not pushed to GitHub.
 
@@ -814,7 +814,7 @@ Curate monthly cheese selections.
 
 This User Story has not been completed. At present, Cheesy Store supports only single payments. The addition of this User Story was motivated by the desire to implement a subscription payment model using Stripe. The concept of a cheesemonger service is well-suited to a subscription model, where customers could pay for a selection of new cheeses on a monthly basis.
 
-A basic example of a Stripe payment function for creating new subscriptions was foundon Stackover which will serve as a foundation for further development.
+A basic example of a Stripe payment function for creating new subscriptions was found on Stack Overflow which will serve as a foundation for further development.
 
 <details>
 <summary></summary>
@@ -850,7 +850,7 @@ def create_subscription(user: User, plan_id: str):
 
 ### User Story 16: As a user, I want to participate in a loyalty program that rewards me for my purchases so that I can enjoy discounts, get early access to new products, and access exclusive content.
 
-This User story is unfinished. A loyalty prohgram seemed a great way to encourage repeat business which could build a stronger relationship with my customers. For this, I would expand my User Profile app. I would create a LoyaltyPoint class based view and determine the points the users has accumulated. I would need to access their Order History and the amount they have spent. I would need to determine the mechanism for spending points - and how many points are needed for discounts, access to new products etc.
+This User story is unfinished. A loyalty program seemed a great way to encourage repeat business which could build a stronger relationship with my customers. For this, I would expand my User Profile app. I would create a LoyaltyPoint class based view and determine the points the users has accumulated. I would need to access their Order History and the amount they have spent. I would need to determine the mechanism for spending points - and how many points are needed for discounts, access to new products etc.
 
 #### Task 1
 
@@ -887,7 +887,7 @@ class LoyaltyPoint(models.Model):
 
 ### HTML
 
-Each seperate page was tested twice: once if a user is logged in, and again if a user is logged out. One error was found and remains unfixed. On the Edit Product page, the img element for a product to be edited does not have an alt attribute. The img element in this page is a preview of an image so it remains unfixed.
+Each separate page was tested twice: once if a user is logged in, and again if a user is logged out. One error was found and remains unfixed. On the Edit Product page, the img element for a product to be edited does not have an alt attribute. The img element in this page is a preview of an image so it remains unfixed.
 
 | Page             | Logged In                                             | Logged Out |
 | ---------------- | ----------------------------------------------------- | ---------- |
@@ -1028,7 +1028,7 @@ Using the Code Institute PEP8 Python linter and Flake8 in my IDE, I confirmed th
 
 Beneath is Lighthouse testing from Chrome Dev tools for each of the main pages on my app.
 
-| Page             | Performance | Accessibility | Best Practises | SEO | Console Errors |
+| Page             | Performance | Accessibility | Best Practices | SEO | Console Errors |
 | ---------------- | ----------- | ------------- | -------------- | --- | -------------- |
 | Home Page        | 98          | 100           | 100            | 100 | None           |
 | Products         | 82          | 100           | 100            | 100 | None           |
@@ -1081,11 +1081,11 @@ This project has no automated testing yet.
 | Cheeses Link                                    | Click                      | Links to cheeses                                 | Yes       |
 | Other Products Link                             | Click                      | Links to other products                          | Yes       |
 
-### Categories Drodown
+### Categories Dropdown
 
 | Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
-| Types Links                                     | Click                      | Links to each specifc cheese type                | Yes       |
+| Types Links                                     | Click                      | Links to each specific cheese type                | Yes       |
 | Origins Links                                   | Click                      | Links to each specific origin                    | Yes       |
 
 ### More Dropdown
@@ -1100,7 +1100,7 @@ This project has no automated testing yet.
 
 | Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
-| Product Management Link\*\*                     | Click                      | Links to Product Managment page                  | Sometimes |
+| Product Management Link\*\*                     | Click                      | Links to Product Management page                  | Sometimes |
 | My Profile Link\*                               | Click                      | Links to My Profile page                         | Sometimes |
 | Logout Link\*                                   | Click                      | Links to Sign Out page                           | Sometimes |
 | Register Link                                   | Click                      | Links to Register Page                           | Yes       |
@@ -1190,8 +1190,8 @@ This project has no automated testing yet.
 | Minus Button (if value is 1)                    | Click                      | Nothing                                          | Yes       |
 | Minus Button (if value is 1 or more)            | Click                      | Increases Value                                  | Yes       |
 | Plus Button                                     | Click                      | Increases Value                                  | Yes       |
-| Update Button                                   | Click                      | Succesfully Updates                              | Yes       |
-| Remove Button                                   | Click                      | Succesfully Updates                              | Yes       |
+| Update Button                                   | Click                      | Successfully Updates                              | Yes       |
+| Remove Button                                   | Click                      | Successfully Updates                              | Yes       |
 | Keep Shopping Button                            | Click                      | Links to Product Page                            | Yes       |
 | Secure Checkout Button                          | Click                      | Links to Checkout                                | Yes       |
 
@@ -1253,7 +1253,7 @@ This project has no automated testing yet.
 
 | Element                                         | Action                     | Expected Result                                  | Works     |
 | ----------------------------------------------- | -------------------------- | ------------------------------------------------ | --------- |
-| Order Number Button                             | Click                      | Links to Checkout Sucess page with Order Details | Yes       |
+| Order Number Button                             | Click                      | Links to Checkout Success page with Order Details | Yes       |
 | Countries Dropdown                              | Click                      | Dropdown Appears                                 | Yes       |
 | Update Information Button                       | Click                      | Success box appears, form submits                | Yes       |
 
@@ -1312,7 +1312,7 @@ My Development Environment allowed me to install the Stripe Command Line Interfa
 
 ## Responsiveness Testing
 
-I took somescreen shots with on [Responsive Test Tool](https://responsivetesttool.com/)
+I took some Screenshots with on [Responsive Test Tool](https://responsivetesttool.com/)
 
 ### Browsers 
 - Chrome
@@ -1502,7 +1502,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 ### Known Bugs
 
-#### Strange Beviour From My Account Dropdown
+#### Strange Behavior From My Account Dropdown
 
 There is a bug somewhere which I found in testing the website. It was a tricky one to pin down because sometimes it worked, sometimes it did not. On the Navbar, there is a My Account Dropdown menu with three anchor tag links in the dropdown linking to either Product Management, My Profile and Sign-out, or Register and Sign-In, depending if the user is logged in, and if they are either a normal user or a superuser. Sometimes when the homepage loaded, the links did not work. Even when hovered over, the pointer would not change. It was as if the anchor tags had vanished.
 
