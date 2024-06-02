@@ -14,6 +14,8 @@ from pathlib import Path
 
 import os
 
+import sys
+
 import dj_database_url
 
 if os.path.isfile('env.py'):
@@ -136,6 +138,12 @@ else:
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
         }
+    }
+
+if 'test' in sys.argv or 'test_coverage' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'test_db.sqlite3',
     }
 
 # Password validation
