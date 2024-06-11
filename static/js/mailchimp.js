@@ -12,3 +12,4 @@
     ftypes[5]='birthday';}
     (jQuery));
     var $mcj = jQuery.noConflict(true);
+
