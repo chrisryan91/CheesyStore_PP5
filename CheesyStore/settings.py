@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'profiles',
     'cheesyblog',
     'faq',
+    'chat',
 ]
 
 MIDDLEWARE = [

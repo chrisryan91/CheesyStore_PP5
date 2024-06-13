@@ -118,9 +118,10 @@ footer div div a:hover {
 .chatbot-box {
     display: none;
     position: absolute;
-    bottom: 35px; /* Adjust this value to place the box above the footer */
+    bottom: 30px;
+    padding: 10px;
     background-color: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid black;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     width: 400px;

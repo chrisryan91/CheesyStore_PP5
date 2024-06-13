@@ -44,4 +44,8 @@ urlpatterns = [
 
     # Frequently Asked Questions
     path('faq/', include('faq.urls')),
+
+    # Frequently Asked Questions
+    path('chat/', include('chat.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

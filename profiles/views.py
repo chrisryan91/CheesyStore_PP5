@@ -62,3 +62,4 @@ def order_history(request, order_number):
 
     # Render and return the order history for the profile.
     return render(request, template, context)
+
