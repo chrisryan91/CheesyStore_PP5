@@ -32,3 +32,4 @@ def chatbot_response(prompt):
     response = client.chat.completions.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": prompt}])
     print("Response from OpenAI API:", response)
     return response.choices[0].message.content.strip()
+
