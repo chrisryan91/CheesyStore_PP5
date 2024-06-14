@@ -116,23 +116,53 @@ footer div div a:hover {
 }
 
 .chatbot-box {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
     position: absolute;
     bottom: 30px;
     padding: 10px;
     background-color: #fff;
-    border: 1px solid black;
+    border: 2px solid black;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     width: 400px;
     height: 400px;
+    display: flex;
+    flex-direction: column;
+    transition: visibility 0.3s, opacity 0.3s;
 }
 
-#chatbox-header {
+.chatbot-box.visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#chatbox-m {
     font-size: 20px;
     text-align: center;
     height: 35px;
-    border-bottom: 1px solid black;
+}
+
+#chatbox-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+#chatbox-input {
+    flex-grow: 1;
+    padding: 5px;
+}
+
+#send-button {
+    border-radius: 2px;
+    color: white;
+    background-color: black;
+    margin-left: 10px;
 }
 
 /* Homepage Styling */
