@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from faq.models import FAQ
 import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -21,12 +22,31 @@ def chat(request):
             data = json.loads(request.body)
             prompt = data.get('prompt', '')
             print("Prompt:", prompt)
-            response = chatbot_response(prompt)
+            response = match_faq(prompt)
+            if not response:
+                print("called r")
+                response = chatbot_response(prompt)
+            print("123")
             return JsonResponse({'response': response})
         except json.JSONDecodeError as e:
             print("Error decoding JSON:", e)
             return JsonResponse({'error': 'Invalid JSON'}, status=400)
     return JsonResponse({'error': 'Invalid request'})
+
+def match_faq(prompt):
+    print("called")
+    faqs = FAQ.objects.all()
+    print(faqs)
+    for faq in faqs:
+        print(faq)
+        if faq.keywords:
+            keywords = faq.keywords.split(',')
+            print(keywords)
+            if any(keyword.strip().lower() in prompt.lower() for keyword in keywords):
+                print(faq.answer)
+                return faq.answer
+    
+    return None
 
 def chatbot_response(prompt):
     store_context = (
