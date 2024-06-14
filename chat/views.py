@@ -24,9 +24,7 @@ def chat(request):
             print("Prompt:", prompt)
             response = match_faq(prompt)
             if not response:
-                print("called r")
                 response = chatbot_response(prompt)
-            print("123")
             return JsonResponse({'response': response})
         except json.JSONDecodeError as e:
             print("Error decoding JSON:", e)
@@ -34,16 +32,11 @@ def chat(request):
     return JsonResponse({'error': 'Invalid request'})
 
 def match_faq(prompt):
-    print("called")
     faqs = FAQ.objects.all()
-    print(faqs)
     for faq in faqs:
-        print(faq)
         if faq.keywords:
             keywords = faq.keywords.split(',')
-            print(keywords)
             if any(keyword.strip().lower() in prompt.lower() for keyword in keywords):
-                print(faq.answer)
                 return faq.answer
     
     return None
