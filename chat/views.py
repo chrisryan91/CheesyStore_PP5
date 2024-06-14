@@ -29,7 +29,16 @@ def chat(request):
     return JsonResponse({'error': 'Invalid request'})
 
 def chatbot_response(prompt):
-    response = client.chat.completions.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": prompt}])
+    store_context = (
+        "You are a helpful assistant for an Irish e-commerce store called 'Cheesy Store' "
+        "Your name is Mary and present yourself as a real person"
+        "Cheesy Store sells Irish and International cheeses alongside associated products like crackers"
+        "We offer free shipping on orders over 50 euro, and a 30-day return policy"
+        "Customers can contact support on out Contact Page"
+        "Customers can also visit out frequently asked questions"
+    )
+    full_prompt = store_context + prompt
+    response = client.chat.completions.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": full_prompt}])
     print("Response from OpenAI API:", response)
     return response.choices[0].message.content.strip()
 
