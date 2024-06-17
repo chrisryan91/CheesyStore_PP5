@@ -207,10 +207,7 @@
                 <a href="https://www.facebook.com/profile.php?id=61557966335162" target="_blank" rel="noopener">Facebook <i class="fab fa-facebook"></i></a>
             </div>
             <div class="col-3 contactlink d-flex justify-content-end">
-                <a href="{% url 'contact' %}" class="contactlink2">Contact</a>
-            </div>
-            <div class="col-3 contactlink d-flex justify-content-end">
-                <a href="#" class="contactlink2" id="chatbot-button">ChatBot</a>
+                <a href="#" id="chatbot-button">ChatBot</a>
                 <div id="chatbot-box" class="chatbot-box">
                     <div id="chatbox-m"><b>Chat Helper</b></div>
                     <hr>
@@ -222,7 +219,9 @@
                     </div>
                 </div>
             </div>
-                     
+            <div class="col-3 contactlink d-flex justify-content-end">
+                <a href="{% url 'contact' %}" class="contactlink2">Contact</a>
+            </div>
         </div>
     </footer>
     <script>

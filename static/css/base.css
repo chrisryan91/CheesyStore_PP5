@@ -165,6 +165,10 @@ footer div div a:hover {
     margin-left: 10px;
 }
 
+.input-group-append {
+    z-index: 0;
+}
+
 /* Homepage Styling */
 
 .indexlink {
@@ -933,6 +937,11 @@ button {
 
     .privacylink2, .contactlink2 {
         display: none;
+    }
+
+    .chatbot-box {
+        width: 300px;
+        height: 400px;
     }
 }
 
