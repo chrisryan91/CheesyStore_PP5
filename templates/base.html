@@ -200,13 +200,16 @@
 
     <footer>
         <div class="row">
-            <div class="col-3">
-                <a href="https://www.termsfeed.com/live/5368a141-15f2-496a-bab5-6fd5c57207d3" rel="noopener" target="_blank" class="privacylink2">Privacy Policy</a>
+            <div class="d-none d-md-block col-md-3 footerelement">
+                <a href="https://www.termsfeed.com/live/5368a141-15f2-496a-bab5-6fd5c57207d3" class="privacylink2" rel="noopener" target="_blank">Privacy Policy</a>
             </div>
-            <div class="col-3 d-flex justify-content-center">
+            <div class="col-6 col-md-3 footerelement">
                 <a href="https://www.facebook.com/profile.php?id=61557966335162" target="_blank" rel="noopener">Facebook <i class="fab fa-facebook"></i></a>
             </div>
-            <div class="col-3 contactlink d-flex justify-content-end">
+            <div class="d-none d-md-block col-md-3 footerelement">
+                <a href="{% url 'contact' %}" class="privacylink2" >Contact</a>
+            </div>
+            <div class="col-6 col-md-3 footerelement">
                 <a href="#" id="chatbot-button">ChatBot</a>
                 <div id="chatbot-box" class="chatbot-box">
                     <div id="chatbox-m"><b>Chat Helper</b></div>
@@ -218,9 +221,6 @@
                         <button id="send-button">Send</button>
                     </div>
                 </div>
-            </div>
-            <div class="col-3 contactlink d-flex justify-content-end">
-                <a href="{% url 'contact' %}" class="contactlink2">Contact</a>
             </div>
         </div>
     </footer>

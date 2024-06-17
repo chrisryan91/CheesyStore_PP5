@@ -89,12 +89,8 @@ footer {
     background-color: black;
 }
 
-.privacylink2 {
-    padding-left: 25px;
-}
-
-.contactlink2 {
-    padding-right: 25px;
+.footerelement {
+    text-align: center;
 }
 
 .sociallinks {
@@ -121,6 +117,7 @@ footer div div a:hover {
     pointer-events: none;
     position: absolute;
     bottom: 30px;
+    right: 25px;
     padding: 10px;
     background-color: #fff;
     border: 2px solid black;
@@ -933,10 +930,6 @@ button {
 
     .smltext {
         font-size: 8px;
-    }
-
-    .privacylink2, .contactlink2 {
-        display: none;
     }
 
     .chatbot-box {
