@@ -23,6 +23,7 @@ card.mount('#card-element');
 
 // Handle realtime validation errors on the card element
 card.addEventListener('change', function (event){
+    console.log("called1111")
     var errorDiv = document.getElementById('card-errors');
     if (event.error) {
         var html = `
@@ -40,6 +41,7 @@ card.addEventListener('change', function (event){
 // Handle form submission
 var form = document.getElementById('payment-form');
 form.addEventListener('submit', function(ev) {
+    console.log("called!")
     ev.preventDefault();
     card.update({ 'disabled':true});
     $('#submit_button').attr('disabled', true);
@@ -47,13 +49,16 @@ form.addEventListener('submit', function(ev) {
     $('#loading-overlay').fadeToggle(100);
     var saveInfo = Boolean($('#id-save-info').attr('checked'));
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+    console.log(csrfToken)
     var postData = {
         'csrfmiddlewaretoken': csrfToken,
         'client_secret': clientSecret,
         'save_info': saveInfo,
     };
+    console.log(postData)
     var url = '/checkout/cache_checkout_data/';
     $.post(url, postData).done(function () {
+        console.log("called post(request)")
         stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: card,
@@ -98,6 +103,7 @@ form.addEventListener('submit', function(ev) {
             $('#submit_button').attr('disabled', false);
             } else {
                 if (result.paymentIntent.status === 'succeeded') {
+                    console.log("called success")
                     form.submit();
                 }
             }

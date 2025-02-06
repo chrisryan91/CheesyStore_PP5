@@ -144,4 +144,7 @@
     {{ client_secret|json_script:"id_client_secret" }}
     <script src="https://js.stripe.com/v3/"></script>
     <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+    <script>
+        console.log("Inline test: JavaScript is working!");
+    </script>
 {% endblock %}

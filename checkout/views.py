@@ -120,6 +120,8 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
+        print("intent", intent)
+
         # Pre-fill the order form with user profile info.
         if request.user.is_authenticated:
             try:
