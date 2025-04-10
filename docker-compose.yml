@@ -9,6 +9,14 @@ services:
     volumes:
       - ./templates:/app/templates:cached
       - ./home/templates:/app/home/templates:cached
+      - ./bag/templates:/app/bag/templates:cached
+      - ./chat/templates:/app/chat/templates:cached
+      - ./checkout/templates:/app/checkout/templates:cached
+      - ./cheesyblog/templates:/app/cheesyblog/templates:cached
+      - ./cheesystoreshop/templates:/app/cheesystoreshop/templates:cached
+      - ./contact/templates:/app/contact/templates:cached
+      - ./faq/templates:/app/faq/templates:cached
+      - ./profiles/templates:/app/profiles/templates:cached
       - ./static:/app/static
       - ./staticfiles:/app/staticfiles
     ports:
