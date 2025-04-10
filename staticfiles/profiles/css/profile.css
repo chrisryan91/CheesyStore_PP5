@@ -1,0 +1,35 @@
+.order-history {
+    max-width: 416px;
+    overflow-y: auto;
+    
+}
+
+#profile-update-form .form-control {
+    color: black; 
+}
+
+#profile-update-form input::placeholder {
+    color: grey;
+}
+
+.container4 {
+    background-color: white;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.updateinfo {
+    border-radius: 5px !important;
+}
+
+.orderlink {
+    color: black !important;
+}
+
+.orderlink:hover {
+    color: orange !important;
+}
+
+.updateinfo:hover {
+    color: orange !important;
+}

@@ -1,0 +1,114 @@
+.card {
+    background-color: transparent;
+    border: none;
+}
+
+.card-body {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-container2 {
+    border-radius: 5px;
+    padding-bottom: 10px;
+}
+
+.image-flash {
+    position: absolute;
+    bottom: 5%;
+    min-width: 30%;
+    left: -2px;
+    background-color: #23BBBB;
+}
+
+.author {
+    color: black;
+    margin: 4px;
+    text-transform: uppercase;
+}
+
+.post-link {
+    text-decoration: none;
+    color: #445261;
+}
+
+.post-link:hover,
+.page-link {
+    color: black;
+    text-decoration: none;
+}
+
+.post-title {
+    margin-top: 20%;
+    margin-left: 5%;
+}
+
+.post-subtitle {
+    margin-left: 5%;
+    color: lightgray;
+}
+
+#blogform {
+    padding-left: 50px;
+    padding-bottom: 50px;
+}
+
+.masthead-image img {
+    border-radius: 5px;
+    width: 100%;
+}
+
+.blogtext {
+    background-color: white;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.blogtext p {
+    font-family: 'Lato', sans-serif;
+}
+
+.blogtext a {
+    padding-top: 30px !important;
+    color: black !important;
+}
+
+.container2 {
+    margin-top: 50px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#addblogform {
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    margin-right: 30px;
+}
+
+.samblogtext {
+    padding-top: 20px;
+}
+
+.post-link {
+    text-decoration: none;
+    color: black;
+}
+
+.confirmButton {
+    border: none !important;
+    background-color: transparent !important;
+    padding-left: 0 !important;
+    font-size: 15px !important;
+    text-decoration: underline !important;
+}
+
+#commentsubmit {
+    text-decoration: none !important;
+    color: green;
+    font-size: 15px;
+}

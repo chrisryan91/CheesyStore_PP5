@@ -32,14 +32,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [
-    'cheesystore-191ae9e3f358.herokuapp.com',
-    'localhost',
-    '127.0.0.1',
-    '[::1]'
-]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -89,10 +84,20 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'home/templates'),
+            os.path.join(BASE_DIR, 'bag/templates'),
+            os.path.join(BASE_DIR, 'chat/templates'),
+            os.path.join(BASE_DIR, 'checkout/templates'),
+            os.path.join(BASE_DIR, 'cheesyblog/templates'),
+            os.path.join(BASE_DIR, 'cheesystoreshop/templates'),
+            os.path.join(BASE_DIR, 'contact/templates'),
+            os.path.join(BASE_DIR, 'faq/templates'),
+            os.path.join(BASE_DIR, 'profiles/templates'),
             os.path.join(BASE_DIR, 'templates', 'allauth'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
+            'debug': True,
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',

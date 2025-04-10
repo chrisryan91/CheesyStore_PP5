@@ -1,42 +1,21 @@
-# Use an official Python runtime as a parent image
-FROM python:3.11-slim-buster
+# Use a slim Python image
+FROM python:3.12-slim
 
-# Set the working directory in the container
+# Set working directory
 WORKDIR /app
 
-# Install PostgreSQL client, build tools, and ca-certificates
-RUN apt-get update && apt-get install -y \
-    libpq-dev \
-    build-essential \
-    ca-certificates \
-    && rm -rf /var/lib/apt/lists/*
-
-# Copy the requirements file into the container
+# Install dependencies
 COPY requirements.txt .
-
-# Install any needed packages specified in requirements.txt
-RUN pip install --upgrade pip setuptools==65.5.1 wheel
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install Node.js and npm
-RUN apt-get update && \
-    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
-    apt-get install -y nodejs npm
-
-# Verify Node.js and npm installation
-RUN node -v && npm -v
-
-# Copy package.json and package-lock.json
-COPY package*.json ./
-
-# Install npm dependencies
-RUN npm install
-
-# Copy the rest of the application code
+# Copy the rest of the application
 COPY . .
 
-# Make port 8000 available to the world outside this container
+# Collect static files (for production)
+RUN python manage.py collectstatic --noinput
+
+# Expose Django’s port
 EXPOSE 8000
 
-# Run the application using npm start
-CMD ["npm", "start"]
+# Default command will be overridden by docker-compose.yml
+CMD ["gunicorn", "mysite.wsgi:application", "--bind", "0.0.0.0:8000"]
